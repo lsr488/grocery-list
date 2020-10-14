@@ -72,26 +72,42 @@
 		{ 
 			"url": "https://workweeklunch.com/recipe/orange-baked-chicken-copycat/", 
 			"name": "orange chicken", 
-			"notes": "",  
+			"notes": "", 
+			"state": false, 
 		},
 		{ 
 			"url": "#", 
 			"name": "chicken, broccoli, potato sheet pan", 
 			"notes": "",
+			"state": false,
 		},
-]
+		{ 
+			"url": "#", 
+			"name": "recipe 3", 
+			"notes": "",
+			"state": false,
+		},
+	]
 
 	const form = document.getElementById('form');
 
-	// adds items to localStorage
-	localStorage.setItem("items", JSON.stringify(items));
+		// adds elements to localStorage
+	addToLocalStorage("items", items);
+	addToLocalStorage("recipes", recipes);
 
-	// adds links to localStorage
-	localStorage.setItem("recipes", JSON.stringify(recipes));
+	let storedItems, storedRecipes;
 
-	let storedItems = JSON.parse(localStorage.getItem("items"));
-	let storedRecipes = JSON.parse(localStorage.getItem("recipes"));
+	if(localStorage.getItem("items")) {
+		storedItems = JSON.parse(localStorage.getItem("items"));
+	} else {
+		storedItems = [];
+	}
 
+	if(localStorage.getItem("recipes")) {
+		storedRecipes = JSON.parse(localStorage.getItem("recipes"));
+	} else {
+		storedRecipes = [];
+	}
 
 	// adds each grocery item to a bulleted list
 	storedItems.forEach(item => {
@@ -106,9 +122,13 @@
 
 	// adds each recipe to a bulleted list
 	const links = document.getElementById('links');
+	let linkIndex = 0;
 
 	storedRecipes.forEach(recipe => {
+		console.log(recipe);
 		const link = document.createElement('li');
+		link.setAttribute("id", linkIndex);
+		linkIndex+= 1;
 		const url = document.createElement('a');
 		url.setAttribute('href', `${recipe.url}`);
 		url.textContent = recipe.name;
@@ -123,8 +143,23 @@
 			noteContainer.appendChild(note);
 			link.appendChild(noteContainer);
 		}
-	});
 
+		if(recipe.state === true) {
+			link.classList.add("checked");
+		}
+
+		// DELETE ME
+		link.addEventListener('click', function(e) {
+			link.classList.toggle("checked");
+			if(storedRecipes[e.target.id].state === true) {
+				storedRecipes[e.target.id].state = false;
+				updateLocalStorage("recipes", storedRecipes);
+			} else {
+				storedRecipes[e.target.id].state = true;
+				updateLocalStorage("recipes", storedRecipes);
+			}
+		});
+	});
 
 	const input = document.getElementById('number');
 	const button = document.getElementById('button');
@@ -160,11 +195,19 @@
 		localStorage.clear();
 	});
 
+	function addToLocalStorage(name, elements) {
+		localStorage.setItem(name, JSON.stringify(elements));
+	}
+
+	function updateLocalStorage(name, elements) {
+		localStorage.setItem(name, JSON.stringify(elements));
+	}
+
+
+
 	// DELETE ME
 	// console.log("items:", JSON.parse(localStorage.getItem("items")));
 	// console.log("recipes:", JSON.parse(localStorage.getItem("recipes")));
-
-
 </script>
 </body>
 </html>
