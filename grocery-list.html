@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Grocery List</title>
+	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<style type="text/css">
 		li 
@@ -48,6 +49,10 @@
 
 	<div><a href="https://docs.google.com/spreadsheets/d/1wf4Vxknpg5n7VHFPKD3lo7Fd55WerkPAJJaPTelYdJc/edit?usp=sharing">Base Spreadsheet</a></div>
 
+	<div>
+		<button id="clear" type="button">Clear Local Storage</button>
+	</div>
+
 <script type="text/javascript">
 	// CHANGE THIS
 	const items = [
@@ -92,6 +97,7 @@
 
 	// adds each recipe to a bulleted list
 	const links = document.getElementById('links');
+
 	recipes.forEach(recipe => {
 		// debugger
 		const link = document.createElement('li');
@@ -137,6 +143,24 @@
 
 		}
 	});
+
+	// clears localStorage when clicked
+	clear.addEventListener('click', function(e) {
+		e.preventDefault();
+
+		localStorage.clear();
+	});
+
+	// adds items to localStorage
+	localStorage.setItem("items", JSON.stringify(items));
+
+	// adds links to localStorage
+	localStorage.setItem("recipes", JSON.stringify(recipes));
+
+	// DELETE ME
+	console.log(localStorage);
+	console.log("recipes:", JSON.parse(localStorage.getItem("recipes")));
+
 
 </script>
 </body>
