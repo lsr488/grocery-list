@@ -75,16 +75,26 @@
 			"notes": "",  
 		},
 		{ 
-			"url": "", 
-			"name": "broccoli and potato sheet pan", 
-			"notes": "",  
+			"url": "#", 
+			"name": "chicken, broccoli, potato sheet pan", 
+			"notes": "",
 		},
 ]
 
 	const form = document.getElementById('form');
 
+	// adds items to localStorage
+	localStorage.setItem("items", JSON.stringify(items));
+
+	// adds links to localStorage
+	localStorage.setItem("recipes", JSON.stringify(recipes));
+
+	let storedItems = JSON.parse(localStorage.getItem("items"));
+	let storedRecipes = JSON.parse(localStorage.getItem("recipes"));
+
+
 	// adds each grocery item to a bulleted list
-	items.forEach(item => {
+	storedItems.forEach(item => {
 		const newGrocery = document.createElement('li');
 		newGrocery.textContent = item;
 		form.appendChild(newGrocery);
@@ -96,8 +106,6 @@
 
 	// adds each recipe to a bulleted list
 	const links = document.getElementById('links');
-
-	let storedRecipes = JSON.parse(localStorage.getItem("recipes"));
 
 	storedRecipes.forEach(recipe => {
 		const link = document.createElement('li');
@@ -152,15 +160,9 @@
 		localStorage.clear();
 	});
 
-	// adds items to localStorage
-	localStorage.setItem("items", JSON.stringify(items));
-
-	// adds links to localStorage
-	localStorage.setItem("recipes", JSON.stringify(recipes));
-
 	// DELETE ME
-	console.log("items:", JSON.parse(localStorage.getItem("items")));
-	console.log("recipes:", JSON.parse(localStorage.getItem("recipes")));
+	// console.log("items:", JSON.parse(localStorage.getItem("items")));
+	// console.log("recipes:", JSON.parse(localStorage.getItem("recipes")));
 
 
 </script>
