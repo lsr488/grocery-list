@@ -81,7 +81,6 @@
 		},
 ]
 
-
 	const form = document.getElementById('form');
 
 	// adds each grocery item to a bulleted list
@@ -98,8 +97,9 @@
 	// adds each recipe to a bulleted list
 	const links = document.getElementById('links');
 
-	recipes.forEach(recipe => {
-		// debugger
+	let storedRecipes = JSON.parse(localStorage.getItem("recipes"));
+
+	storedRecipes.forEach(recipe => {
 		const link = document.createElement('li');
 		const url = document.createElement('a');
 		url.setAttribute('href', `${recipe.url}`);
@@ -116,6 +116,7 @@
 			link.appendChild(noteContainer);
 		}
 	});
+
 
 	const input = document.getElementById('number');
 	const button = document.getElementById('button');
@@ -158,7 +159,7 @@
 	localStorage.setItem("recipes", JSON.stringify(recipes));
 
 	// DELETE ME
-	console.log(localStorage);
+	console.log("items:", JSON.parse(localStorage.getItem("items")));
 	console.log("recipes:", JSON.parse(localStorage.getItem("recipes")));
 
 
