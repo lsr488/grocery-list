@@ -55,42 +55,44 @@
 
 <script type="text/javascript">
 	// CHANGE THIS
-	const items = [
-	 	{
-	 		"item": "Bob's Red Mill gluten free flour",
-	 		"state": false,
-	 	},
-	 	{
-	 		"item": "tums",
-	 		"state": false,
-	 	},
-	 	{
-	 		"item": "eggs 2 dozen",
-	 		"state": false,
-	 	},
-	 	{
-	 		"item": "broccoli ",
-	 		"state": false,
-	 	},
-	 	{
-	 		"item": "soy sauce ",
-	 		"state": false,
-	 	},
-	 	{
-	 		"item": "panko breadcrumbs",
-	 		"state": false,
-	 	},
-	 	{
-	 		"item": "garlic cloves",
-	 		"state": false,
-	 	},
-	 	{
-	 		"item": "fresh ginger",
-	 		"state": false,
-	 	},
+	const items =  [
+	 {
+		"item": "Bob's Red Mill gluten free flour", 
+		 	"state": false, 
+ 		},
+	 {
+		"item": "tums", 
+		 	"state": false, 
+ 		},
+	 {
+		"item": "eggs 2 dozen", 
+		 	"state": false, 
+ 		},
+	 {
+		"item": "broccoli ", 
+		 	"state": false, 
+ 		},
+	 {
+		"item": "russet potatoes ", 
+		 	"state": false, 
+ 		},
+	 {
+		"item": "soy sauce ", 
+		 	"state": false, 
+ 		},
+	 {
+		"item": "panko breadcrumbs", 
+		 	"state": false, 
+ 		},
+	 {
+		"item": "garlic cloves", 
+		 	"state": false, 
+ 		},
+	 {
+		"item": "fresh ginger", 
+		 	"state": false, 
+ 		},
 	]
-
-
 
 	// CHANGE THIS
 	const recipes = [
@@ -113,20 +115,19 @@
 
 	const form = document.getElementById('form');
 
-		// adds elements to localStorage
+	// initialize elements 
 	let storedItems, storedRecipes;
 
-	// debugger
-
+	// checks if localStorage exists, creates from default array if not, or updates from localStorage if it does
 	if(!localStorage.getItem("items")) {
-		localStorage.setItem("items", JSON.stringify(items));
+		updateLocalStorage("items", items);
 		storedItems = JSON.parse(localStorage.getItem("items"));
 	} else {
 		storedItems = JSON.parse(localStorage.getItem("items"));
 	}
 	
 	if(!localStorage.getItem("recipes")) {
-		localStorage.setItem("recipes", JSON.stringify(recipes));
+		updateLocalStorage("recipes", recipes);
 		storedRecipes = JSON.parse(localStorage.getItem("recipes"));
 	} else {
 		storedRecipes = JSON.parse(localStorage.getItem("recipes"));
@@ -163,13 +164,9 @@
 
 	// adds each recipe to a bulleted list
 	const links = document.getElementById('links');
-	let linkIndex = 0;
 
 	storedRecipes.forEach(recipe => {
-		// console.log(recipe);
 		const link = document.createElement('li');
-		link.setAttribute("id", linkIndex);
-		linkIndex+= 1;
 		const url = document.createElement('a');
 		url.setAttribute('href', `${recipe.url}`);
 		url.textContent = recipe.name;
@@ -177,7 +174,6 @@
 		links.appendChild(link);
 
 		if(recipe.notes) {
-			// console.log("note available");
 			const noteContainer = document.createElement('ul');
 			const note = document.createElement('li');
 			note.textContent = recipe.notes;
@@ -196,10 +192,12 @@
 	button.addEventListener('click', function(e) {
 		e.preventDefault();
 
+		// input individual price
 		if(input.value) {
 			math.push(input.value);
 			math = math.map(Number);
 
+			// displays price
 			const entry = document.createElement('li');
 			entry.textContent = `$${input.value}`;
 			prices.appendChild(entry);
@@ -209,7 +207,6 @@
 			const results = document.getElementById('results');
 			const sums = (accumulator, currentValue) => accumulator + currentValue;
 			results.textContent = `$${math.reduce(sums).toFixed(2)}`;
-
 		}
 	});
 
@@ -219,10 +216,6 @@
 
 		localStorage.clear();
 	});
-
-	function addToLocalStorage(name, elements) {
-		localStorage.setItem(name, JSON.stringify(elements));
-	}
 
 	function updateLocalStorage(name, elements) {
 		localStorage.setItem(name, JSON.stringify(elements));
