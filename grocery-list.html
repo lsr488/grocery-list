@@ -92,21 +92,22 @@
 	const form = document.getElementById('form');
 
 		// adds elements to localStorage
-	addToLocalStorage("items", items);
-	addToLocalStorage("recipes", recipes);
-
 	let storedItems, storedRecipes;
 
-	if(localStorage.getItem("items")) {
+	// debugger
+
+	if(!localStorage.getItem("items")) {
+		localStorage.setItem("items", JSON.stringify(items));
 		storedItems = JSON.parse(localStorage.getItem("items"));
 	} else {
-		storedItems = [];
+		storedItems = JSON.parse(localStorage.getItem("items"));
 	}
-
-	if(localStorage.getItem("recipes")) {
+	
+	if(!localStorage.getItem("recipes")) {
+		localStorage.setItem("recipes", JSON.stringify(recipes));
 		storedRecipes = JSON.parse(localStorage.getItem("recipes"));
 	} else {
-		storedRecipes = [];
+		storedRecipes = JSON.parse(localStorage.getItem("recipes"));
 	}
 
 	// adds each grocery item to a bulleted list
