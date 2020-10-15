@@ -56,16 +56,41 @@
 <script type="text/javascript">
 	// CHANGE THIS
 	const items = [
-	 	"Bob's Red Mill gluten free flour", 
-	 	"tums", 
-	 	"eggs 2 dozen", 
-	 	"broccoli ", 
-	 	"russet potatoes ", 
-	 	"soy sauce ", 
-	 	"panko breadcrumbs", 
-	 	"garlic cloves", 
-	 	"fresh ginger", 
+	 	{
+	 		"item": "Bob's Red Mill gluten free flour",
+	 		"state": false,
+	 	},
+	 	{
+	 		"item": "tums",
+	 		"state": false,
+	 	},
+	 	{
+	 		"item": "eggs 2 dozen",
+	 		"state": false,
+	 	},
+	 	{
+	 		"item": "broccoli ",
+	 		"state": false,
+	 	},
+	 	{
+	 		"item": "soy sauce ",
+	 		"state": false,
+	 	},
+	 	{
+	 		"item": "panko breadcrumbs",
+	 		"state": false,
+	 	},
+	 	{
+	 		"item": "garlic cloves",
+	 		"state": false,
+	 	},
+	 	{
+	 		"item": "fresh ginger",
+	 		"state": false,
+	 	},
 	]
+
+
 
 	// CHANGE THIS
 	const recipes = [
@@ -73,19 +98,16 @@
 			"url": "https://workweeklunch.com/recipe/orange-baked-chicken-copycat/", 
 			"name": "orange chicken", 
 			"notes": "", 
-			"state": false, 
 		},
 		{ 
 			"url": "#", 
 			"name": "chicken, broccoli, potato sheet pan", 
 			"notes": "",
-			"state": false,
 		},
 		{ 
 			"url": "#", 
 			"name": "recipe 3", 
 			"notes": "",
-			"state": false,
 		},
 	]
 
@@ -111,14 +133,32 @@
 	}
 
 	// adds each grocery item to a bulleted list
+	let itemId = 0;
 	storedItems.forEach(item => {
 		const newGrocery = document.createElement('li');
-		newGrocery.textContent = item;
+		newGrocery.setAttribute("id", itemId);
+		itemId+= 1;
+
+		newGrocery.textContent = item.item;
 		form.appendChild(newGrocery);
 
-		newGrocery.addEventListener('click', function() {
+		// adds strikethrough if already checked
+		if(item.state === true) {
+			newGrocery.classList.add("checked");
+		}
+
+		// toggles strikethrough on repeat clicks
+		newGrocery.addEventListener('click', function(e) {
 			newGrocery.classList.toggle("checked");
+			if(storedItems[e.target.id].state === true) {
+				storedItems[e.target.id].state = false;
+				updateLocalStorage("items", storedItems);
+			} else {
+				storedItems[e.target.id].state = true;
+				updateLocalStorage("items", storedItems);
+			}
 		});
+
 	});
 
 	// adds each recipe to a bulleted list
@@ -126,7 +166,7 @@
 	let linkIndex = 0;
 
 	storedRecipes.forEach(recipe => {
-		console.log(recipe);
+		// console.log(recipe);
 		const link = document.createElement('li');
 		link.setAttribute("id", linkIndex);
 		linkIndex+= 1;
@@ -137,29 +177,13 @@
 		links.appendChild(link);
 
 		if(recipe.notes) {
-			console.log("note available");
+			// console.log("note available");
 			const noteContainer = document.createElement('ul');
 			const note = document.createElement('li');
 			note.textContent = recipe.notes;
 			noteContainer.appendChild(note);
 			link.appendChild(noteContainer);
 		}
-
-		if(recipe.state === true) {
-			link.classList.add("checked");
-		}
-
-		// DELETE ME
-		link.addEventListener('click', function(e) {
-			link.classList.toggle("checked");
-			if(storedRecipes[e.target.id].state === true) {
-				storedRecipes[e.target.id].state = false;
-				updateLocalStorage("recipes", storedRecipes);
-			} else {
-				storedRecipes[e.target.id].state = true;
-				updateLocalStorage("recipes", storedRecipes);
-			}
-		});
 	});
 
 	const input = document.getElementById('number');
@@ -204,11 +228,6 @@
 		localStorage.setItem(name, JSON.stringify(elements));
 	}
 
-
-
-	// DELETE ME
-	// console.log("items:", JSON.parse(localStorage.getItem("items")));
-	// console.log("recipes:", JSON.parse(localStorage.getItem("recipes")));
 </script>
 </body>
 </html>
