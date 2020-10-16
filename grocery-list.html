@@ -55,7 +55,7 @@
 
 <script type="text/javascript">
 	// CHANGE THIS
-	const items =  [
+	const defaultItems =  [
 	 {
 		"item": "Bob's Red Mill gluten free flour", 
 		 	"state": false, 
@@ -95,7 +95,7 @@
 	]
 
 	// CHANGE THIS
-	const recipes = [
+	const defaultRecipes = [
 		{ 
 			"url": "https://workweeklunch.com/recipe/orange-baked-chicken-copycat/", 
 			"name": "orange chicken", 
@@ -116,26 +116,23 @@
 	const form = document.getElementById('form');
 
 	// initialize elements 
-	let storedItems, storedRecipes;
+	let items = JSON.parse(localStorage.getItem("items"));
+	let recipes = JSON.parse(localStorage.getItem("recipes"));
 
 	// checks if localStorage exists, creates from default array if not, or updates from localStorage if it does
-	if(!localStorage.getItem("items")) {
+	if(!items) {
+		items = defaultItems;
 		updateLocalStorage("items", items);
-		storedItems = JSON.parse(localStorage.getItem("items"));
-	} else {
-		storedItems = JSON.parse(localStorage.getItem("items"));
 	}
 	
-	if(!localStorage.getItem("recipes")) {
+	if(!recipes) {
+		recipes = defaultRecipes
 		updateLocalStorage("recipes", recipes);
-		storedRecipes = JSON.parse(localStorage.getItem("recipes"));
-	} else {
-		storedRecipes = JSON.parse(localStorage.getItem("recipes"));
 	}
 
 	// adds each grocery item to a bulleted list
 	let itemId = 0;
-	storedItems.forEach(item => {
+	items.forEach(item => {
 		const newGrocery = document.createElement('li');
 		newGrocery.setAttribute("id", itemId);
 		itemId+= 1;
@@ -151,12 +148,12 @@
 		// toggles strikethrough on repeat clicks
 		newGrocery.addEventListener('click', function(e) {
 			newGrocery.classList.toggle("checked");
-			if(storedItems[e.target.id].state === true) {
-				storedItems[e.target.id].state = false;
-				updateLocalStorage("items", storedItems);
+			if(items[e.target.id].state === true) {
+				items[e.target.id].state = false;
+				updateLocalStorage("items", items);
 			} else {
-				storedItems[e.target.id].state = true;
-				updateLocalStorage("items", storedItems);
+				items[e.target.id].state = true;
+				updateLocalStorage("items", items);
 			}
 		});
 
@@ -165,7 +162,7 @@
 	// adds each recipe to a bulleted list
 	const links = document.getElementById('links');
 
-	storedRecipes.forEach(recipe => {
+	recipes.forEach(recipe => {
 		const link = document.createElement('li');
 		const url = document.createElement('a');
 		url.setAttribute('href', `${recipe.url}`);
