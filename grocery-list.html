@@ -106,11 +106,6 @@
 			"name": "chicken, broccoli, potato sheet pan", 
 			"notes": "",
 		},
-		{ 
-			"url": "#", 
-			"name": "recipe 3", 
-			"notes": "",
-		},
 	]
 
 	const form = document.getElementById('form');
@@ -182,9 +177,31 @@
 	const input = document.getElementById('number');
 	const button = document.getElementById('button');
 	const prices = document.getElementById('prices');
+ 
+	let math = JSON.parse(localStorage.getItem("prices"));
 
-	let math = []
+	// checks if localStorage exists, creates from default array if not, or updates from localStorage if it does
+	if(!math) {
+		math = [];
+		updateLocalStorage("prices", math);
+	} else {
+		// displays price
+		math.forEach(price => {
+			const entry = document.createElement('li');
+			entry.textContent = `$${price.toFixed(2)}`;
+			prices.appendChild(entry);
+		});
 
+		input.value = "";
+
+		// add prices together and display
+		if(math.length >= 1) {
+			const results = document.getElementById('results');
+			const sums = (accumulator, currentValue) => accumulator + currentValue;
+			results.textContent = `$${math.reduce(sums).toFixed(2)}`;
+		}
+	}
+	
 	// input and display prices
 	button.addEventListener('click', function(e) {
 		e.preventDefault();
@@ -193,12 +210,18 @@
 		if(input.value) {
 			math.push(input.value);
 			math = math.map(Number);
+			localStorage.setItem("prices", JSON.stringify(math));
+
+			// clears prices display so there aren't duplicate prices listed
+			prices.textContent = "";
 
 			// displays price
-			const entry = document.createElement('li');
-			entry.textContent = `$${input.value}`;
-			prices.appendChild(entry);
-			input.value = "";
+			math.forEach(price => {
+				const entry = document.createElement('li');
+				entry.textContent = `$${price.toFixed(2)}`;
+				prices.appendChild(entry);
+				input.value = "";
+			});
 
 			// add prices together and display
 			const results = document.getElementById('results');
