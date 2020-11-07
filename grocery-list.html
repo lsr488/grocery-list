@@ -30,7 +30,7 @@
 		<h3>Calculator</h3>
 		<form>
 			<input type="number" name="number" id="number">
-			<button id="button">Submit</button>
+			<button id="calc-button">Submit</button>
 		</form>
 		<div id="total-costs">
 			<h4>Total Cost</h4>
@@ -40,6 +40,14 @@
 			<h4>Prices</h4>
 			<ul class="no-decoration" id="prices"></ul>
 		</div>
+	</div>
+
+	<div id="new-item">
+		<h3>Add New Item</h3>
+		<form>
+			<input type="text" name="item" id="item">
+			<button id="item-button">Submit</button>
+		</form>
 	</div>
 
 	<div id="recipes">
@@ -57,42 +65,10 @@
 	// CHANGE THIS
 	const defaultItems =  [
 	 {
-		"item": "Bob's Red Mill gluten free flour", 
-		 	"state": false, 
+		"item": "bananas", 
+	 	"state": false, 
  		},
-	 {
-		"item": "tums", 
-		 	"state": false, 
- 		},
-	 {
-		"item": "eggs 2 dozen", 
-		 	"state": false, 
- 		},
-	 {
-		"item": "broccoli ", 
-		 	"state": false, 
- 		},
-	 {
-		"item": "russet potatoes ", 
-		 	"state": false, 
- 		},
-	 {
-		"item": "soy sauce ", 
-		 	"state": false, 
- 		},
-	 {
-		"item": "panko breadcrumbs", 
-		 	"state": false, 
- 		},
-	 {
-		"item": "garlic cloves", 
-		 	"state": false, 
- 		},
-	 {
-		"item": "fresh ginger", 
-		 	"state": false, 
- 		},
-	]
+ 	]
 
 	// CHANGE THIS
 	const defaultRecipes = [
@@ -126,8 +102,107 @@
 	}
 
 	// adds each grocery item to a bulleted list
+	displayGroceryItems(items);
+
+	// adds each recipe to a bulleted list
+	const links = document.getElementById('links');
+
+	recipes.forEach(recipe => {
+		const link = document.createElement('li');
+		const url = document.createElement('a');
+		url.setAttribute('href', `${recipe.url}`);
+		url.textContent = recipe.name;
+		link.appendChild(url);
+		links.appendChild(link);
+
+		if(recipe.notes) {
+			const noteContainer = document.createElement('ul');
+			const note = document.createElement('li');
+			note.textContent = recipe.notes;
+			noteContainer.appendChild(note);
+			link.appendChild(noteContainer);
+		}
+	});
+
+	const priceInput = document.getElementById('number');
+	const priceButton = document.getElementById('calc-button');
+	const prices = document.getElementById('prices');
+ 
+	let math = JSON.parse(localStorage.getItem("prices"));
+
+	// checks if localStorage exists, creates from default array if not, or updates from localStorage if it does
+	if(!math) {
+		math = [];
+		updateLocalStorage("prices", math);
+	} else {
+		// displays price
+		math.forEach(price => {
+			const entry = document.createElement('li');
+			entry.textContent = `$${price.toFixed(2)}`;
+			prices.appendChild(entry);
+		});
+
+		priceInput.value = "";
+
+		// add prices together and display
+		if(math.length >= 1) {
+			const results = document.getElementById('results');
+			const sums = (accumulator, currentValue) => accumulator + currentValue;
+			results.textContent = `$${math.reduce(sums).toFixed(2)}`;
+		}
+	}
+	
+	// input and display prices
+	priceButton.addEventListener('click', function(e) {
+		e.preventDefault();
+
+		// input individual price
+		if(priceInput.value) {
+			math.push(priceInput.value);
+			math = math.map(Number);
+			localStorage.setItem("prices", JSON.stringify(math));
+
+			// clears prices display so there aren't duplicate prices listed
+			prices.textContent = "";
+
+			// displays price
+			math.forEach(price => {
+				const entry = document.createElement('li');
+				entry.textContent = `$${price.toFixed(2)}`;
+				prices.appendChild(entry);
+				priceInput.value = "";
+			});
+
+			// add prices together and display
+			const results = document.getElementById('results');
+			const sums = (accumulator, currentValue) => accumulator + currentValue;
+			results.textContent = `$${math.reduce(sums).toFixed(2)}`;
+		}
+	});
+
+	// clears localStorage when clicked
+	clear.addEventListener('click', function(e) {
+		e.preventDefault();
+
+		localStorage.clear();
+		window.location.reload();
+	});
+
+	// input and display additional items
+	function addAdditionalItem(item) {
+		// console.log("ITEMS BEFORE:", items);
+		items.push({"item": item, "state": false,});
+		updateLocalStorage("items", items);
+ 		// console.log("ITEMS AFTER:", items);
+		// console.log("LOCALSTORAGE:", localStorage);
+		window.location.reload();
+	}
+
+ function displayGroceryItems(items) {
 	let itemId = 0;
+	
 	items.forEach(item => {
+		// debugger;
 		const newGrocery = document.createElement('li');
 		newGrocery.setAttribute("id", itemId);
 		itemId+= 1;
@@ -151,91 +226,8 @@
 				updateLocalStorage("items", items);
 			}
 		});
-
 	});
-
-	// adds each recipe to a bulleted list
-	const links = document.getElementById('links');
-
-	recipes.forEach(recipe => {
-		const link = document.createElement('li');
-		const url = document.createElement('a');
-		url.setAttribute('href', `${recipe.url}`);
-		url.textContent = recipe.name;
-		link.appendChild(url);
-		links.appendChild(link);
-
-		if(recipe.notes) {
-			const noteContainer = document.createElement('ul');
-			const note = document.createElement('li');
-			note.textContent = recipe.notes;
-			noteContainer.appendChild(note);
-			link.appendChild(noteContainer);
-		}
-	});
-
-	const input = document.getElementById('number');
-	const button = document.getElementById('button');
-	const prices = document.getElementById('prices');
- 
-	let math = JSON.parse(localStorage.getItem("prices"));
-
-	// checks if localStorage exists, creates from default array if not, or updates from localStorage if it does
-	if(!math) {
-		math = [];
-		updateLocalStorage("prices", math);
-	} else {
-		// displays price
-		math.forEach(price => {
-			const entry = document.createElement('li');
-			entry.textContent = `$${price.toFixed(2)}`;
-			prices.appendChild(entry);
-		});
-
-		input.value = "";
-
-		// add prices together and display
-		if(math.length >= 1) {
-			const results = document.getElementById('results');
-			const sums = (accumulator, currentValue) => accumulator + currentValue;
-			results.textContent = `$${math.reduce(sums).toFixed(2)}`;
-		}
-	}
-	
-	// input and display prices
-	button.addEventListener('click', function(e) {
-		e.preventDefault();
-
-		// input individual price
-		if(input.value) {
-			math.push(input.value);
-			math = math.map(Number);
-			localStorage.setItem("prices", JSON.stringify(math));
-
-			// clears prices display so there aren't duplicate prices listed
-			prices.textContent = "";
-
-			// displays price
-			math.forEach(price => {
-				const entry = document.createElement('li');
-				entry.textContent = `$${price.toFixed(2)}`;
-				prices.appendChild(entry);
-				input.value = "";
-			});
-
-			// add prices together and display
-			const results = document.getElementById('results');
-			const sums = (accumulator, currentValue) => accumulator + currentValue;
-			results.textContent = `$${math.reduce(sums).toFixed(2)}`;
-		}
-	});
-
-	// clears localStorage when clicked
-	clear.addEventListener('click', function(e) {
-		e.preventDefault();
-
-		localStorage.clear();
-	});
+ }
 
 	function updateLocalStorage(name, elements) {
 		localStorage.setItem(name, JSON.stringify(elements));
