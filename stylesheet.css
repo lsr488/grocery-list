@@ -1,0 +1,15 @@
+li {
+	margin: 5px;
+}
+
+.checked {
+	text-decoration: line-through;
+}
+
+.no-decoration {
+	list-style: none;
+}
+
+h4 {
+	margin-left: 2em;
+}
