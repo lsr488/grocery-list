@@ -180,6 +180,17 @@
 		}
 	});
 
+	const itemInput = document.getElementById('item');
+	const itemButton = document.getElementById('item-button');
+	const newItems = document.getElementById('new-item');
+
+	// display new items in UI on click
+	itemButton.addEventListener('click', function(e) {
+		e.preventDefault();
+		addAdditionalItem(itemInput.value);
+		itemInput.value = '';
+	});
+
 	// clears localStorage when clicked
 	clear.addEventListener('click', function(e) {
 		e.preventDefault();
@@ -198,6 +209,7 @@
 		window.location.reload();
 	}
 
+// adds items to UI
  function displayGroceryItems(items) {
 	let itemId = 0;
 	
