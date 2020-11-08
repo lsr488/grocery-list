@@ -62,6 +62,12 @@
 	</div>
 
 <script type="text/javascript">
+	const data = {
+		getItem: (key) => localStorage.getItem(key),
+		setItem: (key, value) => localStorage.setItem(key, value),
+		clear: () => localStorage.clear(),
+	};
+
 	// CHANGE THIS
 	const defaultItems =  [
 	 {
@@ -87,8 +93,8 @@
 	const form = document.getElementById('form');
 
 	// initialize elements 
-	let items = JSON.parse(localStorage.getItem("items"));
-	let recipes = JSON.parse(localStorage.getItem("recipes"));
+	let items = JSON.parse(data.getItem("items"));
+	let recipes = JSON.parse(data.getItem("recipes"));
 
 	// checks if localStorage exists, creates from default array if not, or updates from localStorage if it does
 	if(!items) {
@@ -128,7 +134,7 @@
 	const priceButton = document.getElementById('calc-button');
 	const prices = document.getElementById('prices');
  
-	let math = JSON.parse(localStorage.getItem("prices"));
+	let math = JSON.parse(data.getItem("prices"));
 
 	// checks if localStorage exists, creates from default array if not, or updates from localStorage if it does
 	if(!math) {
@@ -160,7 +166,7 @@
 		if(priceInput.value) {
 			math.push(priceInput.value);
 			math = math.map(Number);
-			localStorage.setItem("prices", JSON.stringify(math));
+			data.setItem("prices", JSON.stringify(math));
 
 			// clears prices display so there aren't duplicate prices listed
 			prices.textContent = "";
@@ -195,7 +201,7 @@
 	clear.addEventListener('click', function(e) {
 		e.preventDefault();
 
-		localStorage.clear();
+		data.clear();
 		window.location.reload();
 	});
 
@@ -205,7 +211,7 @@
 		items.push({"item": item, "state": false,});
 		updateLocalStorage("items", items);
  		// console.log("ITEMS AFTER:", items);
-		// console.log("LOCALSTORAGE:", localStorage);
+		// console.log("DATA:", data);
 		window.location.reload();
 	}
 
@@ -242,7 +248,7 @@
  }
 
 	function updateLocalStorage(name, elements) {
-		localStorage.setItem(name, JSON.stringify(elements));
+		data.setItem(name, JSON.stringify(elements));
 	}
 
 </script>
