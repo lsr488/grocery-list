@@ -28,7 +28,6 @@ jobs:
        
       - name: SFTP Deploy
       # You may pin to the exact commit or the version.
-      # uses: wlixcc/SFTP-Deploy-Action@cf8d9e5b504ce4aab358e6231495c72a7dc18dcd
       uses: wlixcc/SFTP-Deploy-Action@1.1
       with:
         # username
