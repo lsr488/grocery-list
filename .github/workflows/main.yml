@@ -23,24 +23,22 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      #- uses: actions/checkout@v2
-
+      - uses: actions/checkout@v2
        
       - name: SFTP Deploy
-      # You may pin to the exact commit or the version.
-      uses: wlixcc/SFTP-Deploy-Action@1.1
-      with:
-        # username
-        username: ${{ secrets.SFTP_USERNAME }}
-        # your sftp server
-        server: ${{ secrets.SFTP_HOSTNAME }}
-        # your sftp server port, default to 22
-        port: ${{ secrets.SFTP_PORT }}
-        # you can copy private_key from your *.pem file, keep format
-        ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        # will put all file under this path
-        local_path: './*'
-        # files will copy to under remote_path
-        remote_path: '/home/${{ secrets.SFTP_USERNAME }}/public_html/grocery-list/'
-        # sftp args
-        args: # optional
+      - uses: wlixcc/SFTP-Deploy-Action@1.1
+        with:
+          # username
+          username: ${{ secrets.SFTP_USERNAME }}
+          # your sftp server
+          server: ${{ secrets.SFTP_HOSTNAME }}
+          # your sftp server port, default to 22
+          port: ${{ secrets.SFTP_PORT }}
+          # you can copy private_key from your *.pem file, keep format
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          # will put all file under this path
+          local_path: './*'
+          # files will copy to under remote_path
+          remote_path: '/home/${{ secrets.SFTP_USERNAME }}/public_html/grocery-list/'
+          # sftp args
+          # args: # optional
