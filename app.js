@@ -7,7 +7,7 @@ const data = {
 // CHANGE THIS
 const defaultItems =  [
  {
-	"item": "bananas", 
+	"item": "apples", 
  	"state": false, 
 		},
 	]
