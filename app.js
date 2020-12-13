@@ -5,26 +5,34 @@ const data = {
 }
 
 // CHANGE THIS
-const defaultItems =  [
- {
-	"item": "bananas", 
- 	"state": false, 
-		},
+const defaultItems = [
+	 {
+		"item": "half & half", 
+		 	"state": false, 
+ 		},
+	 {
+		"item": "milk", 
+		 	"state": false, 
+ 		},
+	 {
+		"item": "walnuts", 
+		 	"state": false, 
+ 		},
 	]
 
 // CHANGE THIS
 const defaultRecipes = [
-	{ 
-		"url": "https://workweeklunch.com/recipe/orange-baked-chicken-copycat/", 
-		"name": "orange chicken", 
-		"notes": "", 
-	},
-	{ 
-		"url": "#", 
-		"name": "chicken, broccoli, potato sheet pan", 
-		"notes": "",
-	},
-]
+		{ 
+			"url": "", 
+			"name": "Russian tea cakes", 
+			"notes": "",  
+		},
+		{ 
+			"url": "", 
+			"name": "brownies", 
+			"notes": "",  
+		},
+	]
 
 const form = document.getElementById('form');
 
