@@ -53,12 +53,19 @@ displayGroceryItems(items);
 const links = document.getElementById('links');
 
 recipes.forEach(recipe => {
-	const link = document.createElement('li');
-	const url = document.createElement('a');
-	url.setAttribute('href', `${recipe.url}`);
-	url.textContent = recipe.name;
-	link.appendChild(url);
-	links.appendChild(link);
+
+	if(recipe.url) {
+		const link = document.createElement('li');
+		const url = document.createElement('a');
+		url.setAttribute('href', `${recipe.url}`);
+		url.textContent = recipe.name;
+		link.appendChild(url);
+		links.appendChild(link);
+	} else {
+		const link = document.createElement('li');
+		link.textContent = recipe.name;
+		links.appendChild(link);
+	}
 
 	if(recipe.notes) {
 		const noteContainer = document.createElement('ul');
