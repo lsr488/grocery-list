@@ -42,11 +42,16 @@ recipes.forEach(recipe => {
 	}
 
 	if(recipe.notes) {
+		let splitNotes = recipe.notes.split(';');
+
 		const noteContainer = document.createElement('ul');
-		const note = document.createElement('li');
-		note.textContent = recipe.notes;
-		noteContainer.appendChild(note);
-		listItem.appendChild(noteContainer);
+
+		splitNotes.forEach(note => {
+			const listNote = document.createElement('li');
+			listNote.textContent = note;
+			noteContainer.appendChild(listNote);
+			listItem.appendChild(noteContainer);
+		});
 	}
 });
 
