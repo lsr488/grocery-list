@@ -145,10 +145,36 @@ items.forEach(item => {
 	// debugger;
 	const newGrocery = document.createElement('li');
 	newGrocery.setAttribute("id", itemId);
+	newGrocery.classList.add("col1")
 	itemId+= 1;
-
 	newGrocery.textContent = item.item;
 	form.appendChild(newGrocery);
+
+	// create edit button
+	const editBtn = document.createElement('div');
+	editBtn.classList.add("col2");
+	editBtn.classList.add("btn");
+	editBtn.classList.add("edit");
+	editBtn.textContent = "E";
+	form.appendChild(editBtn);
+	editBtn.addEventListener('click', editBtnClicked);
+
+	// create delete button
+	const deleteBtn = document.createElement('div');
+	deleteBtn.classList.add("col3");
+	deleteBtn.classList.add("btn");
+	deleteBtn.classList.add("delete");
+	deleteBtn.textContent = "X";
+	form.appendChild(deleteBtn);
+
+	// create save button
+	const saveBtn = document.createElement('div');
+	saveBtn.classList.add("col4");
+	saveBtn.classList.add("btn");
+	saveBtn.classList.add("save");
+	saveBtn.classList.add("hidden");
+	saveBtn.textContent = "Save";
+	form.appendChild(saveBtn);
 
 	// adds strikethrough if already checked
 	if(item.state === true) {
@@ -171,4 +197,8 @@ items.forEach(item => {
 
 function updateLocalStorage(name, elements) {
 	data.setItem(name, JSON.stringify(elements));
+}
+
+function editBtnClicked(e) {
+	console.log(e.target);
 }
