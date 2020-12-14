@@ -4,31 +4,6 @@ const data = {
 	clear: () => localStorage.clear(),
 }
 
-// CHANGE THIS
-const defaultItems =  [
-	 {
-		"item": "milk", 
- 		"state": false, 
-		},
-	 {
-		"item": "half & half", 
- 		"state": false, 
-		},
-	 {
-		"item": "walnuts", 
- 		"state": false, 
-		},
-	]
-
-// CHANGE THIS
-const defaultRecipes = [
-	{ 
-		"url": "", 
-		"name": "Russian tea cakes", 
-		"notes": "", 
-	}
-]
-
 const form = document.getElementById('form');
 
 // initialize elements 
