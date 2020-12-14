@@ -28,18 +28,17 @@ displayGroceryItems(items);
 const links = document.getElementById('links');
 
 recipes.forEach(recipe => {
+	const listItem = document.createElement('li');
 
 	if(recipe.url) {
-		const link = document.createElement('li');
 		const url = document.createElement('a');
 		url.setAttribute('href', `${recipe.url}`);
 		url.textContent = recipe.name;
-		link.appendChild(url);
-		links.appendChild(link);
+		listItem.appendChild(url);
+		links.appendChild(listItem);
 	} else {
-		const link = document.createElement('li');
-		link.textContent = recipe.name;
-		links.appendChild(link);
+		listItem.textContent = recipe.name;
+		links.appendChild(listItem);
 	}
 
 	if(recipe.notes) {
@@ -47,7 +46,7 @@ recipes.forEach(recipe => {
 		const note = document.createElement('li');
 		note.textContent = recipe.notes;
 		noteContainer.appendChild(note);
-		link.appendChild(noteContainer);
+		listItem.appendChild(noteContainer);
 	}
 });
 
