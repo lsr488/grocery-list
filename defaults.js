@@ -52,6 +52,6 @@ const defaultRecipes = [
 		{ 
 			"url": "https://workweeklunch.com/recipe/italian-sausage-and-gnocchi-soup/", 
 			"name": "Italian Sausage & Gnocchi soup", 
-			"notes": "stock not broth; tortellini not gnocchi",  
+			"notes": "stock not broth; tortellini not gnocchi; replace mustard powder with actual mustard?",  
 		},
 ]
