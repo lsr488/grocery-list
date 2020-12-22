@@ -1,18 +1,6 @@
 // CHANGE THIS
 const defaultItems = [
 	 {
-		"item": "half and half", 
-		 	"state": false, 
- 		},
-	 {
-		"item": "milk", 
-		 	"state": false, 
- 		},
-	 {
-		"item": "walnuts", 
-		 	"state": false, 
- 		},
-	 {
 		"item": "yellow onion (soup)", 
 		 	"state": false, 
  		},
@@ -41,35 +29,31 @@ const defaultItems = [
 		 	"state": false, 
  		},
 	 {
-		"item": "1.5 cups heavy whipping cream (alfredo)", 
+		"item": "eggs", 
 		 	"state": false, 
  		},
 	 {
-		"item": "2 cups parmesan (alfredo)", 
+		"item": "creamed corn?", 
 		 	"state": false, 
  		},
 	 {
-		"item": "lots of pasta (alfredo)", 
+		"item": "beets?", 
 		 	"state": false, 
  		},
 	 {
-		"item": "frozen peas (alfredo)", 
+		"item": "butter", 
 		 	"state": false, 
  		},
 	 {
-		"item": "12 oz semi sweet chocolate morsels (rocky road)", 
+		"item": "brown sugar", 
 		 	"state": false, 
  		},
 	 {
-		"item": "14 oz sweetened condensed milk (rocky road)", 
+		"item": "flour", 
 		 	"state": false, 
  		},
 	 {
-		"item": "2.5 dry roasted peanuts (rocky road)", 
-		 	"state": false, 
- 		},
-	 {
-		"item": "16 oz mini marshmallows (rocky road)", 
+		"item": "semi sweet chocolate chips x2", 
 		 	"state": false, 
  		},
 	]
@@ -78,22 +62,12 @@ const defaultItems = [
 const defaultRecipes = [
 		{ 
 			"url": "", 
-			"name": "Russian tea cakes", 
+			"name": "Lemon Sugar Cookies", 
 			"notes": "",  
 		},
 		{ 
 			"url": "https://workweeklunch.com/recipe/italian-sausage-and-gnocchi-soup/", 
 			"name": "Italian Sausage & Gnocchi soup", 
 			"notes": "stock not broth; tortellini not gnocchi",  
-		},
-		{ 
-			"url": "https://thesaltymarshmallow.com/best-homemade-alfredo-sauce/", 
-			"name": "Homemade Alfredo Sauce", 
-			"notes": "maybe a little less parmesan?",  
-		},
-		{ 
-			"url": "https://www.allrecipes.com/recipe/22730/rocky-road-candies/", 
-			"name": "rocky road ", 
-			"notes": "",  
-		},
+		}
 ]
