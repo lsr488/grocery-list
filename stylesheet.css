@@ -21,16 +21,19 @@ h4 {
 .col2 {
 	grid-column-start: 2;
 	grid-column-end: 3;
+	/*border: 1px dashed green;*/
 }
 
 .col3 {
 	grid-column-start: 3;
 	grid-column-end: 4;
+	/*border: 1px dashed red;*/
 }
 
 .col4 {
 	grid-column-start: 4;
 	grid-column-end: 5;
+	/*border: 1px dashed blue;*/
 }
 
 .checked {
@@ -70,6 +73,6 @@ h4 {
 	color: blue;
 	border: 1px solid blue;
 	font-weight: bold;
-	width: 40px;
+	width: 30px;
 	height: 20px;
 }

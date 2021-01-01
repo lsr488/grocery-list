@@ -142,8 +142,6 @@ function displayGroceryItems(items) {
 	let itemId = 0;
 
 	items.forEach(item => {
-		// debugger;
-
 		const newGrocery = document.createElement('li');
 		newGrocery.setAttribute("id", itemId);
 		newGrocery.classList.add("col1");
@@ -192,22 +190,9 @@ function displayGroceryItems(items) {
 		// toggles strikethrough on repeat clicks
 		newGrocery.addEventListener('click', toggleStrikethrough);
 
-		// newGrocery.addEventListener('click', function(e) {
-		// 	newGrocery.classList.toggle("checked");
-		// 	if(items[e.target.id].state === true) {
-		// 		items[e.target.id].state = false;
-		// 		updateLocalStorage("items", items);
-		// 	} else {
-		// 		items[e.target.id].state = true;
-		// 		updateLocalStorage("items", items);
-		// 	}
-		// });
-
-
 		// EVENT LISTENER FUNCTIONS BELOW
+		// I think they need to be inside the forEach loop for proper scoping to remove (and add back) the toggleStrikethrough event listener.
 		function toggleStrikethrough(e) {
-			// console.log(e.target.id);
-			// console.log(newGrocery);
 			newGrocery.classList.toggle("checked");
 			if(items[newGrocery.id].state === true) {
 				items[newGrocery.id].state = false;
@@ -219,31 +204,21 @@ function displayGroceryItems(items) {
 		}
 
 		function editBtnClicked(e) {
-			console.log('Edit Button Clicked');
-			
-			// let id = e.target.dataset.id;
-			// let groceryItem = document.getElementById(id);
-
 			newGrocery.removeEventListener('click', toggleStrikethrough);
 			newGrocery.setAttribute("contenteditable", true);
 
 			saveBtn.classList.remove("hidden");
 			deleteBtn.classList.add("hidden");
 			editBtn.classList.add("hidden");
-
-			console.log(items[newGrocery.id]);
 		}
 
 		function saveBtnClicked(e) {
-			console.log('Save Btn clicked. Content is not editabled anymore.');
 			newGrocery.setAttribute("contenteditable", false);
 			newGrocery.addEventListener('click', toggleStrikethrough);
 
 			items[newGrocery.id].item = newGrocery.textContent;
 
-			console.log(items);
 			updateLocalStorage("items", items);
-			console.log(localStorage.items);
 
 			saveBtn.classList.add("hidden");
 			deleteBtn.classList.remove("hidden");
@@ -253,8 +228,6 @@ function displayGroceryItems(items) {
 		function deleteBtnClicked(e) {
 			console.log('Delete Button Clicked');
 
-			// let id = e.target.dataset.id;
-
 			deleteLocalStorageItem(items, newGrocery.id);
 			updateLocalStorage("items", items);
 
@@ -263,7 +236,6 @@ function displayGroceryItems(items) {
 
 	});
 }
-
 
 function updateLocalStorage(name, elements) {
 	data.setItem(name, JSON.stringify(elements));
