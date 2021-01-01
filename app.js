@@ -173,8 +173,9 @@ function displayGroceryItems(items) {
 		saveBtn.classList.add("btn");
 		saveBtn.classList.add("save");
 		saveBtn.setAttribute('data-id', itemId);
-	// saveBtn.classList.add("hidden");
+		saveBtn.classList.add("hidden");
 		saveBtn.textContent = "S";
+		saveBtn.addEventListener('click', saveBtnClicked);
 
 		itemId+= 1;
 
@@ -189,18 +190,80 @@ function displayGroceryItems(items) {
 		}
 
 		// toggles strikethrough on repeat clicks
-		newGrocery.addEventListener('click', function(e) {
+		newGrocery.addEventListener('click', toggleStrikethrough);
+
+		// newGrocery.addEventListener('click', function(e) {
+		// 	newGrocery.classList.toggle("checked");
+		// 	if(items[e.target.id].state === true) {
+		// 		items[e.target.id].state = false;
+		// 		updateLocalStorage("items", items);
+		// 	} else {
+		// 		items[e.target.id].state = true;
+		// 		updateLocalStorage("items", items);
+		// 	}
+		// });
+
+
+		// EVENT LISTENER FUNCTIONS BELOW
+		function toggleStrikethrough(e) {
+			// console.log(e.target.id);
+			// console.log(newGrocery);
 			newGrocery.classList.toggle("checked");
-			if(items[e.target.id].state === true) {
-				items[e.target.id].state = false;
+			if(items[newGrocery.id].state === true) {
+				items[newGrocery.id].state = false;
 				updateLocalStorage("items", items);
 			} else {
-				items[e.target.id].state = true;
+				items[newGrocery.id].state = true;
 				updateLocalStorage("items", items);
 			}
-		});
+		}
+
+		function editBtnClicked(e) {
+			console.log('Edit Button Clicked');
+			
+			// let id = e.target.dataset.id;
+			// let groceryItem = document.getElementById(id);
+
+			newGrocery.removeEventListener('click', toggleStrikethrough);
+			newGrocery.setAttribute("contenteditable", true);
+
+			saveBtn.classList.remove("hidden");
+			deleteBtn.classList.add("hidden");
+			editBtn.classList.add("hidden");
+
+			console.log(items[newGrocery.id]);
+		}
+
+		function saveBtnClicked(e) {
+			console.log('Save Btn clicked. Content is not editabled anymore.');
+			newGrocery.setAttribute("contenteditable", false);
+			newGrocery.addEventListener('click', toggleStrikethrough);
+
+			items[newGrocery.id].item = newGrocery.textContent;
+
+			console.log(items);
+			updateLocalStorage("items", items);
+			console.log(localStorage.items);
+
+			saveBtn.classList.add("hidden");
+			deleteBtn.classList.remove("hidden");
+			editBtn.classList.remove("hidden");
+		}
+
+		function deleteBtnClicked(e) {
+			console.log('Delete Button Clicked');
+
+			// let id = e.target.dataset.id;
+
+			deleteLocalStorageItem(items, newGrocery.id);
+			updateLocalStorage("items", items);
+
+			window.location.reload();
+		}
+
 	});
 }
+
 
 function updateLocalStorage(name, elements) {
 	data.setItem(name, JSON.stringify(elements));
@@ -210,19 +273,3 @@ function deleteLocalStorageItem(name, id) {
 	name.splice(id, 1);
 }
 
-function deleteBtnClicked(e) {
-	console.log('Delete Button Clicked');
-	console.log(e.target);
-	// console.log(e.target.dataset.id);
-	let id = e.target.dataset.id;
-
-	deleteLocalStorageItem(items, id);
-	updateLocalStorage("items", items);
-
-	window.location.reload();
-}
-
-function editBtnClicked(e) {
-	console.log('Edit Button Clicked');
-	console.log(e.target);
-}
