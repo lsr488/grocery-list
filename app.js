@@ -139,66 +139,90 @@ function addAdditionalItem(item) {
 
 // adds items to UI
 function displayGroceryItems(items) {
-let itemId = 0;
+	let itemId = 0;
 
-items.forEach(item => {
-	// debugger;
-	const newGrocery = document.createElement('li');
-	newGrocery.setAttribute("id", itemId);
-	newGrocery.classList.add("col1")
-	itemId+= 1;
-	newGrocery.textContent = item.item;
-	form.appendChild(newGrocery);
+	items.forEach(item => {
+		// debugger;
 
-	// create edit button
-	const editBtn = document.createElement('div');
-	editBtn.classList.add("col2");
-	editBtn.classList.add("btn");
-	editBtn.classList.add("edit");
-	editBtn.textContent = "E";
-	form.appendChild(editBtn);
-	editBtn.addEventListener('click', editBtnClicked);
+		const newGrocery = document.createElement('li');
+		newGrocery.setAttribute("id", itemId);
+		newGrocery.classList.add("col1");
+		newGrocery.textContent = item.item;
 
-	// create delete button
-	const deleteBtn = document.createElement('div');
-	deleteBtn.classList.add("col3");
-	deleteBtn.classList.add("btn");
-	deleteBtn.classList.add("delete");
-	deleteBtn.textContent = "X";
-	form.appendChild(deleteBtn);
+		// create delete button
+		const deleteBtn = document.createElement('div');
+		deleteBtn.classList.add("col3");
+		deleteBtn.classList.add("btn");
+		deleteBtn.classList.add("delete");
+		deleteBtn.setAttribute('data-id', itemId);
+		deleteBtn.textContent = "X";
+		deleteBtn.addEventListener('click', deleteBtnClicked)
 
-	// create save button
-	const saveBtn = document.createElement('div');
-	saveBtn.classList.add("col4");
-	saveBtn.classList.add("btn");
-	saveBtn.classList.add("save");
-	saveBtn.classList.add("hidden");
-	saveBtn.textContent = "Save";
-	form.appendChild(saveBtn);
+		// create edit button
+		const editBtn = document.createElement('div');
+		editBtn.classList.add("col2");
+		editBtn.classList.add("btn");
+		editBtn.classList.add("edit");
+		editBtn.setAttribute('data-id', itemId);
+		editBtn.textContent = "E";
+		editBtn.addEventListener('click', editBtnClicked);
 
-	// adds strikethrough if already checked
-	if(item.state === true) {
-		newGrocery.classList.add("checked");
-	}
+		// create save button
+		const saveBtn = document.createElement('div');
+		saveBtn.classList.add("col4");
+		saveBtn.classList.add("btn");
+		saveBtn.classList.add("save");
+		saveBtn.setAttribute('data-id', itemId);
+	// saveBtn.classList.add("hidden");
+		saveBtn.textContent = "S";
 
-	// toggles strikethrough on repeat clicks
-	newGrocery.addEventListener('click', function(e) {
-		newGrocery.classList.toggle("checked");
-		if(items[e.target.id].state === true) {
-			items[e.target.id].state = false;
-			updateLocalStorage("items", items);
-		} else {
-			items[e.target.id].state = true;
-			updateLocalStorage("items", items);
+		itemId+= 1;
+
+		form.appendChild(newGrocery);
+		form.appendChild(editBtn);
+		form.appendChild(deleteBtn);
+		form.appendChild(saveBtn);
+
+		// adds strikethrough if already checked
+		if(item.state === true) {
+			newGrocery.classList.add("checked");
 		}
+
+		// toggles strikethrough on repeat clicks
+		newGrocery.addEventListener('click', function(e) {
+			newGrocery.classList.toggle("checked");
+			if(items[e.target.id].state === true) {
+				items[e.target.id].state = false;
+				updateLocalStorage("items", items);
+			} else {
+				items[e.target.id].state = true;
+				updateLocalStorage("items", items);
+			}
+		});
 	});
-});
 }
 
 function updateLocalStorage(name, elements) {
 	data.setItem(name, JSON.stringify(elements));
 }
 
+function deleteLocalStorageItem(name, id) {
+	name.splice(id, 1);
+}
+
+function deleteBtnClicked(e) {
+	console.log('Delete Button Clicked');
+	console.log(e.target);
+	// console.log(e.target.dataset.id);
+	let id = e.target.dataset.id;
+
+	deleteLocalStorageItem(items, id);
+	updateLocalStorage("items", items);
+
+	window.location.reload();
+}
+
 function editBtnClicked(e) {
+	console.log('Edit Button Clicked');
 	console.log(e.target);
 }
