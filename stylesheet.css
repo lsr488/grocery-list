@@ -2,6 +2,40 @@ li {
 	margin: 5px;
 }
 
+h4 {
+	margin-left: 2em;
+}
+
+.container {
+	display: grid;
+	/*border: 1px solid red;*/
+	grid-template-columns: auto 50px 50px 50px;
+}
+
+.col1 {
+	grid-column-start: 1;
+	grid-column-end: 2;
+	/*border: 1px dashed gray;*/
+}
+
+.col2 {
+	grid-column-start: 2;
+	grid-column-end: 3;
+	/*border: 1px dashed green;*/
+}
+
+.col3 {
+	grid-column-start: 3;
+	grid-column-end: 4;
+	/*border: 1px dashed red;*/
+}
+
+.col4 {
+	grid-column-start: 4;
+	grid-column-end: 5;
+	/*border: 1px dashed blue;*/
+}
+
 .checked {
 	text-decoration: line-through;
 }
@@ -10,6 +44,35 @@ li {
 	list-style: none;
 }
 
-h4 {
-	margin-left: 2em;
+.hidden {
+	display: none;
+}
+
+.btn {
+	border-radius: 15%;
+	text-align: center;
+}
+
+.edit {
+	color: green;
+	border: 1px solid green;
+	font-weight: bold;
+	width: 30px;
+	height: 20px;
+}
+
+.delete {
+	color: red;
+	border: 1px solid red;
+	font-weight: bold;
+	width: 30px;
+	height: 20px;
+}
+
+.save {
+	color: blue;
+	border: 1px solid blue;
+	font-weight: bold;
+	width: 30px;
+	height: 20px;
 }

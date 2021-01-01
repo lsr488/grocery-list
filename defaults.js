@@ -48,6 +48,18 @@ const defaultItems = [
 		"item": "asparagus (meatloaf & veggies)", 
 		 	"state": false, 
  		},
+		{
+			"item": "half and half", 
+		 	"state": false, 
+ 		},
+	 {
+		"item": "milk", 
+		 	"state": false, 
+ 		},
+	 {
+		"item": "walnuts", 
+		 	"state": false, 
+ 		}
 	]
 
 // CHANGE THIS
