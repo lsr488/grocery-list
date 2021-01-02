@@ -1,0 +1,15 @@
+{
+	"integrationFolder": "tests/integration",
+	"screenshotsFolder": "tests/screenshots",
+
+	"videosFolder": "tests/videos",
+	"videoUploadOnPasses": false,
+
+	"pluginsFile": "tests/plugins/index.js",
+	"supportFile": "tests/support/index.js",
+	"fixturesFolder": false,
+
+	"ignoreTestFiles": [
+		"**/examples/*.*"
+	]
+}

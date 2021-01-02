@@ -1,0 +1,22 @@
+{
+  "name": "grocery-list",
+  "version": "1.0.0",
+  "description": "",
+  "author": "lsr488",
+  "license": "ISC",
+  "private": true,
+  "homepage": "https://github.com/lsr488/grocery-list#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lsr488/grocery-list.git"
+  },
+  "main": "src/index.html",
+  "scripts": {
+    "test": "cypress run --browser electron --headless",
+    "test:view": "cypress open --browser electron"
+  },
+  "devDependencies": {
+    "@testing-library/cypress": "^7.0.3",
+    "cypress": "^6.2.0"
+  }
+}
