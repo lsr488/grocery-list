@@ -8,59 +8,64 @@ let math = JSON.parse(data.getItem("prices"));
 if(!math) {
 	math = [];
 	updateLocalStorage("prices", math);
-} else {
-	// displays price
-	math.forEach(price => {
-		const entry = document.createElement('li');
-		entry.textContent = `$${price.toFixed(2)}`;
-		prices.appendChild(entry);
-	});
+}
+
+priceButton.addEventListener('click', function(e) {
+	e.preventDefault();
+	addAdditionalPrice(priceInput.value);
+});
+
+displayPrices();
+addAndDisplaySumPrices();
+
+function addAdditionalPrice(price) {
+	math.push(priceInput.value);
 
 	priceInput.value = "";
+	
+	math = math.map(Number);
+	updateLocalStorage("prices", math);
 
-	// add prices together and display
+	window.location.reload();
+}
+
+function displayPrices() {
+	let priceId = 0;
+
+	// clears prices display so there aren't duplicate prices listed
+	prices.textContent = "";
+
+	// displays individual price
+	math.forEach(price => {
+		const entry = document.createElement('li');
+		entry.setAttribute("data-price-id", priceId);
+		entry.textContent = `$${price.toFixed(2)}`;
+		entry.classList.add("col1");
+
+		// create delete button
+		const deleteBtn = document.createElement('div');
+		deleteBtn.classList.add("col3");
+		deleteBtn.classList.add("btn");
+		deleteBtn.classList.add("delete");
+		deleteBtn.textContent = "X";
+		deleteBtn.addEventListener('click', function() {
+			deleteLocalStorageItem(math, entry.dataset.priceId);
+			updateLocalStorage("prices", math);
+			window.location.reload();
+		});
+
+		priceId++;
+
+		prices.appendChild(entry);
+		prices.appendChild(deleteBtn);
+	});
+}
+
+function addAndDisplaySumPrices() {
+	// add prices together and displays
 	if(math.length >= 1) {
 		const results = document.getElementById('results');
 		const sums = (accumulator, currentValue) => accumulator + currentValue;
 		results.textContent = `$${math.reduce(sums).toFixed(2)}`;
 	}
 }
-
-// input and display prices
-priceButton.addEventListener('click', function(e) {
-	e.preventDefault();
-
-	// input individual price
-	if(priceInput.value) {
-		math.push(priceInput.value);
-		math = math.map(Number);
-		data.setItem("prices", JSON.stringify(math));
-
-		// clears prices display so there aren't duplicate prices listed
-		prices.textContent = "";
-
-		// displays price
-		math.forEach(price => {
-			const entry = document.createElement('li');
-			entry.textContent = `$${price.toFixed(2)}`;
-			prices.appendChild(entry);
-			priceInput.value = "";
-		});
-
-		// add prices together and display
-		const results = document.getElementById('results');
-		const sums = (accumulator, currentValue) => accumulator + currentValue;
-		results.textContent = `$${math.reduce(sums).toFixed(2)}`;
-	}
-});
-
-const itemInput = document.getElementById('item');
-const itemButton = document.getElementById('item-button');
-const newItems = document.getElementById('new-item');
-
-// display new items in UI on click
-itemButton.addEventListener('click', function(e) {
-	e.preventDefault();
-	addAdditionalItem(itemInput.value);
-	itemInput.value = '';
-});

@@ -8,8 +8,16 @@ if(!items) {
 	updateLocalStorage("items", items);
 }
 
-// adds each grocery item to a bulleted list
-displayGroceryItems(items);
+const itemInput = document.getElementById('item');
+const itemButton = document.getElementById('item-button');
+const newItems = document.getElementById('new-item');
+
+// display new items in UI on click
+itemButton.addEventListener('click', function(e) {
+	e.preventDefault();
+	addAdditionalItem(itemInput.value);
+	itemInput.value = '';
+});
 
 // input and display additional items
 function addAdditionalItem(item) {
@@ -17,6 +25,9 @@ function addAdditionalItem(item) {
 	updateLocalStorage("items", items);
 	window.location.reload();
 }
+
+// adds each grocery item to a bulleted list
+displayGroceryItems(items);
 
 // adds items to UI
 function displayGroceryItems(items) {
