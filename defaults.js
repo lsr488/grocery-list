@@ -17,8 +17,8 @@ const defaultItems = [
 // CHANGE THIS
 const defaultRecipes = [
 		{ 
-			"url": "", 
-			"name": "", 
+			"url": "#", 
+			"name": "Delicious Recipe", 
 			"notes": "",  
 		},
 ]
