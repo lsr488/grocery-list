@@ -2,9 +2,7 @@ import { page } from '../support/groceryListPage';
 
 describe('Grocery List', () => {
   beforeEach(() => {
-		page.reset();
-    cy.visit('src/index.html');
-		cy.intercept('/src/index.html').as('pageReload');
+    page.visit('src/index.html');
   })
 
 	context('an item', () => {
