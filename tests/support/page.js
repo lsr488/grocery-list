@@ -31,7 +31,7 @@ class Page {
 	cypressAliasCreators = {
 		_textToAlias: function(text) {
 			return text.substring(0, 1).toLowerCase() +
-						 text.substring(1).replace(/[^a-z]/ig, '');
+			       text.substring(1).replace(/[^a-z]/ig, '');
 		},
 
 		_get: function(alias) {

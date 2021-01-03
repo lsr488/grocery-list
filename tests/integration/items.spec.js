@@ -1,9 +1,9 @@
 import { page } from '../support/groceryListPage';
 
 describe('Grocery List', () => {
-  beforeEach(() => {
-    page.visit('src/index.html');
-  })
+	beforeEach(() => {
+		page.visit('src/index.html');
+	})
 
 	context('an item', () => {
 		it('can be marked as purchased by tapping its name', () => {
@@ -25,7 +25,7 @@ describe('Grocery List', () => {
 
 			page.item
 				.should('have.attr', 'contenteditable', 'true')
-			  .type('{selectall}{backspace}')
+				.type('{selectall}{backspace}')
 				.type(editedName);
 
 			page.saveButton.click();
