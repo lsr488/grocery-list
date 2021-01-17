@@ -71,8 +71,8 @@ function displayGroceryItems(items) {
 		itemId+= 1;
 
 		form.appendChild(newGrocery);
-		form.appendChild(editBtn);
 		form.appendChild(deleteBtn);
+		form.appendChild(editBtn);
 		form.appendChild(saveBtn);
 
 		// adds strikethrough if already checked
