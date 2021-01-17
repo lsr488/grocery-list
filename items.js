@@ -34,6 +34,7 @@ function displayGroceryItems(items) {
 	let itemId = 0;
 
 	items.forEach(item => {
+		// create grocery item name
 		const newGrocery = document.createElement('li');
 		newGrocery.setAttribute("id", itemId);
 		newGrocery.classList.add("col1");
@@ -41,7 +42,7 @@ function displayGroceryItems(items) {
 
 		// create delete button
 		const deleteBtn = document.createElement('div');
-		deleteBtn.classList.add("col3");
+		deleteBtn.classList.add("col2");
 		deleteBtn.classList.add("btn");
 		deleteBtn.classList.add("delete");
 		deleteBtn.setAttribute('data-id', itemId);
@@ -50,7 +51,7 @@ function displayGroceryItems(items) {
 
 		// create edit button
 		const editBtn = document.createElement('div');
-		editBtn.classList.add("col2");
+		editBtn.classList.add("col3");
 		editBtn.classList.add("btn");
 		editBtn.classList.add("edit");
 		editBtn.setAttribute('data-id', itemId);
