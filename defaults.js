@@ -1,7 +1,7 @@
 // CHANGE THIS
 const defaultItems = [
   {
-    "item": "eggs", 
+    "item": "half & half", 
     "state": false, 
   },
   {
@@ -9,35 +9,31 @@ const defaultItems = [
     "state": false, 
   },
   {
-    "item": "brown sugar", 
-    "state": false, 
-  },
-  {
     "item": "regular sugar", 
     "state": false, 
   },
   {
-    "item": "1 lb chicken breasts (bourbon chicken)", 
+    "item": "1 lb yukon gold potatoes (meatloaf)", 
     "state": false, 
   },
   {
-    "item": "apple cider vinegar (bourbon chicken)", 
+    "item": "1 onion (meatloaf)", 
     "state": false, 
   },
   {
-    "item": "1 carrot (bourbon chicken)", 
+    "item": "2 head broccoli (meatloaf)", 
     "state": false, 
   },
   {
-    "item": "1 red bell pepper (bourbon chicken)", 
+    "item": "milk (meatloaf)", 
     "state": false, 
   },
   {
-    "item": "frozen peas (bourbon chicken)", 
+    "item": "3 jalapeños (meatloaf)", 
     "state": false, 
   },
   {
-    "item": "sour cream (beef stroganoff)", 
+    "item": "6 clementines", 
     "state": false, 
   },
 ]
@@ -50,8 +46,8 @@ const defaultRecipes = [
     "notes": "",  
   },
   { 
-    "url": "https://www.budgetbytes.com/one-pot-beef-mushroom-stroganoff/", 
-    "name": "One Pot Beef Stroganoff", 
-    "notes": "",  
+    "url": "https://wwlprogram.com/#/recipes/147", 
+    "name": "Moatloaf Cups & Mashed Potatoes", 
+    "notes": "cook in casserole dish instead of muffin pan; add jalapenos to potatoes",  
   },
 ]
