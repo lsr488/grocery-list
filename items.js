@@ -1,131 +1,138 @@
-// initialize elements 
-const form = document.getElementById('form');
-let items = JSON.parse(data.getItem("items"));
+import Data from './localstorage.js';
 
-// checks if localStorage exists, creates from default array if not, or updates from localStorage if it does
-if(!items) {
-	items = defaultItems;
-	updateLocalStorage("items", items);
+export default class Items {
+	// initialize elements 
+	constructor(items) {
+		this.items = items;
+	}
+
+	// checks if localStorage exists, creates from default array if not, or updates from localStorage if it does
+	updateFromLocalStorage(data) {
+		if(!this.items) {
+			this.items = defaultItems;
+			data.updateLocalStorage("items", this.items);
+		}		
+	}
 }
 
-const itemInput = document.getElementById('item');
-const itemButton = document.getElementById('item-button');
-const newItems = document.getElementById('new-item');
 
-// display new items in UI on click
-itemButton.addEventListener('click', function(e) {
-	e.preventDefault();
-	addAdditionalItem(itemInput.value);
-	itemInput.value = '';
-});
 
-// input and display additional items
-function addAdditionalItem(item) {
-	items.push({"item": item, "state": false,});
-	updateLocalStorage("items", items);
-	window.location.reload();
-}
 
-// adds each grocery item to a bulleted list
-displayGroceryItems(items);
 
-// adds items to UI
-function displayGroceryItems(items) {
-	let itemId = 0;
+// // display new items in UI on click
+// itemButton.addEventListener('click', function(e) {
+// 	e.preventDefault();
+// 	addAdditionalItem(itemInput.value);
+// 	itemInput.value = '';
+// });
 
-	items.forEach(item => {
-		// create grocery item name
-		const newGrocery = document.createElement('li');
-		newGrocery.setAttribute("id", itemId);
-		newGrocery.classList.add("col1");
-		newGrocery.textContent = item.item;
+// // input and display additional items
+// function addAdditionalItem(item) {
+// 	items.push({"item": item, "state": false,});
+// 	updateLocalStorage("items", items);
+// 	window.location.reload();
+// }
 
-		// create delete button
-		const deleteBtn = document.createElement('div');
-		deleteBtn.classList.add("col2");
-		deleteBtn.classList.add("btn");
-		deleteBtn.classList.add("delete");
-		deleteBtn.setAttribute('data-id', itemId);
-		deleteBtn.textContent = "X";
-		deleteBtn.addEventListener('click', deleteBtnClicked)
+// // adds each grocery item to a bulleted list
+// displayGroceryItems(items);
 
-		// create edit button
-		const editBtn = document.createElement('div');
-		editBtn.classList.add("col3");
-		editBtn.classList.add("btn");
-		editBtn.classList.add("edit");
-		editBtn.setAttribute('data-id', itemId);
-		editBtn.textContent = "E";
-		editBtn.addEventListener('click', editBtnClicked);
+// // adds items to UI
+// function displayGroceryItems(items) {
+// 	let itemId = 0;
 
-		// create save button
-		const saveBtn = document.createElement('div');
-		saveBtn.classList.add("col4");
-		saveBtn.classList.add("btn");
-		saveBtn.classList.add("save");
-		saveBtn.setAttribute('data-id', itemId);
-		saveBtn.classList.add("hidden");
-		saveBtn.textContent = "S";
-		saveBtn.addEventListener('click', saveBtnClicked);
+// 	items.forEach(item => {
+// 		// create grocery item name
+// 		const newGrocery = document.createElement('li');
+// 		newGrocery.setAttribute("id", itemId);
+// 		newGrocery.classList.add("col1");
+// 		newGrocery.textContent = item.item;
 
-		itemId+= 1;
+// 		// create delete button
+// 		const deleteBtn = document.createElement('div');
+// 		deleteBtn.classList.add("col2");
+// 		deleteBtn.classList.add("btn");
+// 		deleteBtn.classList.add("delete");
+// 		deleteBtn.setAttribute('data-id', itemId);
+// 		deleteBtn.textContent = "X";
+// 		deleteBtn.addEventListener('click', deleteBtnClicked)
 
-		form.appendChild(newGrocery);
-		form.appendChild(deleteBtn);
-		form.appendChild(editBtn);
-		form.appendChild(saveBtn);
+// 		// create edit button
+// 		const editBtn = document.createElement('div');
+// 		editBtn.classList.add("col3");
+// 		editBtn.classList.add("btn");
+// 		editBtn.classList.add("edit");
+// 		editBtn.setAttribute('data-id', itemId);
+// 		editBtn.textContent = "E";
+// 		editBtn.addEventListener('click', editBtnClicked);
 
-		// adds strikethrough if already checked
-		if(item.state === true) {
-			newGrocery.classList.add("checked");
-		}
+// 		// create save button
+// 		const saveBtn = document.createElement('div');
+// 		saveBtn.classList.add("col4");
+// 		saveBtn.classList.add("btn");
+// 		saveBtn.classList.add("save");
+// 		saveBtn.setAttribute('data-id', itemId);
+// 		saveBtn.classList.add("hidden");
+// 		saveBtn.textContent = "S";
+// 		saveBtn.addEventListener('click', saveBtnClicked);
 
-		// toggles strikethrough on repeat clicks
-		newGrocery.addEventListener('click', toggleStrikethrough);
+// 		itemId+= 1;
 
-		// EVENT LISTENER FUNCTIONS BELOW
-		// I think they need to be inside the forEach loop for proper scoping to remove (and add back) the toggleStrikethrough event listener.
-		function toggleStrikethrough(e) {
-			newGrocery.classList.toggle("checked");
-			if(items[newGrocery.id].state === true) {
-				items[newGrocery.id].state = false;
-				updateLocalStorage("items", items);
-			} else {
-				items[newGrocery.id].state = true;
-				updateLocalStorage("items", items);
-			}
-		}
+// 		form.appendChild(newGrocery);
+// 		form.appendChild(deleteBtn);
+// 		form.appendChild(editBtn);
+// 		form.appendChild(saveBtn);
 
-		function editBtnClicked(e) {
-			newGrocery.removeEventListener('click', toggleStrikethrough);
-			newGrocery.setAttribute("contenteditable", true);
+// 		// adds strikethrough if already checked
+// 		if(item.state === true) {
+// 			newGrocery.classList.add("checked");
+// 		}
 
-			saveBtn.classList.remove("hidden");
-			deleteBtn.classList.add("hidden");
-			editBtn.classList.add("hidden");
-		}
+// 		// toggles strikethrough on repeat clicks
+// 		newGrocery.addEventListener('click', toggleStrikethrough);
 
-		function saveBtnClicked(e) {
-			newGrocery.setAttribute("contenteditable", false);
-			newGrocery.addEventListener('click', toggleStrikethrough);
+// 		// EVENT LISTENER FUNCTIONS BELOW
+// 		// I think they need to be inside the forEach loop for proper scoping to remove (and add back) the toggleStrikethrough event listener.
+// 		function toggleStrikethrough(e) {
+// 			newGrocery.classList.toggle("checked");
+// 			if(items[newGrocery.id].state === true) {
+// 				items[newGrocery.id].state = false;
+// 				updateLocalStorage("items", items);
+// 			} else {
+// 				items[newGrocery.id].state = true;
+// 				updateLocalStorage("items", items);
+// 			}
+// 		}
 
-			items[newGrocery.id].item = newGrocery.textContent;
+// 		function editBtnClicked(e) {
+// 			newGrocery.removeEventListener('click', toggleStrikethrough);
+// 			newGrocery.setAttribute("contenteditable", true);
 
-			updateLocalStorage("items", items);
+// 			saveBtn.classList.remove("hidden");
+// 			deleteBtn.classList.add("hidden");
+// 			editBtn.classList.add("hidden");
+// 		}
 
-			saveBtn.classList.add("hidden");
-			deleteBtn.classList.remove("hidden");
-			editBtn.classList.remove("hidden");
-		}
+// 		function saveBtnClicked(e) {
+// 			newGrocery.setAttribute("contenteditable", false);
+// 			newGrocery.addEventListener('click', toggleStrikethrough);
 
-		function deleteBtnClicked(e) {
-			console.log('Delete Button Clicked');
+// 			items[newGrocery.id].item = newGrocery.textContent;
 
-			deleteLocalStorageItem(items, newGrocery.id);
-			updateLocalStorage("items", items);
+// 			updateLocalStorage("items", items);
 
-			window.location.reload();
-		}
+// 			saveBtn.classList.add("hidden");
+// 			deleteBtn.classList.remove("hidden");
+// 			editBtn.classList.remove("hidden");
+// 		}
 
-	});
-}
+// 		function deleteBtnClicked(e) {
+// 			console.log('Delete Button Clicked');
+
+// 			deleteLocalStorageItem(items, newGrocery.id);
+// 			updateLocalStorage("items", items);
+
+// 			window.location.reload();
+// 		}
+
+// 	});
+// }
