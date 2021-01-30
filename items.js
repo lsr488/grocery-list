@@ -1,16 +1,15 @@
 // initialize elements 
 const form = document.getElementById('form');
 let items = JSON.parse(data.getItem("items"));
+const itemInput = document.getElementById('item');
+const itemButton = document.getElementById('item-button');
+const newItems = document.getElementById('new-item');
 
 // checks if localStorage exists, creates from default array if not, or updates from localStorage if it does
 if(!items) {
 	items = defaultItems;
 	updateLocalStorage("items", items);
 }
-
-const itemInput = document.getElementById('item');
-const itemButton = document.getElementById('item-button');
-const newItems = document.getElementById('new-item');
 
 // display new items in UI on click
 itemButton.addEventListener('click', function(e) {
@@ -19,6 +18,9 @@ itemButton.addEventListener('click', function(e) {
 	itemInput.value = '';
 });
 
+// adds each grocery item to a bulleted list
+displayGroceryItems(items);
+
 // input and display additional items
 function addAdditionalItem(item) {
 	items.push({"item": item, "state": false,});
@@ -26,10 +28,7 @@ function addAdditionalItem(item) {
 	window.location.reload();
 }
 
-// adds each grocery item to a bulleted list
-displayGroceryItems(items);
-
-// adds items to UI
+// adds items to bulleted list
 function displayGroceryItems(items) {
 	let itemId = 0;
 
@@ -48,17 +47,16 @@ function displayGroceryItems(items) {
 
 		itemId+= 1;
 
-		form.appendChild(newGrocery);
-		form.appendChild(deleteButton);
-		form.appendChild(editButton);
-		form.appendChild(saveButton);
-
 		// adds strikethrough if already checked
 		if(item.state === true) {
 			newGrocery.classList.add("checked");
 		}
 
-		// toggles strikethrough on repeat clicks
+		form.appendChild(newGrocery);
+		form.appendChild(deleteButton);
+		form.appendChild(editButton);
+		form.appendChild(saveButton);
+
 		newGrocery.addEventListener('click', toggleStrikethrough);
 		editButton.addEventListener('click', editBtnClicked);
 		saveButton.addEventListener('click', saveBtnClicked);
@@ -66,22 +64,22 @@ function displayGroceryItems(items) {
 	});
 }
 
-// function initializeButtons(nameButton, nameClass) {
-// 	nameButton = document.getElementsByClassName(nameClass);
-// }
-
 // EVENT LISTENER FUNCTIONS BELOW
-		// I think they need to be inside the forEach loop for proper scoping to remove (and add back) the toggleStrikethrough event listener.
 function toggleStrikethrough(e) {
 	let item = e.target;
-	console.log("grocery item:", item);
 	item.classList.toggle('checked');
 
-	if(items[item.id].state === true) {
-		items[item.id].state = false;
+	updateItemState(item.id);
+}
+
+function updateItemState(itemId) {
+	console.log(itemId);
+	console.log(items[itemId]);
+	if(items[itemId].state === true) {
+		items[itemId].state = false;
 		updateLocalStorage("items", items);
 	}	else {
-		items[item.id].state = true;
+		items[itemId].state = true;
 		updateLocalStorage("items", items);
 	}
 }
@@ -94,6 +92,8 @@ function editBtnClicked(e) {
 	item.removeEventListener('click', toggleStrikethrough);
 	item.classList.remove('checked');
 	item.setAttribute("contenteditable", true);
+
+	updateItemState(_id);
 
 	let saves = document.getElementsByClassName('save');
 	let deletes = document.getElementsByClassName('delete');
@@ -108,13 +108,12 @@ function saveBtnClicked(e) {
 	let _id = e.target.dataset.id;
 	let item = document.getElementById(_id);
 
-// debugger
 	item.setAttribute("contenteditable", false);
 	item.addEventListener('click', toggleStrikethrough);
 	
 	items[item.id].item = item.textContent;
 
-	updateLocalStorage("items", items);
+	updateItemState(_id);
 
 	let deletes = document.getElementsByClassName('delete');
 	let edits = document.getElementsByClassName('edit');
@@ -142,6 +141,5 @@ function createButton(elementType, column, type, name, itemId) {
 	button.classList.add(type);
 	button.textContent = name;	
 	button.setAttribute('data-id', itemId);
-	// button.addEventListener('click', eventListener);
 	return button;
 }
