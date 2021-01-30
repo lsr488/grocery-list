@@ -89,19 +89,14 @@ function toggleStrikethrough(e) {
 function editBtnClicked(e) {
 	let button = e.target;
 	let _id = e.target.dataset.id;
-	console.log(button);
-	console.log(_id);
 	let item = document.getElementById(_id);
-	console.log(item);
-	 
+
 	item.removeEventListener('click', toggleStrikethrough);
 	item.classList.remove('checked');
 	item.setAttribute("contenteditable", true);
 
 	let saves = document.getElementsByClassName('save');
 	let deletes = document.getElementsByClassName('delete');
-	// console.log(saves);
-	// console.log(saves[_id]);
 
 	saves[_id].classList.remove("hidden");
 	deletes[_id].classList.add("hidden");
@@ -109,16 +104,23 @@ function editBtnClicked(e) {
 }
 
 function saveBtnClicked(e) {
-	newGrocery.setAttribute("contenteditable", false);
-	newGrocery.addEventListener('click', toggleStrikethrough);
+	let button = e.target;
+	let _id = e.target.dataset.id;
+	let item = document.getElementById(_id);
 
-	items[newGrocery.id].item = newGrocery.textContent;
+
+	item.setAttribute("contenteditable", false);
+	item.addEventListener('click', toggleStrikethrough);
+	items[item.id].item = item.textContent;
 
 	updateLocalStorage("items", items);
 
-	saveBtn.classList.add("hidden");
-	deleteBtn.classList.remove("hidden");
-	editBtn.classList.remove("hidden");
+	let deletes = document.getElementsByClassName('delete');
+	let edits = document.getElementsByClassName('edit');
+
+	button.classList.add("hidden");
+	deletes[_id].classList.remove("hidden");
+	edits[_id].classList.remove("hidden");
 }
 
 		function deleteBtnClicked(e) {
