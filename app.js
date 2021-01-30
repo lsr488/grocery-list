@@ -19,4 +19,3 @@ function updateLocalStorage(name, elements) {
 function deleteLocalStorageItem(array, index) {
 	array.splice(index, 1);
 }
-

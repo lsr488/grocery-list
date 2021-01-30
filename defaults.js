@@ -16,6 +16,11 @@ const defaultRecipes = [
     "url": "https://wwlprogram.com/#/recipes/561", 
     "name": "Winter Grain Bowl", 
     "notes": "rice instead of barley",  
-  }
+  },
+  { 
+    "url": "#", 
+    "name": "test recipe", 
+    "notes": "test notes",  
+  },
 ]
 
