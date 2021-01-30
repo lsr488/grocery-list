@@ -41,32 +41,14 @@ function displayGroceryItems(items) {
 		newGrocery.textContent = item.item;
 
 		// create delete button
-		const deleteBtn = document.createElement('div');
-		deleteBtn.classList.add("col2");
-		deleteBtn.classList.add("btn");
-		deleteBtn.classList.add("delete");
-		deleteBtn.setAttribute('data-id', itemId);
-		deleteBtn.textContent = "X";
-		deleteBtn.addEventListener('click', deleteBtnClicked)
+		const deleteBtn = createButton('div', 'col2', 'delete', 'X', itemId, deleteBtnClicked);
 
 		// create edit button
-		const editBtn = document.createElement('div');
-		editBtn.classList.add("col3");
-		editBtn.classList.add("btn");
-		editBtn.classList.add("edit");
-		editBtn.setAttribute('data-id', itemId);
-		editBtn.textContent = "E";
-		editBtn.addEventListener('click', editBtnClicked);
+		const editBtn = createButton('div', 'col3', 'edit', 'E', itemId, editBtnClicked);
 
 		// create save button
-		const saveBtn = document.createElement('div');
-		saveBtn.classList.add("col4");
-		saveBtn.classList.add("btn");
-		saveBtn.classList.add("save");
-		saveBtn.setAttribute('data-id', itemId);
+		const saveBtn = createButton('div', 'col4', 'save', 'S', itemId, saveBtnClicked);
 		saveBtn.classList.add("hidden");
-		saveBtn.textContent = "S";
-		saveBtn.addEventListener('click', saveBtnClicked);
 
 		itemId+= 1;
 
@@ -128,4 +110,15 @@ function displayGroceryItems(items) {
 		}
 
 	});
+}
+
+function createButton(elementType, column, type, name, itemId, eventListener) {
+	const button = document.createElement(elementType);
+	button.classList.add('btn');
+	button.classList.add(column);
+	button.classList.add(type);
+	button.textContent = name;	
+	button.setAttribute('data-id', itemId);
+	button.addEventListener('click', eventListener);
+	return button;
 }
