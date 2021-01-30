@@ -41,17 +41,17 @@ function displayGroceryItems(items) {
 		newGrocery.textContent = item.item;
 
 		// create buttons
-		const deleteBtn = createButton('div', 'col2', 'delete', 'X', itemId, deleteBtnClicked);
-		const editBtn = createButton('div', 'col3', 'edit', 'E', itemId, editBtnClicked);
-		const saveBtn = createButton('div', 'col4', 'save', 'S', itemId, saveBtnClicked);
-		saveBtn.classList.add("hidden");
+		let deleteButton = createButton('div', 'col2', 'delete', 'X', itemId, deleteBtnClicked);
+		let editButton = createButton('div', 'col3', 'edit', 'E', itemId, editBtnClicked);
+		let saveButton = createButton('div', 'col4', 'save', 'S', itemId, saveBtnClicked);
+		saveButton.classList.add("hidden");
 
 		itemId+= 1;
 
 		form.appendChild(newGrocery);
-		form.appendChild(deleteBtn);
-		form.appendChild(editBtn);
-		form.appendChild(saveBtn);
+		form.appendChild(deleteButton);
+		form.appendChild(editButton);
+		form.appendChild(saveButton);
 
 		// adds strikethrough if already checked
 		if(item.state === true) {
@@ -60,14 +60,22 @@ function displayGroceryItems(items) {
 
 		// toggles strikethrough on repeat clicks
 		newGrocery.addEventListener('click', toggleStrikethrough);
+		editButton.addEventListener('click', editBtnClicked);
+		saveButton.addEventListener('click', saveBtnClicked);
+
 	});
 }
+
+// function initializeButtons(nameButton, nameClass) {
+// 	nameButton = document.getElementsByClassName(nameClass);
+// }
 
 // EVENT LISTENER FUNCTIONS BELOW
 		// I think they need to be inside the forEach loop for proper scoping to remove (and add back) the toggleStrikethrough event listener.
 function toggleStrikethrough(e) {
 	let item = e.target;
-	item.classList.toggle("checked");
+	console.log("grocery item:", item);
+	item.classList.toggle('checked');
 
 	if(items[item.id].state === true) {
 		items[item.id].state = false;
@@ -78,27 +86,40 @@ function toggleStrikethrough(e) {
 	}
 }
 
-		function editBtnClicked(e) {
-			newGrocery.removeEventListener('click', toggleStrikethrough);
-			newGrocery.setAttribute("contenteditable", true);
+function editBtnClicked(e) {
+	let button = e.target;
+	let _id = e.target.dataset.id;
+	console.log(button);
+	console.log(_id);
+	let item = document.getElementById(_id);
+	console.log(item);
+	 
+	item.removeEventListener('click', toggleStrikethrough);
+	item.classList.remove('checked');
+	item.setAttribute("contenteditable", true);
 
-			saveBtn.classList.remove("hidden");
-			deleteBtn.classList.add("hidden");
-			editBtn.classList.add("hidden");
-		}
+	let saves = document.getElementsByClassName('save');
+	let deletes = document.getElementsByClassName('delete');
+	// console.log(saves);
+	// console.log(saves[_id]);
 
-		function saveBtnClicked(e) {
-			newGrocery.setAttribute("contenteditable", false);
-			newGrocery.addEventListener('click', toggleStrikethrough);
+	saves[_id].classList.remove("hidden");
+	deletes[_id].classList.add("hidden");
+	button.classList.add("hidden");
+}
 
-			items[newGrocery.id].item = newGrocery.textContent;
+function saveBtnClicked(e) {
+	newGrocery.setAttribute("contenteditable", false);
+	newGrocery.addEventListener('click', toggleStrikethrough);
 
-			updateLocalStorage("items", items);
+	items[newGrocery.id].item = newGrocery.textContent;
 
-			saveBtn.classList.add("hidden");
-			deleteBtn.classList.remove("hidden");
-			editBtn.classList.remove("hidden");
-		}
+	updateLocalStorage("items", items);
+
+	saveBtn.classList.add("hidden");
+	deleteBtn.classList.remove("hidden");
+	editBtn.classList.remove("hidden");
+}
 
 		function deleteBtnClicked(e) {
 			console.log('Delete Button Clicked');
@@ -109,13 +130,13 @@ function toggleStrikethrough(e) {
 			window.location.reload();
 		}
 
-function createButton(elementType, column, type, name, itemId, eventListener) {
+function createButton(elementType, column, type, name, itemId) {
 	const button = document.createElement(elementType);
 	button.classList.add('btn');
 	button.classList.add(column);
 	button.classList.add(type);
 	button.textContent = name;	
 	button.setAttribute('data-id', itemId);
-	button.addEventListener('click', eventListener);
+	// button.addEventListener('click', eventListener);
 	return button;
 }
