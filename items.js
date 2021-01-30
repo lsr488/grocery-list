@@ -40,13 +40,9 @@ function displayGroceryItems(items) {
 		newGrocery.classList.add("col1");
 		newGrocery.textContent = item.item;
 
-		// create delete button
+		// create buttons
 		const deleteBtn = createButton('div', 'col2', 'delete', 'X', itemId, deleteBtnClicked);
-
-		// create edit button
 		const editBtn = createButton('div', 'col3', 'edit', 'E', itemId, editBtnClicked);
-
-		// create save button
 		const saveBtn = createButton('div', 'col4', 'save', 'S', itemId, saveBtnClicked);
 		saveBtn.classList.add("hidden");
 
@@ -64,19 +60,23 @@ function displayGroceryItems(items) {
 
 		// toggles strikethrough on repeat clicks
 		newGrocery.addEventListener('click', toggleStrikethrough);
+	});
+}
 
-		// EVENT LISTENER FUNCTIONS BELOW
+// EVENT LISTENER FUNCTIONS BELOW
 		// I think they need to be inside the forEach loop for proper scoping to remove (and add back) the toggleStrikethrough event listener.
-		function toggleStrikethrough(e) {
-			newGrocery.classList.toggle("checked");
-			if(items[newGrocery.id].state === true) {
-				items[newGrocery.id].state = false;
-				updateLocalStorage("items", items);
-			} else {
-				items[newGrocery.id].state = true;
-				updateLocalStorage("items", items);
-			}
-		}
+function toggleStrikethrough(e) {
+	let item = e.target;
+	item.classList.toggle("checked");
+
+	if(items[item.id].state === true) {
+		items[item.id].state = false;
+		updateLocalStorage("items", items);
+	}	else {
+		items[item.id].state = true;
+		updateLocalStorage("items", items);
+	}
+}
 
 		function editBtnClicked(e) {
 			newGrocery.removeEventListener('click', toggleStrikethrough);
@@ -108,9 +108,6 @@ function displayGroceryItems(items) {
 
 			window.location.reload();
 		}
-
-	});
-}
 
 function createButton(elementType, column, type, name, itemId, eventListener) {
 	const button = document.createElement(elementType);
