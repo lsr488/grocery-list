@@ -62,7 +62,7 @@ function displayGroceryItems(items) {
 		newGrocery.addEventListener('click', toggleStrikethrough);
 		editButton.addEventListener('click', editBtnClicked);
 		saveButton.addEventListener('click', saveBtnClicked);
-
+		deleteButton.addEventListener('click', deleteBtnClicked);
 	});
 }
 
@@ -108,9 +108,10 @@ function saveBtnClicked(e) {
 	let _id = e.target.dataset.id;
 	let item = document.getElementById(_id);
 
-
+// debugger
 	item.setAttribute("contenteditable", false);
 	item.addEventListener('click', toggleStrikethrough);
+	
 	items[item.id].item = item.textContent;
 
 	updateLocalStorage("items", items);
@@ -123,14 +124,16 @@ function saveBtnClicked(e) {
 	edits[_id].classList.remove("hidden");
 }
 
-		function deleteBtnClicked(e) {
-			console.log('Delete Button Clicked');
+function deleteBtnClicked(e) {
+	let button = e.target;
+	let _id = e.target.dataset.id;
+	let item = document.getElementById(_id);
 
-			deleteLocalStorageItem(items, newGrocery.id);
-			updateLocalStorage("items", items);
+	deleteLocalStorageItem(items, item.id);
+	updateLocalStorage("items", items);
 
-			window.location.reload();
-		}
+	window.location.reload();
+}
 
 function createButton(elementType, column, type, name, itemId) {
 	const button = document.createElement(elementType);
