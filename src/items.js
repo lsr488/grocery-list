@@ -5,6 +5,35 @@ const itemInput = document.getElementById('item');
 const itemButton = document.getElementById('item-button');
 const newItems = document.getElementById('new-item');
 
+class Button {
+	constructor(elementType, column, type, name, itemId) {
+		this.elementType = elementType;
+		this.column = column;
+		this.type = type;
+		this.name = name;
+		this.itemId = itemId;
+		this.element = this.createElement();
+		this.element.addEventListener('click', saveBtnClicked);
+	}
+
+	createElement() {
+		const button = document.createElement(this.elementType);
+		button.classList.add('btn');
+		button.classList.add(this.column);
+		button.classList.add(this.type);
+		button.textContent = this.name;	
+		button.setAttribute('data-id', this.itemId);
+		return button;		
+	}
+
+	hide() {
+		this.element.classList.add("hidden");
+		return this.element;
+	}
+
+
+}
+
 // checks if localStorage exists, creates from default array if not, or updates from localStorage if it does
 if(!items) {
 	items = defaultItems;
@@ -42,8 +71,9 @@ function displayGroceryItems(items) {
 		// create buttons
 		let deleteButton = createButton('div', 'col2', 'delete', 'X', itemId, deleteBtnClicked);
 		let editButton = createButton('div', 'col3', 'edit', 'E', itemId, editBtnClicked);
-		let saveButton = createButton('div', 'col4', 'save', 'S', itemId, saveBtnClicked);
-		saveButton.classList.add("hidden");
+		// let saveButton = createButton('div', 'col4', 'save', 'S', itemId, saveBtnClicked);
+		let saveButtonObj = new Button('div', 'col4', 'save', 'S', itemId, saveBtnClicked);
+		saveButtonObj.hide()
 
 		itemId+= 1;
 
@@ -55,11 +85,11 @@ function displayGroceryItems(items) {
 		form.appendChild(newGrocery);
 		form.appendChild(deleteButton);
 		form.appendChild(editButton);
-		form.appendChild(saveButton);
+		form.appendChild(saveButtonObj.element);
 
 		newGrocery.addEventListener('click', toggleStrikethrough);
 		editButton.addEventListener('click', editBtnClicked);
-		saveButton.addEventListener('click', saveBtnClicked);
+		//saveButton.addEventListener('click', saveBtnClicked);
 		deleteButton.addEventListener('click', deleteBtnClicked);
 	});
 }
@@ -73,8 +103,8 @@ function toggleStrikethrough(e) {
 }
 
 function updateItemState(itemId) {
-	console.log(itemId);
-	console.log(items[itemId]);
+	// console.log(itemId);
+	// console.log(items[itemId]);
 	if(items[itemId].state === true) {
 		items[itemId].state = false;
 		updateLocalStorage("items", items);
