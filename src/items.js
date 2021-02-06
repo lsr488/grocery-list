@@ -1,16 +1,15 @@
 // initialize elements 
 const form = document.getElementById('form');
 let items = JSON.parse(data.getItem("items"));
+const itemInput = document.getElementById('item');
+const itemButton = document.getElementById('item-button');
+const newItems = document.getElementById('new-item');
 
 // checks if localStorage exists, creates from default array if not, or updates from localStorage if it does
 if(!items) {
 	items = defaultItems;
 	updateLocalStorage("items", items);
 }
-
-const itemInput = document.getElementById('item');
-const itemButton = document.getElementById('item-button');
-const newItems = document.getElementById('new-item');
 
 // display new items in UI on click
 itemButton.addEventListener('click', function(e) {
@@ -19,6 +18,9 @@ itemButton.addEventListener('click', function(e) {
 	itemInput.value = '';
 });
 
+// adds each grocery item to a bulleted list
+displayGroceryItems(items);
+
 // input and display additional items
 function addAdditionalItem(item) {
 	items.push({"item": item, "state": false,});
@@ -26,105 +28,118 @@ function addAdditionalItem(item) {
 	window.location.reload();
 }
 
-// adds each grocery item to a bulleted list
-displayGroceryItems(items);
-
-// adds items to UI
+// adds items to bulleted list
 function displayGroceryItems(items) {
 	let itemId = 0;
 
 	items.forEach(item => {
+		// create grocery item name
 		const newGrocery = document.createElement('li');
 		newGrocery.setAttribute("id", itemId);
 		newGrocery.classList.add("col1");
 		newGrocery.textContent = item.item;
 
-		// create delete button
-		const deleteBtn = document.createElement('div');
-		deleteBtn.classList.add("col3");
-		deleteBtn.classList.add("btn");
-		deleteBtn.classList.add("delete");
-		deleteBtn.setAttribute('data-id', itemId);
-		deleteBtn.textContent = "X";
-		deleteBtn.addEventListener('click', deleteBtnClicked)
-
-		// create edit button
-		const editBtn = document.createElement('div');
-		editBtn.classList.add("col2");
-		editBtn.classList.add("btn");
-		editBtn.classList.add("edit");
-		editBtn.setAttribute('data-id', itemId);
-		editBtn.textContent = "E";
-		editBtn.addEventListener('click', editBtnClicked);
-
-		// create save button
-		const saveBtn = document.createElement('div');
-		saveBtn.classList.add("col4");
-		saveBtn.classList.add("btn");
-		saveBtn.classList.add("save");
-		saveBtn.setAttribute('data-id', itemId);
-		saveBtn.classList.add("hidden");
-		saveBtn.textContent = "S";
-		saveBtn.addEventListener('click', saveBtnClicked);
+		// create buttons
+		let deleteButton = createButton('div', 'col2', 'delete', 'X', itemId, deleteBtnClicked);
+		let editButton = createButton('div', 'col3', 'edit', 'E', itemId, editBtnClicked);
+		let saveButton = createButton('div', 'col4', 'save', 'S', itemId, saveBtnClicked);
+		saveButton.classList.add("hidden");
 
 		itemId+= 1;
-
-		form.appendChild(newGrocery);
-		form.appendChild(editBtn);
-		form.appendChild(deleteBtn);
-		form.appendChild(saveBtn);
 
 		// adds strikethrough if already checked
 		if(item.state === true) {
 			newGrocery.classList.add("checked");
 		}
 
-		// toggles strikethrough on repeat clicks
+		form.appendChild(newGrocery);
+		form.appendChild(deleteButton);
+		form.appendChild(editButton);
+		form.appendChild(saveButton);
+
 		newGrocery.addEventListener('click', toggleStrikethrough);
-
-		// EVENT LISTENER FUNCTIONS BELOW
-		// I think they need to be inside the forEach loop for proper scoping to remove (and add back) the toggleStrikethrough event listener.
-		function toggleStrikethrough(e) {
-			newGrocery.classList.toggle("checked");
-			if(items[newGrocery.id].state === true) {
-				items[newGrocery.id].state = false;
-				updateLocalStorage("items", items);
-			} else {
-				items[newGrocery.id].state = true;
-				updateLocalStorage("items", items);
-			}
-		}
-
-		function editBtnClicked(e) {
-			newGrocery.removeEventListener('click', toggleStrikethrough);
-			newGrocery.setAttribute("contenteditable", true);
-
-			saveBtn.classList.remove("hidden");
-			deleteBtn.classList.add("hidden");
-			editBtn.classList.add("hidden");
-		}
-
-		function saveBtnClicked(e) {
-			newGrocery.setAttribute("contenteditable", false);
-			newGrocery.addEventListener('click', toggleStrikethrough);
-
-			items[newGrocery.id].item = newGrocery.textContent;
-
-			updateLocalStorage("items", items);
-
-			saveBtn.classList.add("hidden");
-			deleteBtn.classList.remove("hidden");
-			editBtn.classList.remove("hidden");
-		}
-
-		function deleteBtnClicked(e) {
-			console.log('Delete Button Clicked');
-
-			deleteLocalStorageItem(items, newGrocery.id);
-			updateLocalStorage("items", items);
-
-			window.location.reload();
-		}
-
+		editButton.addEventListener('click', editBtnClicked);
+		saveButton.addEventListener('click', saveBtnClicked);
+		deleteButton.addEventListener('click', deleteBtnClicked);
 	});
+}
+
+// EVENT LISTENER FUNCTIONS BELOW
+function toggleStrikethrough(e) {
+	let item = e.target;
+	item.classList.toggle('checked');
+
+	updateItemState(item.id);
+}
+
+function updateItemState(itemId) {
+	console.log(itemId);
+	console.log(items[itemId]);
+	if(items[itemId].state === true) {
+		items[itemId].state = false;
+		updateLocalStorage("items", items);
+	}	else {
+		items[itemId].state = true;
+		updateLocalStorage("items", items);
+	}
+}
+
+function editBtnClicked(e) {
+	let button = e.target;
+	let _id = e.target.dataset.id;
+	let item = document.getElementById(_id);
+
+	item.removeEventListener('click', toggleStrikethrough);
+	item.classList.remove('checked');
+	item.setAttribute("contenteditable", true);
+
+	updateItemState(_id);
+
+	let saves = document.getElementsByClassName('save');
+	let deletes = document.getElementsByClassName('delete');
+
+	saves[_id].classList.remove("hidden");
+	deletes[_id].classList.add("hidden");
+	button.classList.add("hidden");
+}
+
+function saveBtnClicked(e) {
+	let button = e.target;
+	let _id = e.target.dataset.id;
+	let item = document.getElementById(_id);
+
+	item.setAttribute("contenteditable", false);
+	item.addEventListener('click', toggleStrikethrough);
+	
+	items[item.id].item = item.textContent;
+
+	updateItemState(_id);
+
+	let deletes = document.getElementsByClassName('delete');
+	let edits = document.getElementsByClassName('edit');
+
+	button.classList.add("hidden");
+	deletes[_id].classList.remove("hidden");
+	edits[_id].classList.remove("hidden");
+}
+
+function deleteBtnClicked(e) {
+	let button = e.target;
+	let _id = e.target.dataset.id;
+	let item = document.getElementById(_id);
+
+	deleteLocalStorageItem(items, item.id);
+	updateLocalStorage("items", items);
+
+	window.location.reload();
+}
+
+function createButton(elementType, column, type, name, itemId) {
+	const button = document.createElement(elementType);
+	button.classList.add('btn');
+	button.classList.add(column);
+	button.classList.add(type);
+	button.textContent = name;	
+	button.setAttribute('data-id', itemId);
+	return button;
 }
