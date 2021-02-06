@@ -1,83 +1,65 @@
-// 01-30-2021 07:22
+// 02-05-2021 08:30
 // ITEM OUTPUT:
 const defaultItems = [
   {
-    "item": "regular sugar", 
+    "item": "milk", 
     "state": false, 
   },
   {
-    "item": "brussel sprouts (sheet pan)", 
+    "item": "maple syrup", 
     "state": false, 
   },
   {
-    "item": "sweet potatoes (sheet pan)", 
+    "item": "vanilla extract", 
     "state": false, 
   },
   {
-    "item": "butter", 
+    "item": "cocoa powder", 
     "state": false, 
   },
   {
-    "item": "zucchini (muffins)", 
+    "item": "buttermilk?", 
     "state": false, 
   },
   {
-    "item": "chocolate chips (2 bags)", 
+    "item": "yellow onion ", 
     "state": false, 
   },
   {
-    "item": "mini marshmallows (rocky road)", 
+    "item": "8 oz baby Bella mushrooms ", 
     "state": false, 
   },
   {
-    "item": "peanuts (rocky road)", 
+    "item": "balsamic vinegar", 
     "state": false, 
   },
   {
-    "item": "1lb chicken breast (chow mein)", 
+    "item": "ground sage", 
     "state": false, 
   },
   {
-    "item": "soy sauce (chow mein)", 
+    "item": "parmesan cheese ", 
     "state": false, 
   },
   {
-    "item": "green onions (chow mein)", 
+    "item": "cannellini (white) beans", 
     "state": false, 
   },
   {
-    "item": "8 oz mushrooms (chow mein)", 
-    "state": false, 
-  },
-  {
-    "item": "1 head broccoli (chow mein)", 
-    "state": false, 
-  },
-  {
-    "item": "3 carrots (chow mein)", 
-    "state": false, 
-  },
-  {
-    "item": "6 oz thin Asian-style noodles (chow mein)", 
+    "item": "spinach ", 
     "state": false, 
   },
 ]
-
 // RECIPE OUTPUT
 const defaultRecipes = [
   { 
-    "url": "", 
-    "name": "sausage & veggie sheet pan", 
-    "notes": "",  
+    "url": "https://wwlprogram.com/#/recipes/580", 
+    "name": "biscuits and gravy", 
+    "notes": "add mushrooms?",  
   },
   { 
-    "url": "https://wwlprogram.com/#/recipes/218", 
-    "name": "chow mein", 
-    "notes": "",  
-  },
-  { 
-    "url": "https://wwlprogram.com/#/recipes/320", 
-    "name": "chocolate zucchini muffins", 
+    "url": "https://wwlprogram.com/#/recipes/578", 
+    "name": "basalmic mushroom pasta", 
     "notes": "",  
   },
   { 
@@ -86,3 +68,4 @@ const defaultRecipes = [
     "notes": "",  
   },
 ]
+
