@@ -69,9 +69,10 @@ function displayGroceryItems(items) {
 		newGrocery.textContent = item.item;
 
 		// create buttons
-		let deleteButton = createButton('div', 'col2', 'delete', 'X', itemId, deleteBtnClicked);
+		// let deleteButton = createButton('div', 'col2', 'delete', 'X', itemId, deleteBtnClicked);
 		// let editButton = createButton('div', 'col3', 'edit', 'E', itemId, editBtnClicked);
 		// let saveButton = createButton('div', 'col4', 'save', 'S', itemId, saveBtnClicked);
+		let deleteButtonObj = new Button('div', 'col2', 'delete', 'X', itemId, deleteBtnClicked);
 		let editButtonObj = new Button('div', 'col3', 'edit', 'E', itemId, editBtnClicked);
 		let saveButtonObj = new Button('div', 'col4', 'save', 'S', itemId, saveBtnClicked);
 		saveButtonObj.hide()
@@ -84,14 +85,14 @@ function displayGroceryItems(items) {
 		}
 
 		form.appendChild(newGrocery);
-		form.appendChild(deleteButton);
+		form.appendChild(deleteButtonObj.element);
 		form.appendChild(editButtonObj.element);
 		form.appendChild(saveButtonObj.element);
 
 		newGrocery.addEventListener('click', toggleStrikethrough);
 		// editButton.addEventListener('click', editBtnClicked);
 		//saveButton.addEventListener('click', saveBtnClicked);
-		deleteButton.addEventListener('click', deleteBtnClicked);
+		// deleteButton.addEventListener('click', deleteBtnClicked);
 	});
 }
 
@@ -165,12 +166,12 @@ function deleteBtnClicked(e) {
 	window.location.reload();
 }
 
-function createButton(elementType, column, type, name, itemId) {
-	const button = document.createElement(elementType);
-	button.classList.add('btn');
-	button.classList.add(column);
-	button.classList.add(type);
-	button.textContent = name;	
-	button.setAttribute('data-id', itemId);
-	return button;
-}
+// function createButton(elementType, column, type, name, itemId) {
+// 	const button = document.createElement(elementType);
+// 	button.classList.add('btn');
+// 	button.classList.add(column);
+// 	button.classList.add(type);
+// 	button.textContent = name;	
+// 	button.setAttribute('data-id', itemId);
+// 	return button;
+// }
