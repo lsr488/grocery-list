@@ -7,7 +7,7 @@ describe('Grocery List', () => {
 
 	context('an item', () => {
 		it('can be marked as purchased by tapping its name', () => {
-			const lineThrough = 'line-through solid rgb(0, 0, 0)';
+			const lineThrough = 'line-through rgb(0, 0, 0)';
 
 			page.item
 				.should('not.have.css', 'text-decoration', lineThrough)
