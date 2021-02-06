@@ -40,6 +40,11 @@ h4 {
 	text-decoration: line-through;
 }
 
+.editing {
+	background-color: lightgray;
+	/*color: white;*/
+}
+
 .no-decoration {
 	list-style: none;
 }

@@ -123,6 +123,7 @@ function editBtnClicked(e) {
 
 	item.removeEventListener('click', toggleStrikethrough);
 	item.classList.remove('checked');
+	item.classList.add('editing');
 	item.setAttribute("contenteditable", true);
 
 	updateItemState(_id);
@@ -141,6 +142,7 @@ function saveBtnClicked(e) {
 	let item = document.getElementById(_id);
 
 	item.setAttribute("contenteditable", false);
+	item.classList.remove('editing');
 	item.addEventListener('click', toggleStrikethrough);
 	
 	items[item.id].item = item.textContent;
