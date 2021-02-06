@@ -6,14 +6,14 @@ const itemButton = document.getElementById('item-button');
 const newItems = document.getElementById('new-item');
 
 class Button {
-	constructor(elementType, column, type, name, itemId) {
+	constructor(elementType, column, type, name, itemId, eventType) {
 		this.elementType = elementType;
 		this.column = column;
 		this.type = type;
 		this.name = name;
 		this.itemId = itemId;
 		this.element = this.createElement();
-		this.element.addEventListener('click', saveBtnClicked);
+		this.element.addEventListener('click', eventType);
 	}
 
 	createElement() {
@@ -70,8 +70,9 @@ function displayGroceryItems(items) {
 
 		// create buttons
 		let deleteButton = createButton('div', 'col2', 'delete', 'X', itemId, deleteBtnClicked);
-		let editButton = createButton('div', 'col3', 'edit', 'E', itemId, editBtnClicked);
+		// let editButton = createButton('div', 'col3', 'edit', 'E', itemId, editBtnClicked);
 		// let saveButton = createButton('div', 'col4', 'save', 'S', itemId, saveBtnClicked);
+		let editButtonObj = new Button('div', 'col3', 'edit', 'E', itemId, editBtnClicked);
 		let saveButtonObj = new Button('div', 'col4', 'save', 'S', itemId, saveBtnClicked);
 		saveButtonObj.hide()
 
@@ -84,11 +85,11 @@ function displayGroceryItems(items) {
 
 		form.appendChild(newGrocery);
 		form.appendChild(deleteButton);
-		form.appendChild(editButton);
+		form.appendChild(editButtonObj.element);
 		form.appendChild(saveButtonObj.element);
 
 		newGrocery.addEventListener('click', toggleStrikethrough);
-		editButton.addEventListener('click', editBtnClicked);
+		// editButton.addEventListener('click', editBtnClicked);
 		//saveButton.addEventListener('click', saveBtnClicked);
 		deleteButton.addEventListener('click', deleteBtnClicked);
 	});
