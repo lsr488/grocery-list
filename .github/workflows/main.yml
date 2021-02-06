@@ -2,7 +2,7 @@
 
 name: AutoDeploy
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
@@ -22,7 +22,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-       
+
       - name: SFTP Deploy
         uses: wlixcc/SFTP-Deploy-Action@1.1
         with:
@@ -35,7 +35,7 @@ jobs:
           # you can copy private_key from your *.pem file, keep format
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
           # will put all file under this path
-          local_path: './*'
+          local_path: './src/*'
           # files will copy to under remote_path
           remote_path: '/home/${{ secrets.SFTP_USERNAME }}/public_html/grocery-list/'
           # sftp args
