@@ -57,6 +57,7 @@ class Item {
 				"state": this.state,
 				"element": this.element,
 			});
+		updateLocalStorage("items", items);
 	}
 }
 
@@ -68,57 +69,35 @@ if(!items) {
 		let newItem = new Item(itemId, item.item, item.state);
 		newItem.addItem();
 	});
-	// console.log(items);
-	// items = defaultItems;
-	updateLocalStorage("items", items);
 }
 
-// display new items in UI on click
+// input and display new items in UI on submit
 itemButton.addEventListener('click', function(e) {
 	e.preventDefault();
-	addAdditionalItem(itemInput.value);
+	let name = itemInput.value;
+	let itemId = items.length;
+	let item = new Item(itemId, name, false);
+	item.addItem();
 	itemInput.value = '';
+	window.location.reload();
 });
 
 // adds each grocery item to a bulleted list
 displayGroceryItems(items);
 
-// input and display additional items
-function addAdditionalItem(item) {
-	let itemId = items.length;
-	// debugger
-	let newItem = new Item(itemId, item, false);
-	newItem.addItem();
-	// items.push({"item": item, "state": false,});
-	updateLocalStorage("items", items);
-	window.location.reload();
-}
-
 // adds items to bulleted list
 function displayGroceryItems(items) {
-	// let itemId = 0;
 
 	items.forEach(item => {
-		// debugger
-
 		// create grocery item name
-		// const newGrocery = document.createElement('li');
-		// newGrocery.setAttribute("id", itemId);
-		// newGrocery.classList.add("col1");
-		// newGrocery.textContent = item.item;
-		let itemId = items.indexOf(item);
+	let itemId = items.indexOf(item);
 		let newGroceryObj = new Item(itemId, item.item, item.state);
 
 		// create buttons
-		// let deleteButton = createButton('div', 'col2', 'delete', 'X', itemId, deleteBtnClicked);
-		// let editButton = createButton('div', 'col3', 'edit', 'E', itemId, editBtnClicked);
-		// let saveButton = createButton('div', 'col4', 'save', 'S', itemId, saveBtnClicked);
 		let deleteButtonObj = new Button('div', 'col2', 'delete', 'X', itemId, deleteBtnClicked);
 		let editButtonObj = new Button('div', 'col3', 'edit', 'E', itemId, editBtnClicked);
 		let saveButtonObj = new Button('div', 'col4', 'save', 'S', itemId, saveBtnClicked);
 		saveButtonObj.hide()
-
-		itemId+= 1;
 
 		// adds strikethrough if already checked
 		if(newGroceryObj.state === true) {
@@ -131,9 +110,6 @@ function displayGroceryItems(items) {
 		form.appendChild(saveButtonObj.element);
 
 		newGroceryObj.element.addEventListener('click', toggleStrikethrough);
-		// editButton.addEventListener('click', editBtnClicked);
-		//saveButton.addEventListener('click', saveBtnClicked);
-		// deleteButton.addEventListener('click', deleteBtnClicked);
 	});
 }
 
@@ -146,8 +122,6 @@ function toggleStrikethrough(e) {
 }
 
 function updateItemState(itemId) {
-	// console.log(itemId);
-	// console.log(items[itemId]);
 	if(items[itemId].state === true) {
 		items[itemId].state = false;
 		updateLocalStorage("items", items);
@@ -208,13 +182,3 @@ function deleteBtnClicked(e) {
 
 	window.location.reload();
 }
-
-// function createButton(elementType, column, type, name, itemId) {
-// 	const button = document.createElement(elementType);
-// 	button.classList.add('btn');
-// 	button.classList.add(column);
-// 	button.classList.add(type);
-// 	button.textContent = name;	
-// 	button.setAttribute('data-id', itemId);
-// 	return button;
-// }
