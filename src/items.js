@@ -59,6 +59,13 @@ class Item {
 			});
 		updateLocalStorage("items", items);
 	}
+
+	strike() {
+		// console.log(this, 'hello from strike');
+		this.classList.toggle('checked');
+		updateItemState(this.id);
+		// console.log(items);
+	}
 }
 
 // checks if localStorage exists, creates from default array if not, or updates from localStorage if it does
@@ -109,17 +116,17 @@ function displayGroceryItems(items) {
 		form.appendChild(editButtonObj.element);
 		form.appendChild(saveButtonObj.element);
 
-		newGroceryObj.element.addEventListener('click', toggleStrikethrough);
+		newGroceryObj.element.addEventListener('click', newGroceryObj.strike);
 	});
 }
 
 // EVENT LISTENER FUNCTIONS BELOW
-function toggleStrikethrough(e) {
-	let item = e.target;
-	item.classList.toggle('checked');
+// function toggleStrikethrough(e) {
+// 	let item = e.target;
+// 	item.classList.toggle('checked');
 
-	updateItemState(item.id);
-}
+// 	updateItemState(item.id);
+// }
 
 function updateItemState(itemId) {
 	if(items[itemId].state === true) {
