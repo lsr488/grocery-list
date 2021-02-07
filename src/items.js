@@ -33,8 +33,8 @@ class Button {
 }
 
 class Item {
-	constructor(name, state) {
-		this.itemId = this.setId();
+	constructor(itemId, name, state) {
+		this.itemId = itemId;
 		this.name = name;
 		this.state = state;
 		this.element = this.createElement();
@@ -48,12 +48,15 @@ class Item {
 		return item;
 	}
 
-	setId() {
-		console.log(items);
-		console.log(items.length);
-		const _id = items.length - 1;
-		this.itemId = _id;
-		return this.itemId;
+	addItem() {
+		items.push({
+				"itemId": this.itemId,
+				"item": this.name,
+				"state": this.state,
+				"element": this.element,
+			});
+		updateLocalStorage("items", items);
+		window.location.reload();
 	}
 }
 
@@ -82,14 +85,18 @@ function addAdditionalItem(item) {
 
 // adds items to bulleted list
 function displayGroceryItems(items) {
-	let itemId = 0;
+	// let itemId = 0;
 
 	items.forEach(item => {
+		// debugger
+
 		// create grocery item name
-		const newGrocery = document.createElement('li');
-		newGrocery.setAttribute("id", itemId);
-		newGrocery.classList.add("col1");
-		newGrocery.textContent = item.item;
+		// const newGrocery = document.createElement('li');
+		// newGrocery.setAttribute("id", itemId);
+		// newGrocery.classList.add("col1");
+		// newGrocery.textContent = item.item;
+		let itemId = items.indexOf(item);
+		let newGroceryObj = new Item(itemId, item.item, item.state);
 
 		// create buttons
 		// let deleteButton = createButton('div', 'col2', 'delete', 'X', itemId, deleteBtnClicked);
@@ -103,16 +110,16 @@ function displayGroceryItems(items) {
 		itemId+= 1;
 
 		// adds strikethrough if already checked
-		if(item.state === true) {
-			newGrocery.classList.add("checked");
+		if(newGroceryObj.state === true) {
+			newGroceryObj.element.classList.add("checked");
 		}
 
-		form.appendChild(newGrocery);
+		form.appendChild(newGroceryObj.element);
 		form.appendChild(deleteButtonObj.element);
 		form.appendChild(editButtonObj.element);
 		form.appendChild(saveButtonObj.element);
 
-		newGrocery.addEventListener('click', toggleStrikethrough);
+		newGroceryObj.element.addEventListener('click', toggleStrikethrough);
 		// editButton.addEventListener('click', editBtnClicked);
 		//saveButton.addEventListener('click', saveBtnClicked);
 		// deleteButton.addEventListener('click', deleteBtnClicked);
