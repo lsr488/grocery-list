@@ -62,7 +62,6 @@ class Item {
 
 // checks if localStorage exists, creates from default array if not, or updates from localStorage if it does
 if(!items) {
-	debugger
 	items = [];
 	defaultItems.forEach(item => {
 		let itemId = defaultItems.indexOf(item);
