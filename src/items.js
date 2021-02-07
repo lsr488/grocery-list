@@ -34,7 +34,7 @@ class Button {
 
 class Item {
 	constructor(itemId, name, state) {
-		this.itemId = itemId;
+		this.id = itemId;
 		this.name = name;
 		this.state = state;
 		this.element = this.createElement();
@@ -42,21 +42,21 @@ class Item {
 
 	createElement() {
 		const item = document.createElement('li');
-		item.setAttribute('id', this.itemId);
+		item.setAttribute('id', this.id);
 		item.classList.add('col1');
 		item.textContent = this.name;
 		return item;
 	}
 
+	setId() {}
+
 	addItem() {
 		items.push({
-				"itemId": this.itemId,
+				"id": this.id,
 				"item": this.name,
 				"state": this.state,
 				"element": this.element,
 			});
-		updateLocalStorage("items", items);
-		window.location.reload();
 	}
 }
 
@@ -78,7 +78,11 @@ displayGroceryItems(items);
 
 // input and display additional items
 function addAdditionalItem(item) {
-	items.push({"item": item, "state": false,});
+	let itemId = items.length;
+	debugger
+	let newItem = new Item(itemId, item, false);
+	newItem.addItem();
+	// items.push({"item": item, "state": false,});
 	updateLocalStorage("items", items);
 	window.location.reload();
 }
