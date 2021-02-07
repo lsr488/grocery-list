@@ -16,6 +16,7 @@ recipes.forEach(recipe => {
 	if(recipe.url) {
 		const url = document.createElement('a');
 		url.setAttribute('href', `${recipe.url}`);
+		url.setAttribute('target', '_blank');
 		url.textContent = recipe.name;
 		listItem.appendChild(url);
 		links.appendChild(listItem);
