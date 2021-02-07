@@ -55,7 +55,7 @@ class Item {
 				"id": this.id,
 				"item": this.name,
 				"state": this.state,
-				"element": this.element,
+				"element": this.element.outerHTML,
 			});
 		updateLocalStorage("items", items);
 	}
