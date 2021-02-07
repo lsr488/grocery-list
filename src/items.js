@@ -62,7 +62,15 @@ class Item {
 
 // checks if localStorage exists, creates from default array if not, or updates from localStorage if it does
 if(!items) {
-	items = defaultItems;
+	debugger
+	items = [];
+	defaultItems.forEach(item => {
+		let itemId = defaultItems.indexOf(item);
+		let newItem = new Item(itemId, item.item, item.state);
+		newItem.addItem();
+	});
+	// console.log(items);
+	// items = defaultItems;
 	updateLocalStorage("items", items);
 }
 
@@ -79,7 +87,7 @@ displayGroceryItems(items);
 // input and display additional items
 function addAdditionalItem(item) {
 	let itemId = items.length;
-	debugger
+	// debugger
 	let newItem = new Item(itemId, item, false);
 	newItem.addItem();
 	// items.push({"item": item, "state": false,});
