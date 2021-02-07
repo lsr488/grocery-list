@@ -30,8 +30,31 @@ class Button {
 		this.element.classList.add("hidden");
 		return this.element;
 	}
+}
 
+class Item {
+	constructor(name, state) {
+		this.itemId = this.setId();
+		this.name = name;
+		this.state = state;
+		this.element = this.createElement();
+	}
 
+	createElement() {
+		const item = document.createElement('li');
+		item.setAttribute('id', this.itemId);
+		item.classList.add('col1');
+		item.textContent = this.name;
+		return item;
+	}
+
+	setId() {
+		console.log(items);
+		console.log(items.length);
+		const _id = items.length - 1;
+		this.itemId = _id;
+		return this.itemId;
+	}
 }
 
 // checks if localStorage exists, creates from default array if not, or updates from localStorage if it does

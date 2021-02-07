@@ -22,7 +22,7 @@ const defaultItems = [
     "state": false, 
   },
   {
-    "item": "yellow onion ", 
+    "item": "yellow onion", 
     "state": false, 
   },
   {
@@ -38,7 +38,7 @@ const defaultItems = [
     "state": false, 
   },
   {
-    "item": "parmesan cheese ", 
+    "item": "parmesan cheese", 
     "state": false, 
   },
   {
@@ -46,7 +46,7 @@ const defaultItems = [
     "state": false, 
   },
   {
-    "item": "spinach ", 
+    "item": "spinach", 
     "state": false, 
   },
 ]
