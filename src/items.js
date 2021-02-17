@@ -38,7 +38,14 @@ class Item {
 		this.name = name;
 		this.state = state;
 		this.element = this.createElement();
-	}
+		// console.log(this.strike);
+		// this.striked = this.strike;
+		this.savedListener = this.strike.bind(this);
+		this.element.addEventListener('click', this.savedListener, false);
+		// console.log(this.savedListener);
+		// console.log(this);
+		}
+
 
 	createElement() {
 		const item = document.createElement('li');
@@ -56,15 +63,35 @@ class Item {
 				"item": this.name,
 				"state": this.state,
 				"element": this.element.outerHTML,
+				"savedListener": this.savedListener,
 			});
+		console.log(items);
 		updateLocalStorage("items", items);
 	}
 
 	strike() {
-		// console.log(this, 'hello from strike');
-		this.classList.toggle('checked');
-		updateItemState(this.id);
+		console.log('hello from strike', this);
+		this.element.classList.toggle('checked');
+
+		if(items[this.id].state === true) {
+			this.state = false;
+			items[this.id].state = false;
+			// console.log(this);
+		}  else {
+			this.state = true;
+			items[this.id].state = true;
+		}
 		// console.log(items);
+		updateLocalStorage("items", items);
+	}
+
+	removeStrike() {
+		console.log('hello from removeStrike', this);
+		// this.removeEventListener('click', this.savedListener, false);
+	}
+
+	updateState() {
+		// make me at some point, and remove the state updating from .strike()
 	}
 }
 
@@ -97,7 +124,7 @@ function displayGroceryItems(items) {
 
 	items.forEach(item => {
 		// create grocery item name
-	let itemId = items.indexOf(item);
+		let itemId = items.indexOf(item);
 		let newGroceryObj = new Item(itemId, item.item, item.state);
 
 		// create buttons
@@ -116,8 +143,9 @@ function displayGroceryItems(items) {
 		form.appendChild(editButtonObj.element);
 		form.appendChild(saveButtonObj.element);
 
-		newGroceryObj.element.addEventListener('click', newGroceryObj.strike);
+		// newGroceryObj.element.addEventListener('click', newGroceryObj.strike);
 	});
+	console.log(items);
 }
 
 // EVENT LISTENER FUNCTIONS BELOW
@@ -131,11 +159,12 @@ function displayGroceryItems(items) {
 function updateItemState(itemId) {
 	if(items[itemId].state === true) {
 		items[itemId].state = false;
-		updateLocalStorage("items", items);
+		// updateLocalStorage("items", items);
 	}	else {
 		items[itemId].state = true;
-		updateLocalStorage("items", items);
+		// updateLocalStorage("items", items);
 	}
+	updateLocalStorage("items", items);
 }
 
 function editBtnClicked(e) {
@@ -143,7 +172,13 @@ function editBtnClicked(e) {
 	let _id = e.target.dataset.id;
 	let item = document.getElementById(_id);
 
-	item.removeEventListener('click', toggleStrikethrough);
+	let itemObj = items[_id];
+	console.log(itemObj.savedListener);
+	// itemObj.removeStrike();
+	// itemObj.setId();
+	console.log("EditBtn this:", this);
+
+	// item.removeEventListener('click', toggleStrikethrough);
 	item.classList.remove('checked');
 	item.classList.add('editing');
 	item.setAttribute("contenteditable", true);
@@ -165,7 +200,7 @@ function saveBtnClicked(e) {
 
 	item.setAttribute("contenteditable", false);
 	item.classList.remove('editing');
-	item.addEventListener('click', toggleStrikethrough);
+	item.addEventListener('click', item.strike);
 	
 	items[item.id].item = item.textContent;
 
@@ -189,3 +224,9 @@ function deleteBtnClicked(e) {
 
 	window.location.reload();
 }
+
+// const a = new Item(43, 'bananas', false);
+// const b = new Item(4, 'coffee', false);
+// console.log('a:', a);
+// console.log('b:', b);
+// console.log('comparison:', a.savedListener == b.savedListener);
