@@ -1,66 +1,58 @@
-// 02-05-2021 08:30
+// 02-16-2021 11:22
 // ITEM OUTPUT:
 const defaultItems = [
   {
-    "item": "milk", 
+    "item": "15 oz canned chickpeas ", 
     "state": false, 
   },
   {
-    "item": "maple syrup", 
+    "item": "red curry paste ", 
     "state": false, 
   },
   {
-    "item": "vanilla extract", 
+    "item": "limes", 
     "state": false, 
   },
   {
-    "item": "cocoa powder", 
+    "item": "9oz coleslaw mix", 
     "state": false, 
   },
   {
-    "item": "buttermilk?", 
+    "item": "2 avocados", 
     "state": false, 
   },
   {
-    "item": "yellow onion ", 
+    "item": "fresh spinach ", 
     "state": false, 
   },
   {
-    "item": "8 oz baby Bella mushrooms ", 
+    "item": "pita or flour tortillas", 
     "state": false, 
   },
   {
-    "item": "balsamic vinegar", 
+    "item": "5 oz plain greek yogurt ", 
     "state": false, 
   },
   {
-    "item": "ground sage", 
+    "item": "lemon", 
     "state": false, 
   },
   {
-    "item": "parmesan cheese ", 
-    "state": false, 
-  },
-  {
-    "item": "cannellini (white) beans", 
-    "state": false, 
-  },
-  {
-    "item": "spinach ", 
+    "item": "toilet paper", 
     "state": false, 
   },
 ]
 // RECIPE OUTPUT
 const defaultRecipes = [
   { 
-    "url": "https://wwlprogram.com/#/recipes/580", 
-    "name": "biscuits and gravy", 
-    "notes": "add mushrooms?",  
+    "url": "https://wwlprogram.com/#/recipes/569", 
+    "name": "Thai red curry tacos", 
+    "notes": "",  
   },
   { 
-    "url": "https://wwlprogram.com/#/recipes/578", 
-    "name": "basalmic mushroom pasta", 
-    "notes": "",  
+    "url": "https://wwlprogram.com/#/recipes/289", 
+    "name": "chickpea and taking sauce wrap", 
+    "notes": "use jarred red pepper instead of fresh",  
   },
   { 
     "url": "https://www.dropbox.com/s/j3w0tl6qjf610qm/Rocky%20Road%20Candies%20Recipe%20_%20Allrecipes.PDF?dl=0", 
