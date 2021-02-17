@@ -1,48 +1,50 @@
-// 02-16-2021 11:22
-// ITEM OUTPUT:
+// 02-17-2021 11:20
 const defaultItems = [
   {
-    "item": "15 oz canned chickpeas ", 
+    "item": "15 oz canned chickpeas ,,", 
     "state": false, 
   },
   {
-    "item": "red curry paste ", 
+    "item": "red curry paste ,,", 
     "state": false, 
   },
   {
-    "item": "limes", 
+    "item": "limes,,", 
     "state": false, 
   },
   {
-    "item": "9oz coleslaw mix", 
+    "item": "9oz coleslaw mix,,", 
     "state": false, 
   },
   {
-    "item": "2 avocados", 
+    "item": "2 avocados,,", 
     "state": false, 
   },
   {
-    "item": "fresh spinach ", 
+    "item": "fresh spinach ,,", 
     "state": false, 
   },
   {
-    "item": "pita or flour tortillas", 
+    "item": "small flour tortillas,,", 
     "state": false, 
   },
   {
-    "item": "5 oz plain greek yogurt ", 
+    "item": "5 oz plain greek yogurt ,,", 
     "state": false, 
   },
   {
-    "item": "lemon", 
+    "item": "lemon,,", 
     "state": false, 
   },
   {
-    "item": "toilet paper", 
+    "item": "toilet paper,,", 
+    "state": false, 
+  },
+  {
+    "item": "half & half,,", 
     "state": false, 
   },
 ]
-// RECIPE OUTPUT
 const defaultRecipes = [
   { 
     "url": "https://wwlprogram.com/#/recipes/569", 
@@ -60,4 +62,3 @@ const defaultRecipes = [
     "notes": "",  
   },
 ]
-
