@@ -1,7 +1,6 @@
 // initialize elements 
 const form = document.getElementById('form');
 let items = JSON.parse(data.getItem("items"));
-console.log('items from storage:', items);
 const itemInput = document.getElementById('item');
 const itemButton = document.getElementById('item-button');
 const newItems = document.getElementById('new-item');
@@ -35,18 +34,12 @@ class Button {
 
 class Item {
 	constructor(itemId, name, state) {
-		// debugger
 		this.id = itemId;
 		this.name = name;
 		this.state = state;
 		this.element = this.createElement();
-		// console.log(this.strike);
-		// this.striked = this.strike;
-		// this.savedListener = this.strike.bind(this);
-		// this.element.addEventListener('click', this.savedListener, false);
-		// console.log(this.savedListener);
-		// console.log(this);
-		}
+		this.element.addEventListener('click', this.toggleChecked.bind(this), false);
+	}
 
 
 	createElement() {
@@ -61,37 +54,33 @@ class Item {
 
 	addItem() {
 		items.push(this);
-		// items.push({
-		// 		"id": this.id,
-		// 		"item": this.name,
-		// 		"state": this.state,
-		// 		"element": this.element.outerHTML,
-		// 		"savedListener": this.savedListener,
-		// 	});
-		console.log(items);
 		updateLocalStorage("items", items);
 	}
 
-	// strike() {
-	// 	console.log('hello from strike', this);
-	// 	this.element.classList.toggle('checked');
-
-	// 	if(items[this.id].state === true) {
-	// 		this.state = false;
-	// 		items[this.id].state = false;
-	// 		// console.log(this);
-	// 	}  else {
-	// 		this.state = true;
-	// 		items[this.id].state = true;
-	// 	}
-	// 	// console.log(items);
+	toggleChecked() {
+		console.log('hello from toggleChecked', this);
+		console.log("before:", this.element);
+		console.log("before:", this.element.classList);
+	 	this.element.classList.toggle('checked');
+		console.log("after:", this.element);
+		console.log("after:", this.element.classList);
+		
+		// if(items[this.id].state === true) {
+		// 	this.state = false;
+		// 	items[this.id].state = false;
+		// 	// console.log(this);
+		// }  else {
+		// 	this.state = true;
+		// 	items[this.id].state = true;
+		// }
+		// // console.log(items);
 	// 	updateLocalStorage("items", items);
-	// }
-
-	removeStrike() {
-		console.log('hello from removeStrike', this);
-		// this.removeEventListener('click', this.savedListener, false);
 	}
+
+	// removeCheckedEventListener() {
+	// 	console.log('hello from removeStrike', this);
+		// this.removeEventListener('click', this.savedListener, false);
+	// }
 
 	// updateState() {
 	// 	// make me at some point, and remove the state updating from .strike()
@@ -124,8 +113,6 @@ displayGroceryItems(items);
 
 // adds items to bulleted list
 function displayGroceryItems(items) {
-	// debugger
-
 	items.forEach(item => {
 		// create grocery item name
 		let itemId = items.indexOf(item);
@@ -146,10 +133,7 @@ function displayGroceryItems(items) {
 		form.appendChild(deleteButtonObj.element);
 		form.appendChild(editButtonObj.element);
 		form.appendChild(saveButtonObj.element);
-
-		newGroceryObj.element.addEventListener('click', toggleStrikethrough);
 	});
-	console.log(items);
 }
 
 // EVENT LISTENER FUNCTIONS BELOW
@@ -163,10 +147,8 @@ function toggleStrikethrough(e) {
 function updateItemState(itemId) {
 	if(items[itemId].state === true) {
 		items[itemId].state = false;
-		// updateLocalStorage("items", items);
 	}	else {
 		items[itemId].state = true;
-		// updateLocalStorage("items", items);
 	}
 	updateLocalStorage("items", items);
 }
@@ -177,11 +159,6 @@ function editBtnClicked(e) {
 	let item = document.getElementById(_id);
 
 	let itemObj = items[_id];
-	// console.log(itemObj);
-	// console.log(itemObj.savedListener);
-	// itemObj.removeStrike;
-	// itemObj.setId();
-	console.log("EditBtn this:", this);
 
 	item.removeEventListener('click', toggleStrikethrough);
 	item.classList.remove('checked');
@@ -206,7 +183,7 @@ function saveBtnClicked(e) {
 	item.setAttribute("contenteditable", false);
 	item.classList.remove('editing');
 	// item.addEventListener('click', item.strike);
-	item.addEventListener('click', toggleStrikethrough);
+	// item.addEventListener('click', toggleStrikethrough);
 	
 	items[item.id].item = item.textContent;
 
@@ -225,18 +202,11 @@ function deleteBtnClicked(e) {
 	let _id = e.target.dataset.id;
 	//let itemElement = document.getElementById(_id);
 	const item = items[_id];
-	console.log("deleteBtnClicked button:", button);
-	console.log("deleteBtnClicked _id:", _id);
-	console.log("deleteBtnClicked item:", item);
 
 	deleteLocalStorageItem(items, item);
-	// updateLocalStorage("items", items);
 
 	window.location.reload();
 }
 
 // const a = new Item(43, 'bananas', false);
 // const b = new Item(4, 'coffee', false);
-// console.log('a:', a);
-// console.log('b:', b);
-// console.log('comparison:', a.savedListener == b.savedListener);
