@@ -58,23 +58,12 @@ class Item {
 	}
 
 	toggleChecked() {
-		console.log('hello from toggleChecked', this);
-		console.log("before:", this.element);
-		console.log("before:", this.element.classList);
 	 	this.element.classList.toggle('checked');
-		console.log("after:", this.element);
-		console.log("after:", this.element.classList);
 		
-		// if(items[this.id].state === true) {
-		// 	this.state = false;
-		// 	items[this.id].state = false;
-		// 	// console.log(this);
-		// }  else {
-		// 	this.state = true;
-		// 	items[this.id].state = true;
-		// }
-		// // console.log(items);
-	// 	updateLocalStorage("items", items);
+		this.updateState();
+
+
+		updateLocalStorage("items", items);
 	}
 
 	// removeCheckedEventListener() {
@@ -82,9 +71,15 @@ class Item {
 		// this.removeEventListener('click', this.savedListener, false);
 	// }
 
-	// updateState() {
-	// 	// make me at some point, and remove the state updating from .strike()
-	// }
+	updateState() {
+		if(items[this.id].state === true) {
+			this.state = false;
+			items[this.id].state = false;
+		}  else {
+			this.state = true;
+			items[this.id].state = true;
+		}
+	}
 }
 
 // checks if localStorage exists, creates from default array if not, or updates from localStorage if it does
