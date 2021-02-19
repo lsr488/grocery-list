@@ -2,19 +2,15 @@
 // ITEM OUTPUT:
 const defaultItems = [
   {
-    "item": "milk", 
+    "name": "maple syrup", 
     "state": false, 
   },
   {
-    "item": "maple syrup", 
+    "name": "vanilla extract", 
     "state": false, 
   },
   {
-    "item": "vanilla extract", 
-    "state": false, 
-  },
-  {
-    "item": "cocoa powder", 
+    "name": "cocoa powder", 
     "state": false, 
   },
   // {

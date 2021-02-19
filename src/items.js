@@ -1,19 +1,35 @@
 // initialize elements 
 const form = document.getElementById('form');
-let items = JSON.parse(data.getItem("items"));
+
+const itemData = JSON.parse(data.getItem("items")) || [];
+
+// the for loop and the .map() do the same thing
+// let items = [];
+// for(let i = 0; i < itemData.length; i++) {
+// 	const itemDatum = itemData[i];
+// 	items.push(new Item(i, itemDatum.name, itemDatum.state));
+// }
+let items = itemData.map((x, i) => new Item(i, x.name, x.state));
+
 const itemInput = document.getElementById('item');
 const itemButton = document.getElementById('item-button');
 const newItems = document.getElementById('new-item');
 
 class Button {
-	constructor(elementType, column, type, name, itemId, eventType) {
+	constructor(elementType, column, type, name, item, eventType) {
 		this.elementType = elementType;
 		this.column = column;
 		this.type = type;
 		this.name = name;
-		this.itemId = itemId;
+		this.item = item;
+		this.itemId = item.id;
 		this.element = this.createElement();
-		this.element.addEventListener('click', eventType);
+
+		if (eventType) {
+		  this.element.addEventListener('click', eventType);
+	  } else {
+	  	this.element.addEventListener('click', this.edit.bind(this));
+	  }
 	}
 
 	createElement() {
@@ -30,64 +46,28 @@ class Button {
 		this.element.classList.add("hidden");
 		return this.element;
 	}
-}
 
-class Item {
-	constructor(itemId, name, state) {
-		this.id = itemId;
-		this.name = name;
-		this.state = state;
-		this.element = this.createElement();
-		this.element.addEventListener('click', this.toggleChecked.bind(this), false);
-	}
+	edit() {
+		console.log("Button edit this:", this);
+		console.log('Button edit this.item:', this.item);
 
+		this.item.editingItem();
 
-	createElement() {
-		const item = document.createElement('li');
-		item.setAttribute('id', this.id);
-		item.classList.add('col1');
-		item.textContent = this.name;
-		return item;
-	}
+		const saveBtn = document.querySelector(`.save[data-id="${this.item.id}"]`);
+		const deleteBtn = document.querySelector(`.delete[data-id="${this.item.id}"]`);
 
-	setId() {}
-
-	addItem() {
-		items.push(this);
-		updateLocalStorage("items", items);
-	}
-
-	toggleChecked() {
-	 	this.element.classList.toggle('checked');
-		
-		this.updateState();
-
-
-		updateLocalStorage("items", items);
-	}
-
-	// removeCheckedEventListener() {
-	// 	console.log('hello from removeStrike', this);
-		// this.removeEventListener('click', this.savedListener, false);
-	// }
-
-	updateState() {
-		if(items[this.id].state === true) {
-			this.state = false;
-			items[this.id].state = false;
-		}  else {
-			this.state = true;
-			items[this.id].state = true;
-		}
+		saveBtn.classList.remove("hidden");
+		deleteBtn.classList.add("hidden");
+		this.hide();
 	}
 }
 
 // checks if localStorage exists, creates from default array if not, or updates from localStorage if it does
-if(!items) {
-	items = [];
+if(items.length === 0) {
+	// items = [];
 	defaultItems.forEach(item => {
 		let itemId = defaultItems.indexOf(item);
-		let newItem = new Item(itemId, item.item, item.state);
+		let newItem = new Item(itemId, item.name, item.state);
 		newItem.addItem();
 	});
 }
@@ -109,65 +89,22 @@ displayGroceryItems(items);
 // adds items to bulleted list
 function displayGroceryItems(items) {
 	items.forEach(item => {
-		// create grocery item name
-		let itemId = items.indexOf(item);
-		let newGroceryObj = new Item(itemId, item.name, item.state);
-
 		// create buttons
-		let deleteButtonObj = new Button('div', 'col2', 'delete', 'X', itemId, deleteBtnClicked);
-		let editButtonObj = new Button('div', 'col3', 'edit', 'E', itemId, editBtnClicked);
-		let saveButtonObj = new Button('div', 'col4', 'save', 'S', itemId, saveBtnClicked);
+		let deleteButtonObj = new Button('div', 'col2', 'delete', 'X', item, deleteBtnClicked);
+		let editButtonObj = new Button('div', 'col3', 'edit', 'E', item);
+		let saveButtonObj = new Button('div', 'col4', 'save', 'S', item, saveBtnClicked);
 		saveButtonObj.hide()
 
 		// adds strikethrough if already checked
-		if(newGroceryObj.state === true) {
-			newGroceryObj.element.classList.add("checked");
+		if(item.state === true) {
+			item.element.classList.add("checked");
 		}
 
-		form.appendChild(newGroceryObj.element);
+		form.appendChild(item.element);
 		form.appendChild(deleteButtonObj.element);
 		form.appendChild(editButtonObj.element);
 		form.appendChild(saveButtonObj.element);
 	});
-}
-
-// EVENT LISTENER FUNCTIONS BELOW
-function toggleStrikethrough(e) {
-	let item = e.target;
-	item.classList.toggle('checked');
-
-	updateItemState(item.id);
-}
-
-function updateItemState(itemId) {
-	if(items[itemId].state === true) {
-		items[itemId].state = false;
-	}	else {
-		items[itemId].state = true;
-	}
-	updateLocalStorage("items", items);
-}
-
-function editBtnClicked(e) {
-	let button = e.target;
-	let _id = e.target.dataset.id;
-	let item = document.getElementById(_id);
-
-	let itemObj = items[_id];
-
-	item.removeEventListener('click', toggleStrikethrough);
-	item.classList.remove('checked');
-	item.classList.add('editing');
-	item.setAttribute("contenteditable", true);
-
-	updateItemState(_id);
-
-	let saves = document.getElementsByClassName('save');
-	let deletes = document.getElementsByClassName('delete');
-
-	saves[_id].classList.remove("hidden");
-	deletes[_id].classList.add("hidden");
-	button.classList.add("hidden");
 }
 
 function saveBtnClicked(e) {
@@ -177,12 +114,15 @@ function saveBtnClicked(e) {
 
 	item.setAttribute("contenteditable", false);
 	item.classList.remove('editing');
+	
 	// item.addEventListener('click', item.strike);
 	// item.addEventListener('click', toggleStrikethrough);
 	
-	items[item.id].item = item.textContent;
+	items[item.id].name = item.textContent;
 
-	updateItemState(_id);
+	// TODO FIXME why doesn't update state when unchecked
+
+	updateLocalStorage("items", items);
 
 	let deletes = document.getElementsByClassName('delete');
 	let edits = document.getElementsByClassName('edit');
@@ -195,13 +135,9 @@ function saveBtnClicked(e) {
 function deleteBtnClicked(e) {
 	let button = e.target;
 	let _id = e.target.dataset.id;
-	//let itemElement = document.getElementById(_id);
 	const item = items[_id];
 
 	deleteLocalStorageItem(items, item);
 
 	window.location.reload();
 }
-
-// const a = new Item(43, 'bananas', false);
-// const b = new Item(4, 'coffee', false);
