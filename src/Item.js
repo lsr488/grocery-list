@@ -55,8 +55,7 @@ class Item {
 	}
 
 	updateState() {
-		// console.log('updateState this:', this);
-
+		// QUESTION: why does updating this.state also update the items array without explicitly telling it do so?
 		if(this.element.className.includes('checked')) {
 			// console.log("is this checked?", this.element.className.includes('checked'));
 			// items[this.id].state === true;
@@ -67,6 +66,5 @@ class Item {
 		}
 
 		updateLocalStorage("items", items);
-		// console.log("data.getItem:", data.getItem("items"));
 	}
 }
