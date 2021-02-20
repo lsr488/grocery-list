@@ -9,7 +9,9 @@ const itemData = JSON.parse(data.getItem("items")) || [];
 // 	const itemDatum = itemData[i];
 // 	items.push(new Item(i, itemDatum.name, itemDatum.state));
 // }
+
 let items = itemData.map((x, i) => new Item(i, x.name, x.state));
+console.log('items:', items);
 
 const itemInput = document.getElementById('item');
 const itemButton = document.getElementById('item-button');
@@ -60,38 +62,3 @@ function displayGroceryItems(items) {
 		form.appendChild(saveButtonObj.element);
 	});
 }
-
-// function saveBtnClicked(e) {
-// 	let button = e.target;
-// 	let _id = e.target.dataset.id;
-// 	let item = document.getElementById(_id);
-
-// 	item.setAttribute("contenteditable", false);
-// 	item.classList.remove('editing');
-	
-// 	// item.addEventListener('click', item.strike);
-// 	// item.addEventListener('click', toggleStrikethrough);
-	
-// 	items[item.id].name = item.textContent;
-
-// 	// TODO FIXME why doesn't update state when unchecked
-
-// 	updateLocalStorage("items", items);
-
-// 	let deletes = document.getElementsByClassName('delete');
-// 	let edits = document.getElementsByClassName('edit');
-
-// 	button.classList.add("hidden");
-// 	deletes[_id].classList.remove("hidden");
-// 	edits[_id].classList.remove("hidden");
-// }
-
-// function deleteBtnClicked(e) {
-	// let button = e.target;
-	// let _id = e.target.dataset.id;
-	// const item = items[_id];
-
-	// deleteLocalStorageItem(items, item);
-
-	// window.location.reload();
-// }
