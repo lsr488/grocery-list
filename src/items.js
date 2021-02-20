@@ -25,7 +25,13 @@ class Button {
 		this.itemId = item.id;
 		this.element = this.createElement();
 
-		if (eventType) {
+		// console.log("eventType:", eventType);
+		// debugger
+
+		if(eventType == saveBtnClicked) {
+			console.log("save eventType");
+	  	this.element.addEventListener('click', this.save.bind(this));  	
+	  } else if (eventType) {
 		  this.element.addEventListener('click', eventType);
 	  } else {
 	  	this.element.addEventListener('click', this.edit.bind(this));
@@ -59,6 +65,21 @@ class Button {
 		saveBtn.classList.remove("hidden");
 		deleteBtn.classList.add("hidden");
 		this.hide();
+	}
+
+	save() {
+		console.log("Button save this:", this);
+		console.log('Button save this.item:', this.item);
+
+		this.item.savingItem();
+
+		const editBtn = document.querySelector(`.edit[data-id="${this.item.id}"]`);
+		const deleteBtn = document.querySelector(`.delete[data-id="${this.item.id}"]`);
+
+		editBtn.classList.remove("hidden");
+		deleteBtn.classList.remove("hidden");
+		this.hide();
+
 	}
 }
 
@@ -108,28 +129,28 @@ function displayGroceryItems(items) {
 }
 
 function saveBtnClicked(e) {
-	let button = e.target;
-	let _id = e.target.dataset.id;
-	let item = document.getElementById(_id);
+// 	let button = e.target;
+// 	let _id = e.target.dataset.id;
+// 	let item = document.getElementById(_id);
 
-	item.setAttribute("contenteditable", false);
-	item.classList.remove('editing');
+// 	item.setAttribute("contenteditable", false);
+// 	item.classList.remove('editing');
 	
-	// item.addEventListener('click', item.strike);
-	// item.addEventListener('click', toggleStrikethrough);
+// 	// item.addEventListener('click', item.strike);
+// 	// item.addEventListener('click', toggleStrikethrough);
 	
-	items[item.id].name = item.textContent;
+// 	items[item.id].name = item.textContent;
 
-	// TODO FIXME why doesn't update state when unchecked
+// 	// TODO FIXME why doesn't update state when unchecked
 
-	updateLocalStorage("items", items);
+// 	updateLocalStorage("items", items);
 
-	let deletes = document.getElementsByClassName('delete');
-	let edits = document.getElementsByClassName('edit');
+// 	let deletes = document.getElementsByClassName('delete');
+// 	let edits = document.getElementsByClassName('edit');
 
-	button.classList.add("hidden");
-	deletes[_id].classList.remove("hidden");
-	edits[_id].classList.remove("hidden");
+// 	button.classList.add("hidden");
+// 	deletes[_id].classList.remove("hidden");
+// 	edits[_id].classList.remove("hidden");
 }
 
 function deleteBtnClicked(e) {

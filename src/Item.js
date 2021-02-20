@@ -37,10 +37,24 @@ class Item {
 		this.element.removeEventListener('click', this.savedListener, false);
 		this.element.classList.remove('checked');
 		this.element.classList.add('editing');
-		this.element.setAttribute("contenteditable", true);
+		this.element.setAttribute('contenteditable', true);
 	}
 
+	savingItem() {
+		this.element.setAttribute('contenteditable', false);
+		this.element.classList.remove('editing');
+		this.name = this.element.textContent;
+		this.element.classList.remo
+
+		console.log("data.getItem:", data.getItem("items"));
+		console.log("JSON.stringify this:", JSON.stringify(this));
+		this.updateState();
+	}
+
+
+	// TODO FIXME
 	updateState() {
+		console.log('updateState this:', this);
 		if(items[this.id].state === true) {
 			this.state = false;
 			items[this.id].state = false;
