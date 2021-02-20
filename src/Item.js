@@ -41,15 +41,14 @@ class Item {
 	}
 
 	savingItem() {
-		console.log('savingItem this:', this);
-		// this.element.removeEventListener('click', this.savedListener, false);
+		// console.log('savingItem this:', this);
 		this.element.setAttribute('contenteditable', false);
 		this.element.classList.remove('editing');
 		this.name = this.element.textContent;
 		this.element.classList.remo
 
-		console.log("data.getItem:", data.getItem("items"));
-		console.log("JSON.stringify this:", JSON.stringify(this));
+		this.element.addEventListener('click', this.savedListener, false);
+
 		this.updateState();
 	}
 
@@ -66,6 +65,6 @@ class Item {
 		}
 
 		updateLocalStorage("items", items);
-		console.log("data.getItem:", data.getItem("items"));
+		// console.log("data.getItem:", data.getItem("items"));
 	}
 }
