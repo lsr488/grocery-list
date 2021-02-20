@@ -41,6 +41,8 @@ class Item {
 	}
 
 	savingItem() {
+		console.log('savingItem this:', this);
+		// this.element.removeEventListener('click', this.savedListener, false);
 		this.element.setAttribute('contenteditable', false);
 		this.element.classList.remove('editing');
 		this.name = this.element.textContent;
@@ -51,18 +53,19 @@ class Item {
 		this.updateState();
 	}
 
-
-	// TODO FIXME
 	updateState() {
-		console.log('updateState this:', this);
-		if(items[this.id].state === true) {
-			this.state = false;
-			items[this.id].state = false;
-		}  else {
+		// console.log('updateState this:', this);
+
+		if(this.element.className.includes('checked')) {
+			// console.log("is this checked?", this.element.className.includes('checked'));
+			// items[this.id].state === true;
 			this.state = true;
-			items[this.id].state = true;
+		} else {
+			// console.log("is this checked?", this.element.className.includes('checked'));
+			this.state = false;
 		}
 
 		updateLocalStorage("items", items);
+		console.log("data.getItem:", data.getItem("items"));
 	}
 }
