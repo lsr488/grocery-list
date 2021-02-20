@@ -8,17 +8,6 @@ class Button {
 		this.itemId = item.id;
 		this.element = this.createElement();
 
-		// console.log("eventType:", eventType);
-		// debugger
-
-		// if(eventType == saveBtnClicked) {
-	 //  	this.element.addEventListener('click', this.save.bind(this));  	
-	 //  } else if (eventType == deleteBtnClicked) {
-		//   this.element.addEventListener('click', this.delete.bind(this));
-	 //  } else {
-	 //  	this.element.addEventListener('click', this.edit.bind(this));
-	 //  }
-
 	  if(this.type === 'delete') {
 		  this.element.addEventListener('click', this.delete.bind(this));
 	  }
@@ -46,9 +35,6 @@ class Button {
 	}
 
 	edit() {
-		// console.log("Button edit this:", this);
-		// console.log('Button edit this.item:', this.item);
-
 		this.item.editingItem();
 
 		const saveBtn = document.querySelector(`.save[data-id="${this.item.id}"]`);
@@ -60,9 +46,6 @@ class Button {
 	}
 
 	save() {
-		// console.log("Button save this:", this);
-		// console.log('Button save this.item:', this.item);
-
 		this.item.savingItem();
 
 		const editBtn = document.querySelector(`.edit[data-id="${this.item.id}"]`);
@@ -74,8 +57,6 @@ class Button {
 	}
 
 	delete() {
-		// console.log("Button delete this:", this);
-		// console.log('Button delete this.item:', this.item);
 		this.item.deletingItem();
 	}
 }
