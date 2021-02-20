@@ -44,9 +44,9 @@ displayGroceryItems(items);
 function displayGroceryItems(items) {
 	items.forEach(item => {
 		// create buttons
-		let deleteButtonObj = new Button('div', 'col2', 'delete', 'X', item, deleteBtnClicked);
+		let deleteButtonObj = new Button('div', 'col2', 'delete', 'X', item);
 		let editButtonObj = new Button('div', 'col3', 'edit', 'E', item);
-		let saveButtonObj = new Button('div', 'col4', 'save', 'S', item, saveBtnClicked);
+		let saveButtonObj = new Button('div', 'col4', 'save', 'S', item);
 		saveButtonObj.hide()
 
 		// adds strikethrough if already checked
@@ -61,7 +61,7 @@ function displayGroceryItems(items) {
 	});
 }
 
-function saveBtnClicked(e) {
+// function saveBtnClicked(e) {
 // 	let button = e.target;
 // 	let _id = e.target.dataset.id;
 // 	let item = document.getElementById(_id);
@@ -84,9 +84,9 @@ function saveBtnClicked(e) {
 // 	button.classList.add("hidden");
 // 	deletes[_id].classList.remove("hidden");
 // 	edits[_id].classList.remove("hidden");
-}
+// }
 
-function deleteBtnClicked(e) {
+// function deleteBtnClicked(e) {
 	// let button = e.target;
 	// let _id = e.target.dataset.id;
 	// const item = items[_id];
@@ -94,4 +94,4 @@ function deleteBtnClicked(e) {
 	// deleteLocalStorageItem(items, item);
 
 	// window.location.reload();
-}
+// }
