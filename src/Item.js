@@ -41,13 +41,17 @@ class Item {
 	}
 
 	savingItem() {
-		// console.log('savingItem this:', this);
 		this.element.setAttribute('contenteditable', false);
 		this.element.classList.remove('editing');
 		this.name = this.element.textContent;
 		this.element.addEventListener('click', this.savedListener, false);
 
 		this.updateState();
+	}
+
+	deletingItem() {
+		deleteLocalStorageItem(items, this);
+		window.location.reload();
 	}
 
 	updateState() {

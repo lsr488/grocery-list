@@ -12,10 +12,9 @@ class Button {
 		// debugger
 
 		if(eventType == saveBtnClicked) {
-			console.log("save eventType");
 	  	this.element.addEventListener('click', this.save.bind(this));  	
 	  } else if (eventType == deleteBtnClicked) {
-		  this.element.addEventListener('click', eventType);
+		  this.element.addEventListener('click', this.delete.bind(this));
 	  } else {
 	  	this.element.addEventListener('click', this.edit.bind(this));
 	  }
@@ -62,6 +61,11 @@ class Button {
 		editBtn.classList.remove("hidden");
 		deleteBtn.classList.remove("hidden");
 		this.hide();
+	}
 
+	delete() {
+		console.log("Button delete this:", this);
+		console.log('Button delete this.item:', this.item);
+		this.item.deletingItem();
 	}
 }
