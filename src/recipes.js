@@ -3,7 +3,7 @@ let recipes = JSON.parse(data.getItem("recipes"));
 
 // checks if localStorage exists, creates from default array if not, or updates from localStorage if it does
 if(!recipes) {
-	recipes = defaultRecipes
+	recipes = defaultRecipes;
 	updateLocalStorage("recipes", recipes);
 }
 
