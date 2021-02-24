@@ -1,6 +1,5 @@
 // initialize elements 
 const form = document.getElementById('form');
-
 const itemData = JSON.parse(data.getItem("items")) || [];
 
 // the for loop and the .map() do the same thing
@@ -11,7 +10,7 @@ const itemData = JSON.parse(data.getItem("items")) || [];
 // }
 
 let items = itemData.map((x, i) => new Item(i, x.name, x.state));
-console.log('items:', items);
+// console.log('items:', items);
 
 const itemInput = document.getElementById('item');
 const itemButton = document.getElementById('item-button');
