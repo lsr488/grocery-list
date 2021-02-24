@@ -1,87 +1,107 @@
-// 02-17-2021 00:57
+// 02-24-2021 03:36
 // ITEM OUTPUT:
 const defaultItems = [
   {
-    "item": "15 oz canned chickpeas (wrap)", 
+    "name": "toilet paper", 
     "state": false, 
   },
   {
-    "item": "red curry paste (tacos)", 
+    "name": "cumin", 
     "state": false, 
   },
   {
-    "item": "limes (tacos)", 
+    "name": "1 zucchini (red lentil curry)", 
     "state": false, 
   },
   {
-    "item": "9oz coleslaw mix (tacos)", 
+    "name": "frozen peas? (red lentil curry)", 
     "state": false, 
   },
   {
-    "item": "2 avocados (tacos)", 
+    "name": "15 oz coconut milk (red lentil curry)", 
     "state": false, 
   },
   {
-    "item": "fresh spinach (tacos)", 
+    "name": "lentils? (red lentil curry)", 
     "state": false, 
   },
   {
-    "item": "small flour tortillas (wrap)", 
+    "name": "garam masala? (red lentil curry)", 
     "state": false, 
   },
   {
-    "item": "5 oz plain greek yogurt (wrap)", 
+    "name": "turmeric (red lentil curry)", 
     "state": false, 
   },
   {
-    "item": "lemon (wrap)", 
+    "name": "serrano pepper (red lentil curry)", 
     "state": false, 
   },
   {
-    "item": "toilet paper", 
+    "name": "2 limes (red lentil curry)", 
     "state": false, 
   },
   {
-    "item": "half & half", 
+    "name": "1 onion (burrito pasta bowl)", 
     "state": false, 
   },
   {
-    "item": "1 inch ginger (kung pao)", 
+    "name": "1lb ground meat (burrito pasta bowl)", 
     "state": false, 
   },
   {
-    "item": "green onions (kung pao)", 
+    "name": "short pasta (burrito pasta bowl)", 
     "state": false, 
   },
   {
-    "item": "1 red bell pepper (kung pao)", 
+    "name": "15 oz can diced tomatoes (burrito pasta bowl)", 
     "state": false, 
   },
   {
-    "item": "12 oz shrimp (kung pao)", 
+    "name": "taco seasoning packet? (burrito pasta bowl)", 
+    "state": false, 
+  },
+  {
+    "name": "1 red bell pepper (burrito pasta bowl)", 
+    "state": false, 
+  },
+  {
+    "name": "11 oz can of corn (burrito pasta bowl)", 
+    "state": false, 
+  },
+  {
+    "name": "15 oz can black beans? (burrito pasta bowl)", 
+    "state": false, 
+  },
+  {
+    "name": "1 cup shredded cheese (burrito pasta bowl)", 
+    "state": false, 
+  },
+  {
+    "name": "sliced black olives (burrito pasta bowl)", 
+    "state": false, 
+  },
+  {
+    "name": "1 jalapeno (burrito pasta bowl)", 
     "state": false, 
   },
 ]
 // RECIPE OUTPUT
 const defaultRecipes = [
   { 
-    "url": "https://wwlprogram.com/#/recipes/569", 
-    "name": "Thai red curry tacos", 
-    "notes": "",  
-  },
-  { 
-    "url": "https://wwlprogram.com/#/recipes/289", 
-    "name": "chickpea and taking sauce wrap", 
-    "notes": "use jarred red pepper instead of fresh",  
-  },
-  { 
-    "url": "https://wwlprogram.com/#/recipes/584", 
-    "name": "kung pao noodle stir fry", 
-    "notes": "use rice instead of noodles?",  
-  },
-  { 
     "url": "https://www.dropbox.com/s/j3w0tl6qjf610qm/Rocky%20Road%20Candies%20Recipe%20_%20Allrecipes.PDF?dl=0", 
     "name": "Rocky Road again", 
     "notes": "",  
   },
+  { 
+    "url": "https://wwlprogram.com/#/recipes/457", 
+    "name": "Red Lentil Curry", 
+    "notes": "incorporate leftover coconut cream",  
+  },
+  { 
+    "url": "https://wwlprogram.com/#/recipes/347", 
+    "name": "Cheesy Burrito Bowl Pasta", 
+    "notes": "",  
+  },
 ]
+
