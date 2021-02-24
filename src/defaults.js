@@ -2,87 +2,87 @@
 // ITEM OUTPUT:
 const defaultItems = [
   {
-    "name": "toilet paper", 
+    "item": "toilet paper", 
     "state": false, 
   },
   {
-    "name": "cumin", 
+    "item": "cumin", 
     "state": false, 
   },
   {
-    "name": "1 zucchini (red lentil curry)", 
+    "item": "1 zucchini (red lentil curry)", 
     "state": false, 
   },
   {
-    "name": "frozen peas? (red lentil curry)", 
+    "item": "frozen peas? (red lentil curry)", 
     "state": false, 
   },
   {
-    "name": "15 oz coconut milk (red lentil curry)", 
+    "item": "15 oz coconut milk (red lentil curry)", 
     "state": false, 
   },
   {
-    "name": "lentils? (red lentil curry)", 
+    "item": "lentils? (red lentil curry)", 
     "state": false, 
   },
   {
-    "name": "garam masala? (red lentil curry)", 
+    "item": "garam masala? (red lentil curry)", 
     "state": false, 
   },
   {
-    "name": "turmeric (red lentil curry)", 
+    "item": "turmeric (red lentil curry)", 
     "state": false, 
   },
   {
-    "name": "serrano pepper (red lentil curry)", 
+    "item": "serrano pepper (red lentil curry)", 
     "state": false, 
   },
   {
-    "name": "2 limes (red lentil curry)", 
+    "item": "2 limes (red lentil curry)", 
     "state": false, 
   },
   {
-    "name": "1 onion (burrito pasta bowl)", 
+    "item": "1 onion (burrito pasta bowl)", 
     "state": false, 
   },
   {
-    "name": "1lb ground meat (burrito pasta bowl)", 
+    "item": "1lb ground meat (burrito pasta bowl)", 
     "state": false, 
   },
   {
-    "name": "short pasta (burrito pasta bowl)", 
+    "item": "short pasta (burrito pasta bowl)", 
     "state": false, 
   },
   {
-    "name": "15 oz can diced tomatoes (burrito pasta bowl)", 
+    "item": "15 oz can diced tomatoes (burrito pasta bowl)", 
     "state": false, 
   },
   {
-    "name": "taco seasoning packet? (burrito pasta bowl)", 
+    "item": "taco seasoning packet? (burrito pasta bowl)", 
     "state": false, 
   },
   {
-    "name": "1 red bell pepper (burrito pasta bowl)", 
+    "item": "1 red bell pepper (burrito pasta bowl)", 
     "state": false, 
   },
   {
-    "name": "11 oz can of corn (burrito pasta bowl)", 
+    "item": "11 oz can of corn (burrito pasta bowl)", 
     "state": false, 
   },
   {
-    "name": "15 oz can black beans? (burrito pasta bowl)", 
+    "item": "15 oz can black beans? (burrito pasta bowl)", 
     "state": false, 
   },
   {
-    "name": "1 cup shredded cheese (burrito pasta bowl)", 
+    "item": "1 cup shredded cheese (burrito pasta bowl)", 
     "state": false, 
   },
   {
-    "name": "sliced black olives (burrito pasta bowl)", 
+    "item": "sliced black olives (burrito pasta bowl)", 
     "state": false, 
   },
   {
-    "name": "1 jalapeno (burrito pasta bowl)", 
+    "item": "1 jalapeno (burrito pasta bowl)", 
     "state": false, 
   },
 ]
