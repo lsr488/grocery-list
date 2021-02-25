@@ -1,60 +1,60 @@
-// 02-25-2021 08:56
+// 02-25-2021 09:00
 // ITEM OUTPUT:
 const defaultItems = [
   {
-    "name": "toilet paper", 
+    "item": "toilet paper", 
     "state": false, 
   },
   {
-    "name": "cumin", 
+    "item": "cumin", 
     "state": false, 
   },
   {
-    "name": "1 zucchini (red lentil curry)", 
+    "item": "1 zucchini (red lentil curry)", 
     "state": false, 
   },
   {
-    "name": "frozen peas? (red lentil curry)", 
+    "item": "frozen peas? (red lentil curry)", 
     "state": false, 
   },
   {
-    "name": "15 oz coconut milk (red lentil curry)", 
+    "item": "15 oz coconut milk (red lentil curry)", 
     "state": false, 
   },
   {
-    "name": "lentils? (red lentil curry)", 
+    "item": "lentils? (red lentil curry)", 
     "state": false, 
   },
   {
-    "name": "garam masala? (red lentil curry)", 
+    "item": "garam masala? (red lentil curry)", 
     "state": false, 
   },
   {
-    "name": "turmeric (red lentil curry)", 
+    "item": "turmeric (red lentil curry)", 
     "state": false, 
   },
   {
-    "name": "serrano pepper (red lentil curry)", 
+    "item": "serrano pepper (red lentil curry)", 
     "state": false, 
   },
   {
-    "name": "2 limes (red lentil curry)", 
+    "item": "2 limes (red lentil curry)", 
     "state": false, 
   },
   {
-    "name": "2 carrots (sheet pan)", 
+    "item": "2 carrots (sheet pan)", 
     "state": false, 
   },
   {
-    "name": "4 turnips (sheet pan)", 
+    "item": "4 turnips (sheet pan)", 
     "state": false, 
   },
   {
-    "name": "4 potatoes (sheet pan)", 
+    "item": "4 potatoes (sheet pan)", 
     "state": false, 
   },
   {
-    "name": "4 beets (sheet pan)", 
+    "item": "4 beets (sheet pan)", 
     "state": false, 
   },
 ]
