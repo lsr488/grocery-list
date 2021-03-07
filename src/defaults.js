@@ -1,4 +1,4 @@
-// 02-25-2021 09:00
+// 03-07-2021 07:50
 // ITEM OUTPUT:
 const defaultItems = [
   {
@@ -6,55 +6,47 @@ const defaultItems = [
     "state": false, 
   },
   {
-    "item": "cumin", 
+    "item": "6 Braeburn or Granny Smith apples for Pi Day", 
     "state": false, 
   },
   {
-    "item": "1 zucchini (red lentil curry)", 
+    "item": "3% hydrogen peroxide solution for Souper Cube cleaning", 
     "state": false, 
   },
   {
-    "item": "frozen peas? (red lentil curry)", 
+    "item": "2 15-oz cans black beans (bean soup)", 
     "state": false, 
   },
   {
-    "item": "15 oz coconut milk (red lentil curry)", 
+    "item": "15 oz can diced tomatoes (bean soup)", 
     "state": false, 
   },
   {
-    "item": "lentils? (red lentil curry)", 
+    "item": "frozen corn (bean soup)", 
     "state": false, 
   },
   {
-    "item": "garam masala? (red lentil curry)", 
+    "item": "1 lime (bean soup)", 
     "state": false, 
   },
   {
-    "item": "turmeric (red lentil curry)", 
+    "item": "16 oz yukon gold potatoes (about 3; meatloaf)", 
     "state": false, 
   },
   {
-    "item": "serrano pepper (red lentil curry)", 
+    "item": "1 carrot", 
     "state": false, 
   },
   {
-    "item": "2 limes (red lentil curry)", 
+    "item": "1 lb ground beef", 
     "state": false, 
   },
   {
-    "item": "2 carrots (sheet pan)", 
+    "item": "milk", 
     "state": false, 
   },
   {
-    "item": "4 turnips (sheet pan)", 
-    "state": false, 
-  },
-  {
-    "item": "4 potatoes (sheet pan)", 
-    "state": false, 
-  },
-  {
-    "item": "4 beets (sheet pan)", 
+    "item": "broccoli or other veggie", 
     "state": false, 
   },
 ]
@@ -66,14 +58,13 @@ const defaultRecipes = [
     "notes": "",  
   },
   { 
-    "url": "https://wwlprogram.com/#/recipes/457", 
-    "name": "Red Lentil Curry", 
-    "notes": "incorporate leftover coconut cream",  
+    "url": "https://wwlprogram.com/#/recipes/147", 
+    "name": "Moatloaf Cups & Mashed Potatoes", 
+    "notes": "cook in casserole dish instead of muffin pan; add jalapenos to potatoes",  
   },
   { 
-    "url": "https://wwlprogram.com/#/recipes/570", 
-    "name": "Veggie sheet pan", 
-    "notes": "carrots, turnips, potatoes, beets",  
+    "url": "https://wwlprogram.com/#/recipes/590", 
+    "name": "Black Bean Soup", 
+    "notes": "",  
   },
 ]
-
