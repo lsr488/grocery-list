@@ -3,7 +3,7 @@ let recipes = JSON.parse(data.getItem("recipes"));
 
 // checks if localStorage exists, creates from default array if not, or updates from localStorage if it does
 if(!recipes) {
-	recipes = defaultRecipes
+	recipes = defaultRecipes;
 	updateLocalStorage("recipes", recipes);
 }
 
@@ -16,6 +16,7 @@ recipes.forEach(recipe => {
 	if(recipe.url) {
 		const url = document.createElement('a');
 		url.setAttribute('href', `${recipe.url}`);
+		url.setAttribute('target', '_blank');
 		url.textContent = recipe.name;
 		listItem.appendChild(url);
 		links.appendChild(listItem);

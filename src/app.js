@@ -16,6 +16,9 @@ function updateLocalStorage(name, elements) {
 	data.setItem(name, JSON.stringify(elements));
 }
 
-function deleteLocalStorageItem(array, index) {
+function deleteLocalStorageItem(array, item) {
+	const index = array.indexOf(item);
 	array.splice(index, 1);
+
+	updateLocalStorage("items", array);
 }

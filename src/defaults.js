@@ -47,7 +47,7 @@ const defaultItems = [
   },
   {
     "item": "broccoli or other veggie", 
-    "state": false, 
+    "state": false,
   },
 ]
 // RECIPE OUTPUT
