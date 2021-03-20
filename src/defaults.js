@@ -1,53 +1,57 @@
-// 03-07-2021 07:50
+// 03-20-2021 08:48
 // ITEM OUTPUT:
 const defaultItems = [
   {
-    "item": "toilet paper", 
+    "name": "toilet paper", 
     "state": false, 
   },
   {
-    "item": "6 Braeburn or Granny Smith apples for Pi Day", 
+    "name": "sandwich ziplocks", 
     "state": false, 
   },
   {
-    "item": "3% hydrogen peroxide solution for Souper Cube cleaning", 
+    "name": "dark soy sauce? (mongolian beef)", 
     "state": false, 
   },
   {
-    "item": "2 15-oz cans black beans (bean soup)", 
+    "name": "garlic (mongolian beef)", 
     "state": false, 
   },
   {
-    "item": "15 oz can diced tomatoes (bean soup)", 
+    "name": "ginger? (mongolian beef)", 
     "state": false, 
   },
   {
-    "item": "frozen corn (bean soup)", 
+    "name": "scallion (mongolian beef)", 
     "state": false, 
   },
   {
-    "item": "1 lime (bean soup)", 
+    "name": "1 lb ground beef / steak (mongolian beef)", 
     "state": false, 
   },
   {
-    "item": "16 oz yukon gold potatoes (about 3; meatloaf)", 
+    "name": "spinach (fritatta)", 
     "state": false, 
   },
   {
-    "item": "1 carrot", 
+    "name": "sundried tomatoes (fritatta)", 
     "state": false, 
   },
   {
-    "item": "1 lb ground beef", 
+    "name": "ketchup ", 
     "state": false, 
   },
   {
-    "item": "milk", 
+    "name": "garlic", 
     "state": false, 
   },
   {
-    "item": "broccoli or other veggie", 
-    "state": false,
+    "name": "white sugar ", 
+    "state": false, 
+  },
+  {
+    "name": "half & half", 
+    "state": false, 
   },
 ]
 // RECIPE OUTPUT
@@ -58,13 +62,8 @@ const defaultRecipes = [
     "notes": "",  
   },
   { 
-    "url": "https://wwlprogram.com/#/recipes/147", 
-    "name": "Moatloaf Cups & Mashed Potatoes", 
-    "notes": "cook in casserole dish instead of muffin pan; add jalapenos to potatoes",  
-  },
-  { 
-    "url": "https://wwlprogram.com/#/recipes/590", 
-    "name": "Black Bean Soup", 
-    "notes": "",  
+    "url": "https://wwlprogram.com/#/recipes/594", 
+    "name": "Mongolian-inspired beef", 
+    "notes": "include carrots",  
   },
 ]
