@@ -53,6 +53,10 @@ const defaultItems = [
     "name": "half & half", 
     "state": false, 
   },
+  {
+    "name": "eggs", 
+    "state": false, 
+  },
 ]
 // RECIPE OUTPUT
 const defaultRecipes = [
