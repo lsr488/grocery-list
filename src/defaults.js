@@ -1,4 +1,4 @@
-// 03-20-2021 08:48
+// 03-24-2021 09:32
 // ITEM OUTPUT:
 const defaultItems = [
   {
@@ -30,19 +30,7 @@ const defaultItems = [
     "state": false, 
   },
   {
-    "name": "spinach (fritatta)", 
-    "state": false, 
-  },
-  {
-    "name": "sundried tomatoes (fritatta)", 
-    "state": false, 
-  },
-  {
     "name": "ketchup ", 
-    "state": false, 
-  },
-  {
-    "name": "garlic", 
     "state": false, 
   },
   {
@@ -57,6 +45,30 @@ const defaultItems = [
     "name": "eggs", 
     "state": false, 
   },
+  {
+    "name": "tuna fish (tuna lettuce wrap)", 
+    "state": false, 
+  },
+  {
+    "name": "1 red bell pepper (tuna lettuce wrap)", 
+    "state": false, 
+  },
+  {
+    "name": "kalamative olives (tuna lettuce wrap)", 
+    "state": false, 
+  },
+  {
+    "name": "1 red onion (tuna lettuce wrap)", 
+    "state": false, 
+  },
+  {
+    "name": "green onions (tuna lettuce wrap)", 
+    "state": false, 
+  },
+  {
+    "name": "romaine (tuna lettuce wrap)", 
+    "state": false, 
+  },
 ]
 // RECIPE OUTPUT
 const defaultRecipes = [
@@ -69,5 +81,10 @@ const defaultRecipes = [
     "url": "https://wwlprogram.com/#/recipes/594", 
     "name": "Mongolian-inspired beef", 
     "notes": "include carrots",  
+  },
+  { 
+    "url": "", 
+    "name": "tuna salad wraps", 
+    "notes": "",  
   },
 ]
