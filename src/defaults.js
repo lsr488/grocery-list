@@ -1,4 +1,4 @@
-// 03-20-2021 08:48
+// 04-03-2021 04:54
 // ITEM OUTPUT:
 const defaultItems = [
   {
@@ -6,55 +6,31 @@ const defaultItems = [
     "state": false, 
   },
   {
-    "name": "sandwich ziplocks", 
+    "name": "watch battery", 
     "state": false, 
   },
   {
-    "name": "dark soy sauce? (mongolian beef)", 
+    "name": "fully cooked bone-in ham", 
     "state": false, 
   },
   {
-    "name": "garlic (mongolian beef)", 
+    "name": "pineapple juice", 
     "state": false, 
   },
   {
-    "name": "ginger? (mongolian beef)", 
+    "name": "large orange", 
     "state": false, 
   },
   {
-    "name": "scallion (mongolian beef)", 
+    "name": "4 russet potatoes", 
     "state": false, 
   },
   {
-    "name": "1 lb ground beef / steak (mongolian beef)", 
+    "name": "2 cups shredded cheddar cheese", 
     "state": false, 
   },
   {
-    "name": "spinach (fritatta)", 
-    "state": false, 
-  },
-  {
-    "name": "sundried tomatoes (fritatta)", 
-    "state": false, 
-  },
-  {
-    "name": "ketchup ", 
-    "state": false, 
-  },
-  {
-    "name": "garlic", 
-    "state": false, 
-  },
-  {
-    "name": "white sugar ", 
-    "state": false, 
-  },
-  {
-    "name": "half & half", 
-    "state": false, 
-  },
-  {
-    "name": "eggs", 
+    "name": "milk", 
     "state": false, 
   },
 ]
@@ -69,5 +45,10 @@ const defaultRecipes = [
     "url": "https://wwlprogram.com/#/recipes/594", 
     "name": "Mongolian-inspired beef", 
     "notes": "include carrots",  
+  },
+  { 
+    "url": "", 
+    "name": "tuna salad wraps", 
+    "notes": "",  
   },
 ]
