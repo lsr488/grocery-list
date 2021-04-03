@@ -1,4 +1,4 @@
-// 04-03-2021 04:54
+// 04-03-2021 05:01
 // ITEM OUTPUT:
 const defaultItems = [
   {
@@ -42,14 +42,13 @@ const defaultRecipes = [
     "notes": "",  
   },
   { 
-    "url": "https://wwlprogram.com/#/recipes/594", 
-    "name": "Mongolian-inspired beef", 
-    "notes": "include carrots",  
+    "url": "https://www.allrecipes.com/recipe/15925/creamy-au-gratin-potatoes/", 
+    "name": "potatoes au gratin", 
+    "notes": "",  
   },
   { 
-    "url": "", 
-    "name": "tuna salad wraps", 
+    "url": "https://www.allrecipes.com/recipe/24501/tangy-honey-glazed-ham/", 
+    "name": "honey baked ham", 
     "notes": "",  
   },
 ]
-
