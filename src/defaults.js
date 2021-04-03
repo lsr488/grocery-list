@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 // 04-03-2021 04:54
-=======
-// 03-24-2021 09:32
->>>>>>> a5b1504f2a6075ba4d19e63cb7925f831f489878
 // ITEM OUTPUT:
 const defaultItems = [
   {
@@ -34,47 +30,7 @@ const defaultItems = [
     "state": false, 
   },
   {
-<<<<<<< HEAD
     "name": "milk", 
-=======
-    "name": "ketchup ", 
-    "state": false, 
-  },
-  {
-    "name": "white sugar ", 
-    "state": false, 
-  },
-  {
-    "name": "half & half", 
-    "state": false, 
-  },
-  {
-    "name": "eggs", 
-    "state": false, 
-  },
-  {
-    "name": "tuna fish (tuna lettuce wrap)", 
-    "state": false, 
-  },
-  {
-    "name": "1 red bell pepper (tuna lettuce wrap)", 
-    "state": false, 
-  },
-  {
-    "name": "kalamative olives (tuna lettuce wrap)", 
-    "state": false, 
-  },
-  {
-    "name": "1 red onion (tuna lettuce wrap)", 
-    "state": false, 
-  },
-  {
-    "name": "green onions (tuna lettuce wrap)", 
-    "state": false, 
-  },
-  {
-    "name": "romaine (tuna lettuce wrap)", 
->>>>>>> a5b1504f2a6075ba4d19e63cb7925f831f489878
     "state": false, 
   },
 ]
@@ -96,3 +52,4 @@ const defaultRecipes = [
     "notes": "",  
   },
 ]
+
