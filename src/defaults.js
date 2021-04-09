@@ -1,36 +1,60 @@
-// 04-03-2021 05:01
+// 04-09-2021 08:56
 // ITEM OUTPUT:
 const defaultItems = [
   {
-    "name": "toilet paper", 
+    "name": "salt", 
     "state": false, 
   },
   {
-    "name": "watch battery", 
+    "name": "red bell pepper", 
     "state": false, 
   },
   {
-    "name": "fully cooked bone-in ham", 
+    "name": "15 oz can chickpeas", 
     "state": false, 
   },
   {
-    "name": "pineapple juice", 
+    "name": "couscous?", 
     "state": false, 
   },
   {
-    "name": "large orange", 
+    "name": "fresh parsley", 
     "state": false, 
   },
   {
-    "name": "4 russet potatoes", 
+    "name": "fresh mint", 
     "state": false, 
   },
   {
-    "name": "2 cups shredded cheddar cheese", 
+    "name": "1 large lemon for juicing", 
     "state": false, 
   },
   {
-    "name": "milk", 
+    "name": "8 tangerines", 
+    "state": false, 
+  },
+  {
+    "name": "balsamic vinegar?", 
+    "state": false, 
+  },
+  {
+    "name": "4 medium beets", 
+    "state": false, 
+  },
+  {
+    "name": "chopped walnuts?", 
+    "state": false, 
+  },
+  {
+    "name": "crumbled feta", 
+    "state": false, 
+  },
+  {
+    "name": "greens", 
+    "state": false, 
+  },
+  {
+    "name": "celery ", 
     "state": false, 
   },
 ]
@@ -42,13 +66,13 @@ const defaultRecipes = [
     "notes": "",  
   },
   { 
-    "url": "https://www.allrecipes.com/recipe/15925/creamy-au-gratin-potatoes/", 
-    "name": "potatoes au gratin", 
+    "url": "https://www.olivetomato.com/wprm_print/14335", 
+    "name": "Roasted Vegetables & Couscous with Chickpeas", 
     "notes": "",  
   },
   { 
-    "url": "https://www.allrecipes.com/recipe/24501/tangy-honey-glazed-ham/", 
-    "name": "honey baked ham", 
+    "url": "https://www.olivetomato.com/mediterranean-beet-salad-tangerines-greens-feta/", 
+    "name": "Beet Salad with Tangerines, Greens, and Feta", 
     "notes": "",  
   },
 ]
