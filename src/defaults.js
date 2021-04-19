@@ -1,60 +1,36 @@
-// 04-09-2021 08:56
+// 04-19-2021 08:12
 // ITEM OUTPUT:
 const defaultItems = [
   {
-    "name": "salt", 
+    "name": "coconut cream (thai tacos)", 
     "state": false, 
   },
   {
-    "name": "red bell pepper", 
+    "name": "2 limes (thai tacos)", 
     "state": false, 
   },
   {
-    "name": "15 oz can chickpeas", 
+    "name": "1 lb chicken thighs (thai tacos)", 
     "state": false, 
   },
   {
-    "name": "couscous?", 
+    "name": "coleslaw mix (thai tacos)", 
     "state": false, 
   },
   {
-    "name": "fresh parsley", 
+    "name": "tortillas? chips? or replace with rice (thai tacos)", 
     "state": false, 
   },
   {
-    "name": "fresh mint", 
+    "name": "lettuce? (big ass salad)", 
     "state": false, 
   },
   {
-    "name": "1 large lemon for juicing", 
+    "name": "spinach? (big ass salad)", 
     "state": false, 
   },
   {
-    "name": "8 tangerines", 
-    "state": false, 
-  },
-  {
-    "name": "balsamic vinegar?", 
-    "state": false, 
-  },
-  {
-    "name": "4 medium beets", 
-    "state": false, 
-  },
-  {
-    "name": "chopped walnuts?", 
-    "state": false, 
-  },
-  {
-    "name": "crumbled feta", 
-    "state": false, 
-  },
-  {
-    "name": "greens", 
-    "state": false, 
-  },
-  {
-    "name": "celery ", 
+    "name": "beets (big ass salad)", 
     "state": false, 
   },
 ]
@@ -66,13 +42,13 @@ const defaultRecipes = [
     "notes": "",  
   },
   { 
-    "url": "https://www.olivetomato.com/wprm_print/14335", 
-    "name": "Roasted Vegetables & Couscous with Chickpeas", 
-    "notes": "",  
+    "url": "https://wwlprogram.com/#/recipes/569", 
+    "name": "Thai red curry tacos", 
+    "notes": "rice instead of tortillas? chips?",  
   },
   { 
-    "url": "https://www.olivetomato.com/mediterranean-beet-salad-tangerines-greens-feta/", 
-    "name": "Beet Salad with Tangerines, Greens, and Feta", 
-    "notes": "",  
+    "url": "", 
+    "name": "big ass salad", 
+    "notes": "lettuce, spinach, fresh-grated cheese, apples, beets",  
   },
 ]
