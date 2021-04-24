@@ -1,36 +1,48 @@
-// 04-19-2021 08:12
+// 04-24-2021 08:13
 // ITEM OUTPUT:
 const defaultItems = [
   {
-    "name": "coconut cream (thai tacos)", 
+    "name": "1 lb chicken (fried rice)", 
     "state": false, 
   },
   {
-    "name": "2 limes (thai tacos)", 
+    "name": "pineapple? (fried rice)", 
     "state": false, 
   },
   {
-    "name": "1 lb chicken thighs (thai tacos)", 
+    "name": "snap/sugar peas (fried rice)", 
     "state": false, 
   },
   {
-    "name": "coleslaw mix (thai tacos)", 
+    "name": "red bell pepper (fried rice)", 
     "state": false, 
   },
   {
-    "name": "tortillas? chips? or replace with rice (thai tacos)", 
+    "name": "ginger (fried rice)", 
     "state": false, 
   },
   {
-    "name": "lettuce? (big ass salad)", 
+    "name": "chickpeas (salad)", 
     "state": false, 
   },
   {
-    "name": "spinach? (big ass salad)", 
+    "name": "pears (salad)", 
     "state": false, 
   },
   {
-    "name": "beets (big ass salad)", 
+    "name": "spinach (salad)", 
+    "state": false, 
+  },
+  {
+    "name": "feta cheese (salad)", 
+    "state": false, 
+  },
+  {
+    "name": "beets (salad)", 
+    "state": false, 
+  },
+  {
+    "name": "lettuce (salad)", 
     "state": false, 
   },
 ]
@@ -42,13 +54,13 @@ const defaultRecipes = [
     "notes": "",  
   },
   { 
-    "url": "https://wwlprogram.com/#/recipes/569", 
-    "name": "Thai red curry tacos", 
-    "notes": "rice instead of tortillas? chips?",  
+    "url": "https://wwlprogram.com/#/recipes/419", 
+    "name": "Pineapple Fried Rice", 
+    "notes": "",  
   },
   { 
-    "url": "", 
+    "url": "https://wwlprogram.com/#/recipes/305", 
     "name": "big ass salad", 
-    "notes": "lettuce, spinach, fresh-grated cheese, apples, beets",  
+    "notes": "add beets",  
   },
 ]
