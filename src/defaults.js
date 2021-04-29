@@ -1,48 +1,52 @@
-// 04-24-2021 08:13
+// 04-29-2021 08:20
 // ITEM OUTPUT:
 const defaultItems = [
   {
-    "name": "1 lb chicken (fried rice)", 
+    "name": "sausage", 
     "state": false, 
   },
   {
-    "name": "pineapple? (fried rice)", 
+    "name": "1 onion", 
     "state": false, 
   },
   {
-    "name": "snap/sugar peas (fried rice)", 
+    "name": "15 oz can diced tomatoes?", 
     "state": false, 
   },
   {
-    "name": "red bell pepper (fried rice)", 
+    "name": "1 red bell pepper", 
     "state": false, 
   },
   {
-    "name": "ginger (fried rice)", 
+    "name": "2 zucchini", 
     "state": false, 
   },
   {
-    "name": "chickpeas (salad)", 
+    "name": "1 bunch green onions", 
     "state": false, 
   },
   {
-    "name": "pears (salad)", 
+    "name": "1 inch ginger", 
     "state": false, 
   },
   {
-    "name": "spinach (salad)", 
+    "name": "15 oz canned coconut milk", 
     "state": false, 
   },
   {
-    "name": "feta cheese (salad)", 
+    "name": "8 oz mushrooms", 
     "state": false, 
   },
   {
-    "name": "beets (salad)", 
+    "name": "2 limes", 
     "state": false, 
   },
   {
-    "name": "lettuce (salad)", 
+    "name": "1 bunch cilantro", 
+    "state": false, 
+  },
+  {
+    "name": "half & half", 
     "state": false, 
   },
 ]
@@ -54,13 +58,13 @@ const defaultRecipes = [
     "notes": "",  
   },
   { 
-    "url": "https://wwlprogram.com/#/recipes/419", 
-    "name": "Pineapple Fried Rice", 
-    "notes": "",  
+    "url": "https://workweeklunch.com/recipe/thai-coconut-soup-one-pot/", 
+    "name": "Thai Coconut Curry Soup", 
+    "notes": "the ratio of liquid to noodles was wrong, so it was more like saucy noodles. still good but not soup ",  
   },
   { 
-    "url": "https://wwlprogram.com/#/recipes/305", 
-    "name": "big ass salad", 
-    "notes": "add beets",  
+    "url": "https://workweeklunch.com/recipe/cajun-orzo-skillet/", 
+    "name": "One Pot Cajun-Inspired Skillet", 
+    "notes": "",  
   },
 ]
