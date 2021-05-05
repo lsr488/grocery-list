@@ -6,7 +6,10 @@ li {
 
 .stripe {
 	background-color: whitesmoke;
+}
 
+.input {
+	width: 100px;
 }
 
 h4 {
