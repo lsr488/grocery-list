@@ -2,6 +2,10 @@ li {
 	margin: 5px;
 }
 
+.stripe {
+	background-color: whitesmoke;
+}
+
 h4 {
 	margin-left: 2em;
 }

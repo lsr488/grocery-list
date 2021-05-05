@@ -17,6 +17,12 @@ class Item {
 		const item = document.createElement('li');
 		item.setAttribute('id', this.id);
 		item.classList.add('col1');
+		item.classList.add('no-decoration');
+
+		if(this.id % 2 == 0) {
+			item.classList.add('stripe');
+		}
+
 		item.textContent = this.name;
 		return item;
 	}
