@@ -8,9 +8,22 @@
   <!-- <link rel="stylesheet" href="https://bootswatch.com/4/pulse/bootstrap.min.css" /> -->
 </head>
 <body>
+
 	<div id="groceries">
 		<h3>Groceries</h3>
-		<ul id="form" class="container"></ul>
+		<ul id="form" class="container">
+		
+			<div id="new-item">
+				<!-- <h3>Add New Item</h3> -->
+				<form>
+					<input type="text" name="item" id="item" placeholder="Add New Item..." class="btn">
+					<button id="item-button" class="btn">Add</button>
+				</form>
+			</div>
+
+			<!-- items appear here -->
+		</ul>
+
 	</div>
 
 	<div id="calculator">
@@ -27,14 +40,6 @@
 			<h4>Prices</h4>
 			<ul class="no-decoration container" id="prices"></ul>
 		</div>
-	</div>
-
-	<div id="new-item">
-		<h3>Add New Item</h3>
-		<form>
-			<input type="text" name="item" id="item">
-			<button id="item-button">Add</button>
-		</form>
 	</div>
 
 	<div id="recipes">
