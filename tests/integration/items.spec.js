@@ -37,7 +37,7 @@ describe('Grocery List', () => {
 
 		it('can be deleted', () => {
 			page.items
-				.should('have.length', 12)
+				.should('have.length', 15)
 				.then($item => {
 					const deletedItemName = $item.text();
 
@@ -45,7 +45,7 @@ describe('Grocery List', () => {
 					page.waitForReload();
 
 					page.items
-						.should('have.length', 11)
+						.should('have.length', 14)
 						.then($otherItem => {
 							const remainingItemName = $otherItem.text();
 							expect(remainingItemName).to.not.equal(deletedItemName);
