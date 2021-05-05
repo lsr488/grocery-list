@@ -22,6 +22,7 @@ h4 {
 	grid-template-columns: auto 50px 50px 50px;
 }
 
+/* grocery item name */
 .col1 {
 	grid-column-start: 1;
 	grid-column-end: 2;
@@ -29,6 +30,7 @@ h4 {
 	line-height: 20px;
 }
 
+/* the Edit button */
 .col2 {
 	grid-column-start: 2;
 	grid-column-end: 3;
@@ -36,6 +38,7 @@ h4 {
 	/*border: 1px dashed green;*/
 }
 
+/* the Delete button */
 .col3 {
 	grid-column-start: 3;
 	grid-column-end: 4;
@@ -43,6 +46,7 @@ h4 {
 	/*border: 1px dashed red;*/
 }
 
+/* the Save button */
 .col4 {
 	grid-column-start: 4;
 	grid-column-end: 5;
