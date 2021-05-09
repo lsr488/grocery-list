@@ -1,52 +1,52 @@
-// 04-29-2021 08:20
+// 05-09-2021 00:16
 // ITEM OUTPUT:
 const defaultItems = [
   {
-    "name": "sausage", 
+    "name": "napkins", 
     "state": false, 
   },
   {
-    "name": "1 onion", 
+    "name": "eggs", 
     "state": false, 
   },
   {
-    "name": "15 oz can diced tomatoes?", 
+    "name": "pancake mix?", 
     "state": false, 
   },
   {
-    "name": "1 red bell pepper", 
+    "name": "10 oz green beans (orange chicken)", 
     "state": false, 
   },
   {
-    "name": "2 zucchini", 
+    "name": "orange juice (orange chicken)", 
     "state": false, 
   },
   {
-    "name": "1 bunch green onions", 
+    "name": "1 inch ginger (orange chicken)", 
     "state": false, 
   },
   {
-    "name": "1 inch ginger", 
+    "name": "sugar/snap peas (orange chicken)", 
     "state": false, 
   },
   {
-    "name": "15 oz canned coconut milk", 
+    "name": "1 red bell pepper (orange chicken)", 
     "state": false, 
   },
   {
-    "name": "8 oz mushrooms", 
+    "name": "macaroni elbows (mac n cheese)", 
     "state": false, 
   },
   {
-    "name": "2 limes", 
+    "name": "broccoli (mac n cheese)", 
     "state": false, 
   },
   {
-    "name": "1 bunch cilantro", 
+    "name": "milk (mac n cheese)", 
     "state": false, 
   },
   {
-    "name": "half & half", 
+    "name": "shredded cheese (mac n cheese)", 
     "state": false, 
   },
 ]
@@ -58,13 +58,13 @@ const defaultRecipes = [
     "notes": "",  
   },
   { 
-    "url": "https://workweeklunch.com/recipe/thai-coconut-soup-one-pot/", 
-    "name": "Thai Coconut Curry Soup", 
-    "notes": "the ratio of liquid to noodles was wrong, so it was more like saucy noodles. still good but not soup ",  
+    "url": "https://www.dropbox.com/s/duppy2aymvj1t5n/WWL%20-%20Tangy%20Orange%20Chicken.pdf?dl=0", 
+    "name": "Tangy Orange Chicken", 
+    "notes": "substituce rice for noodles; add sugar/snap peas;add red bell pepper",  
   },
   { 
-    "url": "https://workweeklunch.com/recipe/cajun-orzo-skillet/", 
-    "name": "One Pot Cajun-Inspired Skillet", 
+    "url": "https://www.dropbox.com/s/fetrqqke85m4l79/WWL%20-%20Pesto%20Broccoli%20Mac%20n%20Cheese.pdf?dl=0", 
+    "name": "Pesto Broccoli Mac n Cheese", 
     "notes": "",  
   },
 ]
