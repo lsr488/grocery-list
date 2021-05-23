@@ -1,36 +1,52 @@
-// 05-15-2021 10:49
+// 05-23-2021 11:11
 // ITEM OUTPUT:
 const defaultItems = [
   {
-    "name": "unsalted butter", 
+    "name": "vegetable oil", 
     "state": false, 
   },
   {
-    "name": "popcorn ", 
+    "name": "toilet paper ", 
     "state": false, 
   },
   {
-    "name": "14 oz can artichoke hearts", 
+    "name": "paper towels", 
     "state": false, 
   },
   {
-    "name": "capers", 
+    "name": "taco seasoning ", 
     "state": false, 
   },
   {
-    "name": "1 small can of corn", 
+    "name": ".33 cup lime juice", 
     "state": false, 
   },
   {
-    "name": "1 4-oz can chopped green chilies", 
+    "name": "1 lb flank steak", 
     "state": false, 
   },
   {
-    "name": "1/2 cup sour cream / crema /creme fraiche", 
+    "name": "Thai thin rice noodles", 
     "state": false, 
   },
   {
-    "name": "8-10 medium tortillas", 
+    "name": "green beans", 
+    "state": false, 
+  },
+  {
+    "name": "8 oz cherry tomatoes", 
+    "state": false, 
+  },
+  {
+    "name": "12 oz Persian-style small cucumbers", 
+    "state": false, 
+  },
+  {
+    "name": "fresh cilantro", 
+    "state": false, 
+  },
+  {
+    "name": "fresh mint", 
     "state": false, 
   },
   {
@@ -38,31 +54,15 @@ const defaultItems = [
     "state": false, 
   },
   {
-    "name": "1 head broccoli", 
+    "name": "lentils", 
     "state": false, 
   },
   {
-    "name": "10 oz cherry tomatoes", 
+    "name": "8 oz frozen spinach", 
     "state": false, 
   },
   {
-    "name": "lemons", 
-    "state": false, 
-  },
-  {
-    "name": "clementines", 
-    "state": false, 
-  },
-  {
-    "name": "lime", 
-    "state": false, 
-  },
-  {
-    "name": "1 small onion", 
-    "state": false, 
-  },
-  {
-    "name": "1 red bell pepper", 
+    "name": "8 oz feta cheese (block not crumbles)", 
     "state": false, 
   },
 ]
@@ -74,13 +74,13 @@ const defaultRecipes = [
     "notes": "",  
   },
   { 
-    "url": "https://www.dropbox.com/s/vdvdueazjxlukmq/wwl%20-%20pasta%20primavera.pdf?dl=0", 
-    "name": "Pasta Primavera", 
+    "url": "https://smittenkitchen.com/2018/06/garlic-lime-steak-and-noodle-salad/", 
+    "name": "Smitten Kitchen Garlic Lime Steak Salad", 
     "notes": "",  
   },
   { 
-    "url": "https://www.dropbox.com/s/vfy985u21g3v9o6/Adam%20Ragusea%27s%20Lentil%20Tacos%20with%20Crema.pdf?dl=0", 
-    "name": "Adam Ragusea's Lentil Tacos with Crema", 
+    "url": "https://wwlprogram.com/#/recipes/634", 
+    "name": "Spanakopita Orzo & Lentils", 
     "notes": "",  
   },
 ]
