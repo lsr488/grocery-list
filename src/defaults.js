@@ -1,4 +1,4 @@
-// 05-23-2021 11:11
+// 05-29-2021 01:55
 // ITEM OUTPUT:
 const defaultItems = [
   {
@@ -6,63 +6,31 @@ const defaultItems = [
     "state": false, 
   },
   {
-    "name": "toilet paper ", 
-    "state": false, 
-  },
-  {
-    "name": "paper towels", 
-    "state": false, 
-  },
-  {
     "name": "taco seasoning ", 
     "state": false, 
   },
   {
-    "name": ".33 cup lime juice", 
+    "name": "1 lb ground meat", 
     "state": false, 
   },
   {
-    "name": "1 lb flank steak", 
+    "name": "15 oz canned tomato sauce", 
     "state": false, 
   },
   {
-    "name": "Thai thin rice noodles", 
+    "name": "15 oz diced tomatoes", 
     "state": false, 
   },
   {
-    "name": "green beans", 
+    "name": "8 oz lasanga noodles", 
     "state": false, 
   },
   {
-    "name": "8 oz cherry tomatoes", 
+    "name": "pre-cut zucchini (or other vegetable)", 
     "state": false, 
   },
   {
-    "name": "12 oz Persian-style small cucumbers", 
-    "state": false, 
-  },
-  {
-    "name": "fresh cilantro", 
-    "state": false, 
-  },
-  {
-    "name": "fresh mint", 
-    "state": false, 
-  },
-  {
-    "name": "1 shallot", 
-    "state": false, 
-  },
-  {
-    "name": "lentils", 
-    "state": false, 
-  },
-  {
-    "name": "8 oz frozen spinach", 
-    "state": false, 
-  },
-  {
-    "name": "8 oz feta cheese (block not crumbles)", 
+    "name": "heavy cream", 
     "state": false, 
   },
 ]
@@ -74,13 +42,9 @@ const defaultRecipes = [
     "notes": "",  
   },
   { 
-    "url": "https://smittenkitchen.com/2018/06/garlic-lime-steak-and-noodle-salad/", 
-    "name": "Smitten Kitchen Garlic Lime Steak Salad", 
-    "notes": "",  
-  },
-  { 
-    "url": "https://wwlprogram.com/#/recipes/634", 
-    "name": "Spanakopita Orzo & Lentils", 
-    "notes": "",  
+    "url": "https://wwlprogram.com/#/recipes/585", 
+    "name": "Easy Lasagna Soup", 
+    "notes": "sub onion powder",  
   },
 ]
+
