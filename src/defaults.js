@@ -1,4 +1,4 @@
-// 05-29-2021 01:55
+// 06-08-2021 11:45
 // ITEM OUTPUT:
 const defaultItems = [
   {
@@ -10,27 +10,35 @@ const defaultItems = [
     "state": false, 
   },
   {
-    "name": "1 lb ground meat", 
+    "name": "1 lb flank steak", 
     "state": false, 
   },
   {
-    "name": "15 oz canned tomato sauce", 
+    "name": "limes", 
     "state": false, 
   },
   {
-    "name": "15 oz diced tomatoes", 
+    "name": "8.8 oz thin rice noodles", 
     "state": false, 
   },
   {
-    "name": "8 oz lasanga noodles", 
+    "name": "1 lb green beans", 
     "state": false, 
   },
   {
-    "name": "pre-cut zucchini (or other vegetable)", 
+    "name": "8 oz cherry tomatoes", 
     "state": false, 
   },
   {
-    "name": "heavy cream", 
+    "name": "12 oz small cucumbers", 
+    "state": false, 
+  },
+  {
+    "name": "fresh cilantro", 
+    "state": false, 
+  },
+  {
+    "name": "fresh mint", 
     "state": false, 
   },
 ]
@@ -42,9 +50,8 @@ const defaultRecipes = [
     "notes": "",  
   },
   { 
-    "url": "https://wwlprogram.com/#/recipes/585", 
-    "name": "Easy Lasagna Soup", 
+    "url": "https://smittenkitchen.com/2018/06/garlic-lime-steak-and-noodle-salad/", 
+    "name": "Smitten Kitchen Garlic Lime Steak Salad", 
     "notes": "sub onion powder",  
   },
 ]
-
