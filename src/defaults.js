@@ -1,44 +1,56 @@
-// 06-08-2021 11:45
+// 06-14-2021 01:23
 // ITEM OUTPUT:
 const defaultItems = [
   {
-    "name": "vegetable oil", 
+    "name": "half & half", 
     "state": false, 
   },
   {
-    "name": "taco seasoning ", 
+    "name": "taco seasoning packets", 
     "state": false, 
   },
   {
-    "name": "1 lb flank steak", 
+    "name": "eggs", 
     "state": false, 
   },
   {
-    "name": "limes", 
+    "name": "black beans?", 
     "state": false, 
   },
   {
-    "name": "8.8 oz thin rice noodles", 
+    "name": "1 small onion", 
     "state": false, 
   },
   {
-    "name": "1 lb green beans", 
+    "name": "1 red bell pepper", 
     "state": false, 
   },
   {
-    "name": "8 oz cherry tomatoes", 
+    "name": "1 small can sweet corn kernels", 
     "state": false, 
   },
   {
-    "name": "12 oz small cucumbers", 
+    "name": "1 4-oz can chopped green chilies", 
     "state": false, 
   },
   {
-    "name": "fresh cilantro", 
+    "name": "1/2 cup sour cream", 
     "state": false, 
   },
   {
-    "name": "fresh mint", 
+    "name": "8-10 medium tortillas", 
+    "state": false, 
+  },
+  {
+    "name": "1 lb sausage of choice", 
+    "state": false, 
+  },
+  {
+    "name": "1 bunch broccoli heads", 
+    "state": false, 
+  },
+  {
+    "name": "1 sweet potato", 
     "state": false, 
   },
 ]
@@ -50,8 +62,13 @@ const defaultRecipes = [
     "notes": "",  
   },
   { 
-    "url": "https://smittenkitchen.com/2018/06/garlic-lime-steak-and-noodle-salad/", 
-    "name": "Smitten Kitchen Garlic Lime Steak Salad", 
-    "notes": "sub onion powder",  
+    "url": "https://docs.google.com/document/d/1clj5ttgboIT0st19qC8GuxhxGfWsnF02o27pQul6DzM/edit", 
+    "name": "Adam's tacos", 
+    "notes": "",  
+  },
+  { 
+    "url": "", 
+    "name": "sheet pan veggies & sausage", 
+    "notes": "sausage; veggies; side of rice",  
   },
 ]
