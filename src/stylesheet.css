@@ -9,7 +9,9 @@ li {
 }
 
 .input {
-	width: 100px;
+	width: 200px;
+	border-radius: 7px;
+	text-align: left;
 }
 
 h4 {

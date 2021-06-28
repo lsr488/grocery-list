@@ -12,13 +12,16 @@
 	<div id="groceries">
 		<h3>Groceries</h3>
 		<ul id="form" class="container">
-		
+
+		<form>
+			<input type="text" name="item" id="item" placeholder="Add New Item..." class="input">
+			<!-- find an actual fix for getting the input filed and Add button to display properly with css grid, instead of hardcoding the length via .input and hiding the button -->
+			<button id="item-button" class="btn hidden">Add</button>
+		</form>
+
 			<div id="new-item">
 				<!-- <h3>Add New Item</h3> -->
-				<form>
-					<input type="text" name="item" id="item" placeholder="Add New Item..." class="btn input">
-					<button id="item-button" class="btn">Add</button>
-				</form>
+
 			</div>
 
 			<!-- items appear here -->
