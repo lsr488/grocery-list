@@ -1,74 +1,69 @@
-// 06-14-2021 01:23
+// 06-28-2021 06:46
+// RECIPE OUTPUT:
+const defaultRecipes = [
+  { 
+    "url": "https://wwlprogram.com/#/recipes/236", 
+    "name": "Pesto & Hummus Wraps", 
+    "notes": "add lunch meat for protein",  
+  },
+  { 
+    "url": "https://wwlprogram.com/#/recipes/305", 
+    "name": "Spinach, Pear, & Quinoa Salad with Feta and Honey Dijon Vinegarette", 
+    "notes": "",  
+  },
+]
 // ITEM OUTPUT:
 const defaultItems = [
   {
-    "name": "half & half", 
+    "name": "conditioner", 
     "state": false, 
   },
   {
-    "name": "taco seasoning packets", 
+    "name": "bagged pasta", 
     "state": false, 
   },
   {
-    "name": "eggs", 
+    "name": "tuna", 
     "state": false, 
   },
   {
-    "name": "black beans?", 
+    "name": "flour tortillas", 
     "state": false, 
   },
   {
-    "name": "1 small onion", 
+    "name": "3 medium carrots", 
     "state": false, 
   },
   {
-    "name": "1 red bell pepper", 
+    "name": "1 small head of romaine", 
     "state": false, 
   },
   {
-    "name": "1 small can sweet corn kernels", 
+    "name": "hummus", 
     "state": false, 
   },
   {
-    "name": "1 4-oz can chopped green chilies", 
+    "name": "1/2 lb turkey meat", 
     "state": false, 
   },
   {
-    "name": "1/2 cup sour cream", 
+    "name": "quinoa", 
     "state": false, 
   },
   {
-    "name": "8-10 medium tortillas", 
+    "name": "1 15oz can chickpeas", 
     "state": false, 
   },
   {
-    "name": "1 lb sausage of choice", 
+    "name": "2 apples", 
     "state": false, 
   },
   {
-    "name": "1 bunch broccoli heads", 
+    "name": "6 cups spinach", 
     "state": false, 
   },
   {
-    "name": "1 sweet potato", 
+    "name": "3/4 cup feta cheese", 
     "state": false, 
-  },
-]
-// RECIPE OUTPUT
-const defaultRecipes = [
-  { 
-    "url": "https://www.dropbox.com/s/j3w0tl6qjf610qm/Rocky%20Road%20Candies%20Recipe%20_%20Allrecipes.PDF?dl=0", 
-    "name": "Rocky Road again", 
-    "notes": "",  
-  },
-  { 
-    "url": "https://docs.google.com/document/d/1clj5ttgboIT0st19qC8GuxhxGfWsnF02o27pQul6DzM/edit", 
-    "name": "Adam's tacos", 
-    "notes": "",  
-  },
-  { 
-    "url": "", 
-    "name": "sheet pan veggies & sausage", 
-    "notes": "sausage; veggies; side of rice",  
   },
 ]
