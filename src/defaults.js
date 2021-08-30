@@ -3,7 +3,7 @@
 const defaultRecipes = [
   { 
     "url": "", 
-    "name": "fritatta", 
+    "name": "sheet pan veggies",
     "notes": "",  
   },
 ]
