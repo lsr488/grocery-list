@@ -1,24 +1,40 @@
-// 07-22-2021 06:15
+// 08-30-2021 01:54
 // RECIPE OUTPUT:
 const defaultRecipes = [
   { 
     "url": "", 
-    "name": "alfredo pasta and peas", 
+    "name": "fritatta", 
     "notes": "",  
   },
 ]
 // ITEM OUTPUT:
 const defaultItems = [
   {
-    "name": "alfredo sauce", 
+    "name": "half & half", 
     "state": false, 
   },
   {
-    "name": "frozen peas", 
+    "name": "redeem old printer cartridges", 
     "state": false, 
   },
   {
-    "name": "pre-cooked salmon", 
+    "name": "recycle old printer", 
+    "state": false, 
+  },
+  {
+    "name": "broccoli", 
+    "state": false, 
+  },
+  {
+    "name": "rice", 
+    "state": false, 
+  },
+  {
+    "name": "sausage", 
+    "state": false, 
+  },
+  {
+    "name": "sweet potato", 
     "state": false, 
   },
 ]
