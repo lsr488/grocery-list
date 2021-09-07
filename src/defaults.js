@@ -1,40 +1,48 @@
-// 08-30-2021 01:54
+// 09-07-2021 11:00
 // RECIPE OUTPUT:
 const defaultRecipes = [
   { 
     "url": "", 
-    "name": "sheet pan veggies",
+    "name": "snack boxes", 
     "notes": "",  
   },
 ]
 // ITEM OUTPUT:
 const defaultItems = [
   {
-    "name": "half & half", 
+    "name": "toilet paper ", 
     "state": false, 
   },
   {
-    "name": "redeem old printer cartridges", 
+    "name": "paper towels", 
     "state": false, 
   },
   {
-    "name": "recycle old printer", 
+    "name": "olive oil", 
     "state": false, 
   },
   {
-    "name": "broccoli", 
+    "name": "grapes", 
     "state": false, 
   },
   {
-    "name": "rice", 
+    "name": "apples x2", 
     "state": false, 
   },
   {
-    "name": "sausage", 
+    "name": "crackers", 
     "state": false, 
   },
   {
-    "name": "sweet potato", 
+    "name": "hummus", 
+    "state": false, 
+  },
+  {
+    "name": "pita", 
+    "state": false, 
+  },
+  {
+    "name": "carrots", 
     "state": false, 
   },
 ]
