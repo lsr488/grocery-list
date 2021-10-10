@@ -1,81 +1,45 @@
-// 09-11-2021 04:24
+// 10-10-2021 01:48
 // RECIPE OUTPUT:
 const defaultRecipes = [
   { 
-    "url": "https://docs.google.com/document/d/1clj5ttgboIT0st19qC8GuxhxGfWsnF02o27pQul6DzM/edit", 
-    "name": "Adam Ragusea's Lentil Tacos with Cream", 
+    "url": "https://wwlprogram.com/#/recipes/220", 
+    "name": "Thai coconut noodle soup", 
     "notes": "",  
   },
   { 
-    "url": "https://wwlprogram.com/#/recipes/301", 
-    "name": "Veggie Chow Mein", 
+    "url": "", 
+    "name": "sausage and veggies sheet pan", 
     "notes": "",  
   },
 ]
 // ITEM OUTPUT:
 const defaultItems = [
   {
-    "name": "toilet paper ", 
+    "name": "broccoli ", 
     "state": false, 
   },
   {
-    "name": "paper towels", 
+    "name": "sweet potato", 
     "state": false, 
   },
   {
-    "name": "black beans?", 
+    "name": "rice", 
     "state": false, 
   },
   {
-    "name": "1 small onion", 
+    "name": "pasta", 
     "state": false, 
   },
   {
-    "name": "1 small red bell pepper", 
+    "name": "1 yellow onion", 
     "state": false, 
   },
   {
-    "name": "1 small can of sweet corn", 
+    "name": "red curry paste", 
     "state": false, 
   },
   {
-    "name": "1 4oz can chopped green chilies", 
-    "state": false, 
-  },
-  {
-    "name": "taco seasoning?", 
-    "state": false, 
-  },
-  {
-    "name": "0.5 cup sour cream", 
-    "state": false, 
-  },
-  {
-    "name": "1 lime", 
-    "state": false, 
-  },
-  {
-    "name": "rice?", 
-    "state": false, 
-  },
-  {
-    "name": "pasta?", 
-    "state": false, 
-  },
-  {
-    "name": "8-10 medium tortillas", 
-    "state": false, 
-  },
-  {
-    "name": "soy sauce", 
-    "state": false, 
-  },
-  {
-    "name": "1 inch ginger", 
-    "state": false, 
-  },
-  {
-    "name": "1 bunch green onion", 
+    "name": "chicken broth", 
     "state": false, 
   },
   {
@@ -83,15 +47,15 @@ const defaultItems = [
     "state": false, 
   },
   {
-    "name": "1 head broccoli", 
+    "name": "1 zucchini", 
     "state": false, 
   },
   {
-    "name": "3 medium carrots", 
+    "name": "2 limes", 
     "state": false, 
   },
   {
-    "name": "6 oz thin Asian-style egg noodles", 
+    "name": "1 inch garlic", 
     "state": false, 
   },
 ]
