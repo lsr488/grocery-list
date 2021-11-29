@@ -1,45 +1,25 @@
-// 10-10-2021 01:48
+// 11-29-2021 00:56
 // RECIPE OUTPUT:
 const defaultRecipes = [
   { 
-    "url": "https://wwlprogram.com/#/recipes/220", 
-    "name": "Thai coconut noodle soup", 
-    "notes": "",  
+    "url": "https://wwlprogram.com/#/recipes/512", 
+    "name": "gnocchi, pesto, & sausage", 
+    "notes": "chickpeas instead of sausage; add tomatoes; pre-made pesto",  
   },
   { 
-    "url": "", 
-    "name": "sausage and veggies sheet pan", 
-    "notes": "",  
+    "url": "https://wwlprogram.com/#/recipes/469", 
+    "name": "summer corn chowder", 
+    "notes": "white beans not meat",  
   },
 ]
 // ITEM OUTPUT:
 const defaultItems = [
   {
-    "name": "broccoli ", 
+    "name": "garbage bags", 
     "state": false, 
   },
   {
-    "name": "sweet potato", 
-    "state": false, 
-  },
-  {
-    "name": "rice", 
-    "state": false, 
-  },
-  {
-    "name": "pasta", 
-    "state": false, 
-  },
-  {
-    "name": "1 yellow onion", 
-    "state": false, 
-  },
-  {
-    "name": "red curry paste", 
-    "state": false, 
-  },
-  {
-    "name": "chicken broth", 
+    "name": "16 oz gnocchi ", 
     "state": false, 
   },
   {
@@ -47,15 +27,55 @@ const defaultItems = [
     "state": false, 
   },
   {
-    "name": "1 zucchini", 
+    "name": "cherry tomatoes ", 
     "state": false, 
   },
   {
-    "name": "2 limes", 
+    "name": "pesto?", 
     "state": false, 
   },
   {
-    "name": "1 inch garlic", 
+    "name": "1 can chickpeas ", 
+    "state": false, 
+  },
+  {
+    "name": "celery", 
+    "state": false, 
+  },
+  {
+    "name": "yellow onion ", 
+    "state": false, 
+  },
+  {
+    "name": "russet potato ", 
+    "state": false, 
+  },
+  {
+    "name": "3 cups vegetable broth-> better than bullion?", 
+    "state": false, 
+  },
+  {
+    "name": "Cajun seasoning", 
+    "state": false, 
+  },
+  {
+    "name": "2 cups corn, frozen ", 
+    "state": false, 
+  },
+  {
+    "name": "1 cup milk", 
+    "state": false, 
+  },
+  {
+    "name": "broccoli florets ", 
+    "state": false, 
+  },
+  {
+    "name": "1 zucchini ", 
+    "state": false, 
+  },
+  {
+    "name": "1 can white beans", 
     "state": false, 
   },
 ]
