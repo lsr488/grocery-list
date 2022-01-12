@@ -1,29 +1,33 @@
-// 11-29-2021 00:56
+// 01-12-2022 09:48
 // RECIPE OUTPUT:
 const defaultRecipes = [
   { 
-    "url": "https://wwlprogram.com/#/recipes/512", 
-    "name": "gnocchi, pesto, & sausage", 
-    "notes": "chickpeas instead of sausage; add tomatoes; pre-made pesto",  
+    "url": "https://wwlprogram.com/#/recipes/206", 
+    "name": "sheet pan ratatouille ", 
+    "notes": "beets not eggplant; carrot not onion; add mushrooms ",  
   },
   { 
-    "url": "https://wwlprogram.com/#/recipes/469", 
-    "name": "summer corn chowder", 
-    "notes": "white beans not meat",  
+    "url": "https://wwlprogram.com/#/recipes/328", 
+    "name": "lasagna soup", 
+    "notes": "regular noodles not lasagna noodles",  
   },
 ]
 // ITEM OUTPUT:
 const defaultItems = [
   {
-    "name": "garbage bags", 
+    "name": "beets", 
     "state": false, 
   },
   {
-    "name": "16 oz gnocchi ", 
+    "name": "zucchini", 
     "state": false, 
   },
   {
-    "name": "8 oz mushrooms", 
+    "name": "yellow squash ", 
+    "state": false, 
+  },
+  {
+    "name": "red bell pepper", 
     "state": false, 
   },
   {
@@ -31,51 +35,27 @@ const defaultItems = [
     "state": false, 
   },
   {
-    "name": "pesto?", 
+    "name": "carrot", 
     "state": false, 
   },
   {
-    "name": "1 can chickpeas ", 
+    "name": "mushrooms ", 
     "state": false, 
   },
   {
-    "name": "celery", 
+    "name": "chicken broth", 
     "state": false, 
   },
   {
-    "name": "yellow onion ", 
+    "name": "zucchini ", 
     "state": false, 
   },
   {
-    "name": "russet potato ", 
+    "name": "15oz tomato sauce", 
     "state": false, 
   },
   {
-    "name": "3 cups vegetable broth-> better than bullion?", 
-    "state": false, 
-  },
-  {
-    "name": "Cajun seasoning", 
-    "state": false, 
-  },
-  {
-    "name": "2 cups corn, frozen ", 
-    "state": false, 
-  },
-  {
-    "name": "1 cup milk", 
-    "state": false, 
-  },
-  {
-    "name": "broccoli florets ", 
-    "state": false, 
-  },
-  {
-    "name": "1 zucchini ", 
-    "state": false, 
-  },
-  {
-    "name": "1 can white beans", 
+    "name": "half and half", 
     "state": false, 
   },
 ]
