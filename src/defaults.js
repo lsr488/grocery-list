@@ -1,16 +1,7 @@
 // 04-25-2022 00:29
 // RECIPE OUTPUT:
 const defaultRecipes = [
-  { 
-    "url": "https://wwlprogram.com/#/recipes/488", 
-    "name": "Chicken Ginger Rice Soup", 
-    "notes": "sub paprila for turmeric;",  
-  },
-  { 
-    "url": "https://wwlprogram.com/#/recipes/106", 
-    "name": "Spinach, Pear, and Quinoa Salad", 
-    "notes": "add beets; sub parmesan for feta; sub apples for pears?; skip quinoa",  
-  },
+  {}
 ]
 // ITEM OUTPUT:
 const defaultItems = [
